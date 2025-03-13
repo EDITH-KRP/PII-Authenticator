@@ -1,0 +1,14 @@
+{
+    "name": "blockchain-id-auth",
+    "version": "1.0.0",
+    "description": "Blockchain-based ID verification system",
+    "dependencies": {
+      "ethers": "^5.7.2",
+      "dotenv": "^16.3.1"
+    },
+    "devDependencies": {
+      "hardhat": "^2.15.0",
+      "@nomicfoundation/hardhat-toolbox": "^3.0.0"
+    }
+  }
+  

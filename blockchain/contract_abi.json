@@ -1,0 +1,47 @@
+{
+    "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "idNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "idHash",
+            "type": "bytes32"
+          }
+        ],
+        "name": "storeIDHash",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "idNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "hashToCheck",
+            "type": "bytes32"
+          }
+        ],
+        "name": "verifyID",
+        "outputs": [
+          {
+            "internalType": "bool",
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ]
+  }
+  

@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "program": "app.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Hardhat: Run Node",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/blockchain/node_modules/hardhat/internal/cli/cli.js",
+            "args": ["node"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
