@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "P:\\blockchain-id-authentication\\PII-Authenticator\\blockchain\\contracts\\IDRegistry.sol": {
+      "lastModificationDate": 1741840581122,
+      "contentHash": "ef0023d1139532fdf5608a7b5bc8b4b6",
+      "sourceName": "contracts/IDRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IDRegistry"
+      ]
+    }
+  }
+}

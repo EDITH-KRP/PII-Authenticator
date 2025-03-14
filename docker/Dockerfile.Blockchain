@@ -1,0 +1,10 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install Hardhat
+COPY ./blockchain /app
+RUN npm install
+
+# Start Hardhat node
+CMD ["npx", "hardhat", "node"]
