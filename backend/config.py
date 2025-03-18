@@ -1,12 +1,23 @@
 import os
+import logging
 from dotenv import load_dotenv
 
+# Load environment variables
 load_dotenv()
 
-INFURA_PROJECT_ID = os.getenv("INFURA_PROJECT_ID")
-PRIVATE_KEY = os.getenv("PRIVATE_KEY")
-CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS")
-ENCRYPTED_AES_KEY = os.getenv("ENCRYPTED_AES_KEY")
-JWT_SECRET = os.getenv("JWT_SECRET")
+# Configure Logging
+LOG_FILE = "retrieval_logs.log"
+logging.basicConfig(
+    filename=LOG_FILE,
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
-INFURA_URL = f"https://goerli.infura.io/v3/{INFURA_PROJECT_ID}"
+# Load environment variables for storage and keys
+WEB3_STORAGE_TOKEN = os.getenv("WEB3_STORAGE_TOKEN")
+FILECOIN_CID = os.getenv("FILECOIN_CID")
+JWT_SECRET = os.getenv("JWT_SECRET", "your_default_secret_key_here")
+
+# Optionally, you can print the environment variables for debugging
+print("Web3 Storage Token:", WEB3_STORAGE_TOKEN)
+print("Filecoin CID:", FILECOIN_CID)

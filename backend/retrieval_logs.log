@@ -1,0 +1,24 @@
+2025-03-18 08:15:17,663 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.155.10:5000
+2025-03-18 08:15:17,663 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-18 08:15:17,665 - INFO -  * Restarting with stat
+2025-03-18 08:15:18,837 - WARNING -  * Debugger is active!
+2025-03-18 08:15:18,842 - INFO -  * Debugger PIN: 135-991-133
+2025-03-18 08:15:56,658 - ERROR - \u274c Encryption failed for ID: 860097240509. Error: [Errno 2] No such file or directory: 'public_key.pem'
+2025-03-18 08:15:56,661 - INFO - 127.0.0.1 - - [18/Mar/2025 08:15:56] "[35m[1mPOST /encrypt HTTP/1.1[0m" 500 -
+2025-03-18 08:17:54,114 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
+2025-03-18 08:17:54,373 - INFO -  * Restarting with stat
+2025-03-18 08:31:58,100 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.155.10:5000
+2025-03-18 08:31:58,101 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-18 08:31:58,103 - INFO -  * Restarting with stat
+2025-03-18 08:32:00,682 - WARNING -  * Debugger is active!
+2025-03-18 08:32:00,689 - INFO -  * Debugger PIN: 135-991-133
+2025-03-18 08:32:42,497 - INFO - Encrypted ID stored for 860097240509. CID: dummy_cid_for_now
+2025-03-18 08:32:42,499 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 860097240509.
+2025-03-18 08:32:42,501 - ERROR - \u274c Encryption failed for ID: 860097240509. Error: Object of type bytes is not JSON serializable
+2025-03-18 08:32:42,502 - INFO - 127.0.0.1 - - [18/Mar/2025 08:32:42] "[35m[1mPOST /encrypt HTTP/1.1[0m" 500 -
