@@ -1,5 +1,7 @@
 import os
 import logging
+import base64
+import jwt
 from flask import Flask, request, jsonify
 from encrypt import encrypt_and_store_id, AES_KEY_STORAGE
 from token_auth import generate_token, verify_token
@@ -8,19 +10,23 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from dotenv import load_dotenv
 from web3 import Web3
 
-# Load environment variables from .env
+# Load environment variables
 load_dotenv()
 
 # Configure API and logging
 WEB3_STORAGE_TOKEN = os.getenv("WEB3_STORAGE_TOKEN")
 storage = API(token=WEB3_STORAGE_TOKEN)
 
-INFURA_PROJECT_ID = os.getenv("INFURA_PROJECT_ID")  # Use environment variable here
+INFURA_PROJECT_ID = os.getenv("INFURA_PROJECT_ID")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY")
 CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS")
 ENCRYPTED_AES_KEY = os.getenv("ENCRYPTED_AES_KEY")
 JWT_SECRET = os.getenv("JWT_SECRET")
 FILECOIN_CID = os.getenv("FILECOIN_CID")
+
+# Directory for storing tokens
+TOKEN_DIR = "tokens"
+os.makedirs(TOKEN_DIR, exist_ok=True)
 
 LOG_FILE = "retrieval_logs.log"
 
@@ -38,26 +44,30 @@ assert w3.is_connected(), "Web3 is not connected to Infura"
 # Configure Flask app
 app = Flask(__name__)
 
+
 # 🔹 Encrypt ID and store on Filecoin
 @app.route('/encrypt', methods=['POST'])
 def encrypt():
     data = request.json
     try:
-        # Ensure the 'id_number' field is provided
-        if 'id_number' not in data:
-            return jsonify({"error": "❌ 'id_number' is required."}), 400
-        
         encrypted_id, cid = encrypt_and_store_id(data['id_number'])
+
+        # Convert bytes to Base64 string for JSON compatibility
+        encrypted_id_b64 = base64.b64encode(encrypted_id).decode('utf-8')
 
         # Generate JWT Token for Secure Retrieval
         token = generate_token(data['id_number'])
 
-        # Log success
+        # Store token in a text file
+        token_file = os.path.join(TOKEN_DIR, f"{data['id_number']}.txt")
+        with open(token_file, "w") as f:
+            f.write(token)
+
         logging.info(f"✅ ID successfully encrypted and stored on Filecoin for ID: {data['id_number']}.")
 
-        return jsonify({"encrypted_id": encrypted_id, "filecoin_cid": cid, "token": token}), 200
+        return jsonify({"encrypted_id": encrypted_id_b64, "filecoin_cid": cid, "token": token}), 200
     except Exception as e:
-        logging.error(f"❌ Encryption failed for ID: {data.get('id_number', 'Unknown')}. Error: {str(e)}")
+        logging.error(f"❌ Encryption failed for ID: {data['id_number']}. Error: {str(e)}")
         return jsonify({"error": f"❌ Encryption failed. {str(e)}"}), 500
 
 
@@ -110,6 +120,18 @@ def retrieve():
     except Exception as e:
         logging.error(f"❌ Retrieval failed for ID: {id_number}. Error: {str(e)}")
         return jsonify({"error": f"❌ Retrieval failed: {str(e)}"}), 500
+
+
+# 🔹 Retrieve stored token from file
+@app.route('/get_token/<id_number>', methods=['GET'])
+def get_token(id_number):
+    token_file = os.path.join(TOKEN_DIR, f"{id_number}.txt")
+    if os.path.exists(token_file):
+        with open(token_file, "r") as f:
+            token = f.read().strip()
+        return jsonify({"token": token}), 200
+    else:
+        return jsonify({"error": "❌ Token not found"}), 404
 
 
 # 🔹 Check Web3 Connection Status
