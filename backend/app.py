@@ -1,98 +1,40 @@
 from flask import Flask, request, jsonify
-from encrypt import encrypt_id
+from encrypt import encrypt_and_store_id
 from verify import verify_id_on_blockchain
 from token_auth import generate_token, verify_token
+from web3_storage import Web3Storage
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+WEB3_STORAGE_TOKEN = os.getenv("WEB3_STORAGE_TOKEN")
+storage = Web3Storage(WEB3_STORAGE_TOKEN)
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def home():
-    return jsonify({"message": "Welcome to the PII Authenticator API!"})
-
+# 🔹 Encrypt ID and store on Filecoin
 @app.route('/encrypt', methods=['POST'])
 def encrypt():
-    try:
-        # Get the data from the request
-        data = request.get_json()
-        
-        # Check if the 'id_number' field is present in the request data
-        if 'id_number' not in data:
-            return jsonify({"error": "ID number is required"}), 400
-        
-        # Call the encryption function
-        encrypted_id, id_hash = encrypt_id(data['id_number'])
-        
-        # Return the encrypted ID and hash as a response
-        return jsonify({"encrypted_id": encrypted_id, "id_hash": id_hash})
+    data = request.json
+    encrypted_id, id_hash, cid = encrypt_and_store_id(data['id_number'])
+    return jsonify({"encrypted_id": encrypted_id, "id_hash": id_hash, "filecoin_cid": cid})
+
+# 🔹 Retrieve stored Filecoin data
+@app.route('/retrieve', methods=['GET'])
+def retrieve():
+    cid = os.getenv("FILECOIN_CID")
     
-    except Exception as e:
-        # Handle unexpected errors
-        return jsonify({"error": str(e)}), 500
+    if not cid:
+        return jsonify({"error": "❌ No CID found in .env"}), 400
 
-
-@app.route('/verify', methods=['POST'])
-def verify():
-    try:
-        # Get the data from the request
-        data = request.get_json()
-
-        # Check if the required fields are present in the request
-        if 'id_number' not in data or 'id_hash' not in data:
-            return jsonify({"error": "ID number and ID hash are required"}), 400
-        
-        # Call the blockchain verification function
-        result = verify_id_on_blockchain(data['id_number'], data['id_hash'])
-        
-        # Return the result as a response
-        return jsonify({"verified": result})
+    # Fetch file from Filecoin
+    file_data = storage.get(cid)
     
-    except Exception as e:
-        # Handle unexpected errors
-        return jsonify({"error": str(e)}), 500
-
-
-@app.route('/generate-token', methods=['POST'])
-def generate_auth_token():
-    try:
-        # Get the data from the request
-        data = request.get_json()
-
-        # Check if 'id_number' is present in the request
-        if 'id_number' not in data:
-            return jsonify({"error": "ID number is required"}), 400
-        
-        # Generate the token
-        token = generate_token(data['id_number'])
-
-        # Return the generated token as a response
-        return jsonify({"token": token})
+    if not file_data:
+        return jsonify({"error": "❌ Unable to fetch file from Filecoin"}), 500
     
-    except Exception as e:
-        # Handle unexpected errors
-        return jsonify({"error": str(e)}), 500
-
-
-@app.route('/authenticate', methods=['POST'])
-def authenticate():
-    try:
-        # Get the data from the request
-        data = request.get_json()
-
-        # Check if 'token' is present in the request
-        if 'token' not in data:
-            return jsonify({"error": "Token is required"}), 400
-        
-        # Verify the token
-        verified = verify_token(data['token'])
-
-        # Return the verification result
-        return jsonify({"authenticated": verified})
-    
-    except Exception as e:
-        # Handle unexpected errors
-        return jsonify({"error": str(e)}), 500
-
+    return jsonify({"filecoin_cid": cid, "file_data": file_data.decode()})
 
 if __name__ == '__main__':
-    # Start the Flask app
     app.run(host='0.0.0.0', port=5000, debug=True)

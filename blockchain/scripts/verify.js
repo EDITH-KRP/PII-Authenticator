@@ -1,17 +1,26 @@
-const hre = require("hardhat");
+require("dotenv").config();
+const { ethers } = require("hardhat");
 
 async function main() {
-    const contractAddress = "0xYourContractAddress";
-    const idNumber = "123456789";
-    const idHash = "0xYourComputedHash";
+  const contractAddress = process.env.CONTRACT_ADDRESS;
 
-    const idRegistry = await hre.ethers.getContractAt("IDRegistry", contractAddress);
-    const isVerified = await idRegistry.verifyID(idNumber, idHash);
+  if (!contractAddress) {
+    console.error("❌ CONTRACT_ADDRESS is missing in .env file!");
+    process.exit(1);
+  }
 
-    console.log(`🔍 ID verification result: ${isVerified ? "✅ Valid" : "❌ Tampered"}`);
+  console.log(`🔍 Verifying contract at ${contractAddress}...`);
+
+  try {
+    await hre.run("verify:verify", {
+      address: contractAddress,
+      constructorArguments: [],
+    });
+
+    console.log("✅ Contract verified successfully!");
+  } catch (error) {
+    console.error("❌ Verification failed:", error);
+  }
 }
 
-main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-});
+main();

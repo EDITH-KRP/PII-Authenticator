@@ -1,20 +1,20 @@
 import jwt
 import datetime
+import json
+from config import JWT_SECRET
 
-SECRET_KEY = "your_jwt_secret"
-
-def generate_token(id_number):
+def generate_token(id_numbers):
     payload = {
-        "id_number": id_number,
-        "exp": datetime.datetime.utcnow() + datetime.timedelta(days=1)
+        'id_numbers': id_numbers,  # Store multiple IDs
+        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
     }
-    return jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+    return jwt.encode(payload, JWT_SECRET, algorithm='HS256')
 
 def verify_token(token):
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-        return True
+        decoded = jwt.decode(token, JWT_SECRET, algorithms=['HS256'])
+        return decoded['id_numbers']
     except jwt.ExpiredSignatureError:
-        return False
+        return None
     except jwt.InvalidTokenError:
-        return False
+        return None

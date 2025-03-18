@@ -1,16 +1,22 @@
+require("dotenv").config();
 const { ethers } = require("hardhat");
 
 async function main() {
-    const contractAddress = "0xYourContractAddress";
-    const idNumber = "123456789";
+  const provider = new ethers.providers.JsonRpcProvider("http://127.0.0.1:8545");
+  const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+  const contractAddress = process.env.CONTRACT_ADDRESS;
+  const contractABI = require("../contract_abi.json");
 
-    const idRegistry = await ethers.getContractAt("IDRegistry", contractAddress);
-    const storedHash = await idRegistry.idHashes(idNumber);
+  const contract = new ethers.Contract(contractAddress, contractABI, wallet);
 
-    console.log(`🔗 Stored Hash for ${idNumber}: ${storedHash}`);
+  // Example: Store ID hash on blockchain
+  const tx = await contract.storeID("123456789", ethers.utils.formatBytes32String("hashed_value"));
+  await tx.wait();
+  console.log("✅ ID Hash stored on blockchain!");
+
+  // Example: Verify ID
+  const isVerified = await contract.verifyID("123456789", ethers.utils.formatBytes32String("hashed_value"));
+  console.log("🔍 Verification result:", isVerified);
 }
 
-main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-});
+main();

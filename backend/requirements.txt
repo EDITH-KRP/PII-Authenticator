@@ -1,4 +1,5 @@
-flask==2.2.2
-cryptography==42.0.2
-pyjwt==2.6.0
-web3==6.12.0
+Flask
+cryptography
+python-dotenv
+PyJWT
+web3

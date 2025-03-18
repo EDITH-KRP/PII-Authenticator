@@ -1,14 +1,24 @@
-const hre = require("hardhat");
+const { ethers } = require("hardhat");
+const fs = require("fs");
+const dotenv = require("dotenv");
 
 async function main() {
-    const IDRegistry = await hre.ethers.getContractFactory("IDRegistry");
-    const idRegistry = await IDRegistry.deploy();
-    await idRegistry.deployed();
+  const IDRegistry = await ethers.getContractFactory("IDRegistry");
+  const contract = await IDRegistry.deploy();
 
-    console.log("✅ IDRegistry deployed to:", idRegistry.address);
+  await contract.deployed();
+
+  console.log(`✅ Contract deployed at: ${contract.address}`);
+
+  // Update the .env file
+  const envConfig = dotenv.parse(fs.readFileSync("../backend/.env"));
+  envConfig["CONTRACT_ADDRESS"] = contract.address;
+
+  fs.writeFileSync("../backend/.env", Object.entries(envConfig).map(([key, value]) => `${key}=${value}`).join("\n"));
+  console.log("✅ CONTRACT_ADDRESS updated in .env file!");
 }
 
 main().catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
+  console.error(error);
+  process.exitCode = 1;
 });

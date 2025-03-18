@@ -1,20 +1,17 @@
-version: "3.8"
+version: '3.8'
 
 services:
   blockchain:
-    build: ./docker/Dockerfile.blockchain
+    build:
+      context: ./blockchain
+      dockerfile: Dockerfile.blockchain
     ports:
       - "8545:8545"
-  
+
   backend:
-    build: ./docker/Dockerfile.backend
-    volumes:
-      - ./backend:/app
-    environment:
-      - INFURA_PROJECT_ID=${INFURA_PROJECT_ID}
-      - PRIVATE_KEY=${PRIVATE_KEY}
-      - CONTRACT_ADDRESS=${CONTRACT_ADDRESS}
-      - JWT_SECRET=${JWT_SECRET}
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.backends
     ports:
       - "5000:5000"
     depends_on:

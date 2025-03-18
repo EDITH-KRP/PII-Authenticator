@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "P:\\blockchain-id-authentication\\PII-Authenticator\\blockchain\\contracts\\IDRegistry.sol": {
-      "lastModificationDate": 1741840581122,
-      "contentHash": "ef0023d1139532fdf5608a7b5bc8b4b6",
+      "lastModificationDate": 1742214547119,
+      "contentHash": "47909fa7a56a6a42820e3a5f9e53e16b",
       "sourceName": "contracts/IDRegistry.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -31,7 +31,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "^0.8.20"
       ],
       "artifacts": [
         "IDRegistry"
