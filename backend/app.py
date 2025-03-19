@@ -145,6 +145,10 @@ def check_connection():
     except Exception as e:
         logging.error(f"❌ Web3 connection failed. Error: {str(e)}")
         return jsonify({"status": "error", "message": f"Failed to check Web3 connection: {str(e)}"}), 500
+    @app.route('/get-infura-key', methods=['GET'])
+    def get_infura_key():
+        return jsonify({"infuraAPIKey": INFURA_API_KEY}), 200
+
 
 
 if __name__ == '__main__':

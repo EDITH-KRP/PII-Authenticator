@@ -1,140 +1,16 @@
-2025-03-18 08:15:17,663 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2025-03-19 11:00:46,227 - INFO - 127.0.0.1 - - [19/Mar/2025 11:00:46] "GET /get_token/860097240509 HTTP/1.1" 200 -
+2025-03-19 11:01:10,178 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\config.py', reloading
+2025-03-19 11:01:10,783 - INFO -  * Restarting with stat
+2025-03-19 11:01:22,561 - WARNING -  * Debugger is active!
+2025-03-19 11:01:22,570 - INFO -  * Debugger PIN: 135-991-133
+2025-03-19 11:10:23,118 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
+2025-03-19 11:10:23,707 - INFO -  * Restarting with stat
+2025-03-19 11:10:48,188 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://192.168.155.10:5000
-2025-03-18 08:15:17,663 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 08:15:17,665 - INFO -  * Restarting with stat
-2025-03-18 08:15:18,837 - WARNING -  * Debugger is active!
-2025-03-18 08:15:18,842 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 08:15:56,658 - ERROR - \u274c Encryption failed for ID: 860097240509. Error: [Errno 2] No such file or directory: 'public_key.pem'
-2025-03-18 08:15:56,661 - INFO - 127.0.0.1 - - [18/Mar/2025 08:15:56] "[35m[1mPOST /encrypt HTTP/1.1[0m" 500 -
-2025-03-18 08:17:54,114 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
-2025-03-18 08:17:54,373 - INFO -  * Restarting with stat
-2025-03-18 08:31:58,100 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.155.10:5000
-2025-03-18 08:31:58,101 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 08:31:58,103 - INFO -  * Restarting with stat
-2025-03-18 08:32:00,682 - WARNING -  * Debugger is active!
-2025-03-18 08:32:00,689 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 08:32:42,497 - INFO - Encrypted ID stored for 860097240509. CID: dummy_cid_for_now
-2025-03-18 08:32:42,499 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 860097240509.
-2025-03-18 08:32:42,501 - ERROR - \u274c Encryption failed for ID: 860097240509. Error: Object of type bytes is not JSON serializable
-2025-03-18 08:32:42,502 - INFO - 127.0.0.1 - - [18/Mar/2025 08:32:42] "[35m[1mPOST /encrypt HTTP/1.1[0m" 500 -
-2025-03-18 21:56:56,120 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.51.125:5000
-2025-03-18 21:56:56,120 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 21:56:56,122 - INFO -  * Restarting with stat
-2025-03-18 21:56:58,292 - WARNING -  * Debugger is active!
-2025-03-18 21:56:58,295 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 21:57:35,520 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 21:57:35,521 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 21:57:35,521 - ERROR - \u274c Encryption failed for ID: 123456789. Error: Object of type bytes is not JSON serializable
-2025-03-18 21:57:35,521 - INFO - 127.0.0.1 - - [18/Mar/2025 21:57:35] "[35m[1mPOST /encrypt HTTP/1.1[0m" 500 -
-2025-03-18 21:59:07,573 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
-2025-03-18 21:59:07,774 - INFO -  * Restarting with stat
-2025-03-18 21:59:10,493 - WARNING -  * Debugger is active!
-2025-03-18 21:59:10,496 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 21:59:13,778 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 21:59:13,778 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 21:59:13,778 - INFO - 127.0.0.1 - - [18/Mar/2025 21:59:13] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 22:00:58,598 - INFO - 127.0.0.1 - - [18/Mar/2025 22:00:58] "[31m[1mPOST /retrieve HTTP/1.1[0m" 400 -
-2025-03-18 22:03:56,108 - WARNING - \u274c Unauthorized access attempt with invalid token.
-2025-03-18 22:03:56,114 - INFO - 127.0.0.1 - - [18/Mar/2025 22:03:56] "[31m[1mPOST /retrieve HTTP/1.1[0m" 401 -
-2025-03-18 22:04:31,851 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 22:04:31,860 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 22:04:31,860 - INFO - 127.0.0.1 - - [18/Mar/2025 22:04:31] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 22:05:42,038 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 22:05:42,039 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 22:05:42,039 - INFO - 127.0.0.1 - - [18/Mar/2025 22:05:42] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 22:06:22,438 - INFO - 127.0.0.1 - - [18/Mar/2025 22:06:22] "[31m[1mPOST /retrieve HTTP/1.1[0m" 400 -
-2025-03-18 22:06:57,075 - WARNING - \u274c Unauthorized access attempt with invalid token.
-2025-03-18 22:06:57,075 - INFO - 127.0.0.1 - - [18/Mar/2025 22:06:57] "[31m[1mPOST /retrieve HTTP/1.1[0m" 401 -
-2025-03-18 23:05:59,165 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
-2025-03-18 23:05:59,531 - INFO -  * Restarting with stat
-2025-03-18 23:06:02,345 - WARNING -  * Debugger is active!
-2025-03-18 23:06:02,348 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:06:05,361 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
-2025-03-18 23:06:05,454 - INFO -  * Restarting with stat
-2025-03-18 23:06:07,912 - WARNING -  * Debugger is active!
-2025-03-18 23:06:07,914 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:07:25,290 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.166.162:5000
-2025-03-18 23:07:25,290 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 23:07:25,291 - INFO -  * Restarting with stat
-2025-03-18 23:07:27,359 - WARNING -  * Debugger is active!
-2025-03-18 23:07:27,360 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:07:31,679 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 23:07:31,681 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 23:07:31,682 - INFO - 127.0.0.1 - - [18/Mar/2025 23:07:31] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 23:07:53,347 - ERROR - \u274c Retrieval failed. Error: 'API' object has no attribute 'get'
-2025-03-18 23:07:53,347 - INFO - 127.0.0.1 - - [18/Mar/2025 23:07:53] "[35m[1mPOST /retrieve HTTP/1.1[0m" 500 -
-2025-03-18 23:12:57,373 - ERROR - \u274c Retrieval failed. Error: 'API' object has no attribute 'get'
-2025-03-18 23:12:57,375 - INFO - 127.0.0.1 - - [18/Mar/2025 23:12:57] "[35m[1mPOST /retrieve HTTP/1.1[0m" 500 -
-2025-03-18 23:13:42,180 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\retive.py', reloading
-2025-03-18 23:13:42,435 - INFO -  * Restarting with stat
-2025-03-18 23:13:45,623 - WARNING -  * Debugger is active!
-2025-03-18 23:13:45,625 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:15:02,894 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
-2025-03-18 23:15:03,045 - INFO -  * Restarting with stat
-2025-03-18 23:15:05,968 - WARNING -  * Debugger is active!
-2025-03-18 23:15:05,970 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:15:08,933 - WARNING - \u274c Unauthorized access attempt with invalid token.
-2025-03-18 23:15:08,934 - INFO - 127.0.0.1 - - [18/Mar/2025 23:15:08] "[31m[1mPOST /retrieve HTTP/1.1[0m" 401 -
-2025-03-18 23:15:23,694 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 23:15:23,695 - INFO - \u2705 ID encrypted and stored. Token saved for ID: 123456789.
-2025-03-18 23:15:23,695 - INFO - 127.0.0.1 - - [18/Mar/2025 23:15:23] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 23:16:17,238 - WARNING - \u274c Unauthorized access attempt with invalid token.
-2025-03-18 23:16:17,238 - INFO - 127.0.0.1 - - [18/Mar/2025 23:16:17] "[31m[1mPOST /retrieve HTTP/1.1[0m" 401 -
-2025-03-18 23:18:17,020 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.143.162:5000
-2025-03-18 23:18:17,021 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 23:18:17,023 - INFO -  * Restarting with stat
-2025-03-18 23:18:19,138 - WARNING -  * Debugger is active!
-2025-03-18 23:18:19,139 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:19:54,096 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.143.162:5000
-2025-03-18 23:19:54,097 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 23:19:54,099 - INFO -  * Restarting with stat
-2025-03-18 23:19:56,719 - WARNING -  * Debugger is active!
-2025-03-18 23:19:56,721 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:36:04,132 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.143.162:5000
-2025-03-18 23:36:04,132 - INFO - [33mPress CTRL+C to quit[0m
-2025-03-18 23:36:04,135 - INFO -  * Restarting with stat
-2025-03-18 23:36:07,109 - WARNING -  * Debugger is active!
-2025-03-18 23:36:07,131 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:36:14,774 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 23:36:14,775 - INFO - \u2705 ID encrypted and stored. Token saved for ID: 123456789.
-2025-03-18 23:36:14,776 - INFO - 127.0.0.1 - - [18/Mar/2025 23:36:14] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 23:36:36,287 - WARNING - \u274c Unauthorized access attempt with invalid token.
-2025-03-18 23:36:36,287 - INFO - 127.0.0.1 - - [18/Mar/2025 23:36:36] "[31m[1mPOST /retrieve HTTP/1.1[0m" 401 -
-2025-03-18 23:38:33,961 - ERROR - \u274c Retrieval failed for ID: 123456789. Error: 'API' object has no attribute 'get_file'
-2025-03-18 23:38:33,961 - INFO - 127.0.0.1 - - [18/Mar/2025 23:38:33] "[35m[1mPOST /retrieve HTTP/1.1[0m" 500 -
-2025-03-18 23:40:01,843 - INFO -  * Detected change in 'P:\\blockchain-id-authentication\\PII-Authenticator\\backend\\app.py', reloading
-2025-03-18 23:40:02,048 - INFO -  * Restarting with stat
-2025-03-18 23:40:05,211 - WARNING -  * Debugger is active!
-2025-03-18 23:40:05,214 - INFO -  * Debugger PIN: 135-991-133
-2025-03-18 23:40:09,221 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 23:40:09,221 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 23:40:09,222 - INFO - 127.0.0.1 - - [18/Mar/2025 23:40:09] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 23:47:03,157 - INFO - Encrypted ID stored for 123456789. CID: dummy_cid_for_now
-2025-03-18 23:47:03,160 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 123456789.
-2025-03-18 23:47:03,161 - INFO - 127.0.0.1 - - [18/Mar/2025 23:47:03] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 23:47:22,358 - INFO - Encrypted ID stored for 860097240509. CID: dummy_cid_for_now
-2025-03-18 23:47:22,359 - INFO - \u2705 ID successfully encrypted and stored on Filecoin for ID: 860097240509.
-2025-03-18 23:47:22,359 - INFO - 127.0.0.1 - - [18/Mar/2025 23:47:22] "POST /encrypt HTTP/1.1" 200 -
-2025-03-18 23:51:15,975 - INFO - 127.0.0.1 - - [18/Mar/2025 23:51:15] "[33mGET /get_token/%20eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF9udW1iZXIiOiI4NjAwOTcyNDA1MDkiLCJleHAiOjE3NDIzMjU0NDJ9.SL1xdtQkq1yxSShenGvTbu1PU1d6-z7c0zMkxCr46ng HTTP/1.1[0m" 404 -
-2025-03-18 23:51:28,824 - INFO - 127.0.0.1 - - [18/Mar/2025 23:51:28] "GET /get_token/123456789 HTTP/1.1" 200 -
-2025-03-18 23:52:06,651 - INFO - 127.0.0.1 - - [18/Mar/2025 23:52:06] "GET /get_token/860097240509 HTTP/1.1" 200 -
+ * Running on http://192.168.125.209:5000
+2025-03-19 11:10:48,189 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-19 11:10:48,192 - INFO -  * Restarting with stat
+2025-03-19 11:10:56,321 - WARNING -  * Debugger is active!
+2025-03-19 11:10:56,327 - INFO -  * Debugger PIN: 135-991-133
+2025-03-19 11:10:56,341 - INFO - 127.0.0.1 - - [19/Mar/2025 11:10:56] "GET /get_token/860097240509 HTTP/1.1" 200 -
