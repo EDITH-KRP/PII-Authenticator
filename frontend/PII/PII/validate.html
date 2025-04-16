@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validate Token</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/animation.css">
+</head>
+<body>
+  <!-- Landing Animation -->
+  <div class="animation-container">
+    <div class="blockchain-animation">
+      <div class="blockchain-logo"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="block"></div>
+      <div class="connection-line"></div>
+      <div class="connection-line"></div>
+      <div class="connection-line"></div>
+      <div class="connection-line"></div>
+    </div>
+    <div class="animation-text">Validating Blockchain Identity</div>
+    <div class="loading-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="generate.html">Generate Token</a>
+        <a href="validate.html" class="active">Validate Token</a>
+        <a href="token-bridge-real.html">Token Bridge</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="form-container">
+    <h1>Validate Token</h1>
+    <form id="validateForm">
+      <input type="text" placeholder="Enter Token Number" required>
+      <button type="submit" class="btn secondary">Validate</button>
+    </form>
+  </main>
+  
+  <!-- CORS handling for local development -->
+  <script>
+    // This helps with CORS issues during local development
+    // In production, proper CORS headers should be set on the server
+    window.addEventListener('error', function(e) {
+      if (e.message === 'Failed to fetch') {
+        console.error('Network error. Make sure the backend server is running at http://127.0.0.1:5000');
+      }
+    });
+  </script>
+  
+  <!-- Scripts -->
+  <script src="./scripts/logger.js"></script>
+  <script src="./scripts/animation.js"></script>
+  <script src="./scripts/validate_real.js"></script>
+</body>
+</html>

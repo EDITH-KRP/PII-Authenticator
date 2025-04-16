@@ -1,24 +1,30 @@
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
 const fs = require("fs");
 const dotenv = require("dotenv");
 
-async function main() {
-  const IDRegistry = await ethers.getContractFactory("IDRegistry");
-  const contract = await IDRegistry.deploy();
+dotenv.config({ path: "../backend/.env" }); // ✅ Ensure correct path
 
+if (!process.env.SEPOLIA_RPC_URL || !process.env.PRIVATE_KEY) {
+  console.error("❌ INFURA_API_KEY or PRIVATE_KEY missing in .env file!");
+  process.exit(1);
+}
+
+async function main() {
+  console.log("🚀 Deploying TokenAuth contract...");
+
+  const signers = await hre.ethers.getSigners();
+  const deployer = signers[0];
+
+  console.log(`👤 Using deployer: ${deployer.address}`);
+
+  const TokenAuth = await hre.ethers.getContractFactory("TokenAuth");
+  const contract = await TokenAuth.deploy();
   await contract.deployed();
 
-  console.log(`✅ Contract deployed at: ${contract.address}`);
-
-  // Update the .env file
-  const envConfig = dotenv.parse(fs.readFileSync("../backend/.env"));
-  envConfig["CONTRACT_ADDRESS"] = contract.address;
-
-  fs.writeFileSync("../backend/.env", Object.entries(envConfig).map(([key, value]) => `${key}=${value}`).join("\n"));
-  console.log("✅ CONTRACT_ADDRESS updated in .env file!");
+  console.log(`✅ TokenAuth Contract deployed at: ${contract.address}`);
 }
 
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  console.error("❌ Deployment failed:", error);
+  process.exit(1);
 });

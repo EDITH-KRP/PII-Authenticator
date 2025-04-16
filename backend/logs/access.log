@@ -1,0 +1,55 @@
+2025-04-16 12:28:30 [INFO] : ACCESS: /encrypt | User: test_user | Token: YC91QOYUNE | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/YC91QOYUNE.txt
+2025-04-16 12:29:22 [INFO] : ACCESS: /validate_token | User: N/A | Token: YC91QOYUNE | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:29:40 [INFO] : ACCESS: /encrypt | User: test_user_1744786778 | Token: RZHUZQNM0Q | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/RZHUZQNM0Q.txt
+2025-04-16 12:29:40 [INFO] : ACCESS: /validate_token | User: N/A | Token: RZHUZQNM0Q | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:29:41 [INFO] : ACCESS: /validate_token | User: N/A | Token: INVALID123 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:29:41 [INFO] : ACCESS: /encrypt | User: N/A | Token: N/A | IP: 127.0.0.1 | Status: failure | Details: Missing fields
+2025-04-16 12:29:41 [INFO] : ACCESS: /encrypt | User: test_user | Token: N/A | IP: 127.0.0.1 | Status: failure | Details: Missing fields
+2025-04-16 12:29:41 [INFO] : ACCESS: /validate_token | User: N/A | Token: N/A | IP: 127.0.0.1 | Status: failure | Details: Token required
+2025-04-16 12:36:19 [INFO] : ACCESS: /encrypt | User: test_user_1744787177685 | Token: Q6MI5WMMRD | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/Q6MI5WMMRD.txt
+2025-04-16 12:36:20 [INFO] : ACCESS: /encrypt | User: test_user_1744787177685 | Token: XKD2X7DIL4 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/XKD2X7DIL4.txt
+2025-04-16 12:36:21 [INFO] : ACCESS: /encrypt | User: test_user_1744787179875 | Token: 4Z6YTCIAG3 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/4Z6YTCIAG3.txt
+2025-04-16 12:36:22 [INFO] : ACCESS: /encrypt | User: test_user_1744787180536 | Token: O9NY11T91J | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/O9NY11T91J.txt
+2025-04-16 12:36:22 [INFO] : ACCESS: /encrypt | User: test_user_1744787181400 | Token: XZDXYY4M4P | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/XZDXYY4M4P.txt
+2025-04-16 12:36:23 [INFO] : ACCESS: /validate_token | User: N/A | Token: Q6MI5WMMRD | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:23 [INFO] : ACCESS: /validate_token | User: N/A | Token: INVALID1744787183183 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:24 [INFO] : ACCESS: /validate_token | User: N/A | Token: INVALID1744787183855 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:24 [INFO] : ACCESS: /validate_token | User: N/A | Token: O9NY11T91J | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:25 [INFO] : ACCESS: /validate_token | User: N/A | Token: XKD2X7DIL4 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:53 [INFO] : ACCESS: /encrypt | User: test_user_1744787211852 | Token: BQ3FXGQGIM | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/BQ3FXGQGIM.txt
+2025-04-16 12:36:53 [INFO] : ACCESS: /encrypt | User: test_user_1744787211851 | Token: 85OXRI2605 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/85OXRI2605.txt
+2025-04-16 12:36:54 [INFO] : ACCESS: /encrypt | User: test_user_1744787211852 | Token: R1ZL9K8OAS | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/R1ZL9K8OAS.txt
+2025-04-16 12:36:54 [INFO] : ACCESS: /encrypt | User: test_user_1744787213438 | Token: 88IO9WR8AU | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/88IO9WR8AU.txt
+2025-04-16 12:36:54 [INFO] : ACCESS: /encrypt | User: test_user_1744787213438 | Token: 14QASR890L | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/14QASR890L.txt
+2025-04-16 12:36:55 [INFO] : ACCESS: /encrypt | User: test_user_1744787214050 | Token: 4MJPW1N9MF | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/4MJPW1N9MF.txt
+2025-04-16 12:36:56 [INFO] : ACCESS: /encrypt | User: test_user_1744787214978 | Token: W4V6QRFO1O | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/W4V6QRFO1O.txt
+2025-04-16 12:36:56 [INFO] : ACCESS: /encrypt | User: test_user_1744787214995 | Token: CW4WD7W81F | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/CW4WD7W81F.txt
+2025-04-16 12:36:57 [INFO] : ACCESS: /encrypt | User: test_user_1744787215453 | Token: 6HRV098TDA | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/6HRV098TDA.txt
+2025-04-16 12:36:58 [INFO] : ACCESS: /encrypt | User: test_user_1744787216526 | Token: 2JYR34CV9W | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/2JYR34CV9W.txt
+2025-04-16 12:36:58 [INFO] : ACCESS: /validate_token | User: N/A | Token: INVALID1744787218105 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:58 [INFO] : ACCESS: /validate_token | User: N/A | Token: 14QASR890L | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:58 [INFO] : ACCESS: /validate_token | User: N/A | Token: BQ3FXGQGIM | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:59 [INFO] : ACCESS: /validate_token | User: N/A | Token: INVALID1744787218764 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:59 [INFO] : ACCESS: /validate_token | User: N/A | Token: 85OXRI2605 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:36:59 [INFO] : ACCESS: /validate_token | User: N/A | Token: 2JYR34CV9W | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:37:00 [INFO] : ACCESS: /validate_token | User: N/A | Token: W4V6QRFO1O | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:37:00 [INFO] : ACCESS: /validate_token | User: N/A | Token: 2JYR34CV9W | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:37:00 [INFO] : ACCESS: /validate_token | User: N/A | Token: 6HRV098TDA | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:37:01 [INFO] : ACCESS: /validate_token | User: N/A | Token: BQ3FXGQGIM | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:44:52 [INFO] : ACCESS: /encrypt | User: prajwal k r | Token: U18X0OKH14 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/U18X0OKH14.txt
+2025-04-16 12:45:24 [INFO] : ACCESS: /validate_token | User: N/A | Token: U18X0OKH14 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 12:47:23 [INFO] : ACCESS: /encrypt | User: edith | Token: X63XUZNOC7 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/X63XUZNOC7.txt
+2025-04-16 12:47:33 [INFO] : ACCESS: /validate_token | User: N/A | Token: X63XUZNOC7 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 13:22:56 [INFO] : ACCESS: /validate_token | User: N/A | Token: MOCK_lvjqfclgk78 | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 13:37:25 [INFO] : ACCESS: /validate_token | User: N/A | Token: MOCK_ocn87kyl2b | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed
+2025-04-16 13:39:26 [INFO] : ACCESS: /encrypt | User: ddfe | Token: 8FE8699K4K | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/8FE8699K4K.json
+2025-04-16 13:39:40 [INFO] : ACCESS: /validate_token | User: N/A | Token: 8FE8699K4K | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-16 13:40:09 [INFO] : ACCESS: /validate_token | User: N/A | Token: 8FE8699K4K | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-16 13:41:28 [INFO] : ACCESS: /encrypt | User: anupsdsfc | Token: EKSQKJ3T2R | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/EKSQKJ3T2R.json
+2025-04-16 13:41:38 [INFO] : ACCESS: /validate_token | User: N/A | Token: EKSQKJ3T2R | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-16 14:03:25 [INFO] : ACCESS: /encrypt | User: prajwal_k_r | Token: BPJQM55XZI | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/BPJQM55XZI.json
+2025-04-16 14:03:35 [INFO] : ACCESS: /validate_token | User: N/A | Token: BPJQM55XZI | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-16 14:03:47 [INFO] : ACCESS: /validate_token | User: N/A | Token: BPJQM55XZI | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-16 14:04:44 [INFO] : ACCESS: /encrypt | User: prajwal_k_r | Token: ZCTDV8FPCB | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/ZCTDV8FPCB.json
+2025-04-16 14:07:59 [INFO] : ACCESS: /encrypt | User: prajwal_k_r | Token: 52ZK9XS7XE | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/52ZK9XS7XE.json
+2025-04-16 14:08:02 [INFO] : ACCESS: /encrypt | User: prajwal_k_r | Token: 4YBG3S85UK | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/4YBG3S85UK.json

@@ -1,0 +1,260 @@
+/* Blockchain Animation Styles */
+.animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9998;
+  background-color: var(--bg-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.3s ease-out;
+}
+
+.animation-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.blockchain-animation {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.blockchain-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300c3ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'%3E%3C/path%3E%3Cpath d='M2 17l10 5 10-5'%3E%3C/path%3E%3Cpath d='M2 12l10 5 10-5'%3E%3C/path%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation: pulse 2s infinite;
+  z-index: 2;
+}
+
+.block {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(0, 114, 255, 0.2);
+  border: 1px solid rgba(0, 195, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 195, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  overflow: hidden;
+  animation-duration: 1.5s; /* Faster animation */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.block::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.1) 50%, transparent 75%);
+  background-size: 250% 250%;
+  animation: shimmer 2s infinite linear;
+}
+
+.block:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-name: blockMove1;
+}
+
+.block:nth-child(2) {
+  top: 20%;
+  right: 20%;
+  animation-name: blockMove2;
+}
+
+.block:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  animation-name: blockMove3;
+}
+
+.block:nth-child(4) {
+  bottom: 20%;
+  right: 20%;
+  animation-name: blockMove4;
+}
+
+.block:nth-child(5) {
+  top: 50%;
+  left: 10%;
+  animation-name: blockMove5;
+}
+
+.block:nth-child(6) {
+  top: 50%;
+  right: 10%;
+  animation-name: blockMove6;
+}
+
+.block:nth-child(7) {
+  top: 10%;
+  left: 50%;
+  animation-name: blockMove7;
+}
+
+.block:nth-child(8) {
+  bottom: 10%;
+  left: 50%;
+  animation-name: blockMove8;
+}
+
+.connection-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(0, 195, 255, 0.1), rgba(0, 195, 255, 0.8), rgba(0, 195, 255, 0.1));
+  transform-origin: left center;
+  animation: linePulse 1s infinite; /* Faster animation */
+}
+
+.connection-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.connection-line:nth-child(2) {
+  transform: rotate(135deg);
+}
+
+.connection-line:nth-child(3) {
+  transform: rotate(225deg);
+}
+
+.connection-line:nth-child(4) {
+  transform: rotate(315deg);
+}
+
+/* Binary streams removed */
+
+.animation-text {
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards 0.5s;
+}
+
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  animation: dotPulse 1.5s infinite;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Keyframes for animations */
+@keyframes blockMove1 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, 20px) rotate(10deg); }
+}
+
+@keyframes blockMove2 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 20px) rotate(-10deg); }
+}
+
+@keyframes blockMove3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, -20px) rotate(-10deg); }
+}
+
+@keyframes blockMove4 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, -20px) rotate(10deg); }
+}
+
+@keyframes blockMove5 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(30px, 0) rotate(5deg); }
+}
+
+@keyframes blockMove6 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-30px, 0) rotate(-5deg); }
+}
+
+@keyframes blockMove7 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(0, 30px) rotate(5deg); }
+}
+
+@keyframes blockMove8 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(0, -30px) rotate(-5deg); }
+}
+
+@keyframes linePulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* Binary animation removed */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blockchain-animation {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .blockchain-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .block {
+    width: 30px;
+    height: 30px;
+  }
+}
