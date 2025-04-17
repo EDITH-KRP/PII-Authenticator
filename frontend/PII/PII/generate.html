@@ -6,6 +6,9 @@
   <title>Generate Token</title>
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/animation.css">
+  <link rel="stylesheet" href="styles/enhanced.css">
+  <link rel="stylesheet" href="styles/blockchain-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Landing Animation -->
@@ -36,32 +39,138 @@
     <div class="navbar">
       <div class="logo">🔐 PII Authentication</div>
       <div class="nav-links">
-        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
         <a href="generate.html" class="active">Generate Token</a>
-        <a href="validate.html">Validate Token</a>
+        <a href="#" id="logoutBtn">Logout</a>
       </div>
     </div>
   </header>
 
   <main class="form-container">
-    <h1>Generate Token</h1>
-    <form id="generateForm">
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email ID" required>
-      <input type="date" placeholder="Date of Birth" required>
-      <input type="text" placeholder="Phone Number" maxlength="10" required>
+    <!-- How It Works Section -->
+    <div class="how-it-works">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Create Account</h3>
+          <p>Sign up for a secure account to manage your digital identity.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Generate Token</h3>
+          <p>Create your unique identity token secured by blockchain technology.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Upload Documents</h3>
+          <p>Securely store your identity documents linked to your token.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Verify Identity</h3>
+          <p>Share your token with trusted companies for secure verification.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="auth-card">
+      <h1>Generate Identity Token</h1>
+      <p class="auth-subtitle">Create a secure blockchain-based identity token</p>
       
-      <select required>
-        <option value="">Select ID Type</option>
-        <option value="aadhaar">Aadhaar Number</option>
-        <option value="pan">PAN Number</option>
-        <option value="dl">Driving License Number</option>
-      </select>
-      
-      <input type="text" placeholder="Enter ID Number" required>
-      <button type="button" id="generate-token" class="btn primary">Generate Token</button>
-    </form>
+      <form id="generateForm" class="auth-form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number (10 digits)</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your 10-digit phone number" required>
+          <small class="text-muted">Format: 123-456-7890</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="idType">ID Type</label>
+          <select id="idType" name="idType" required>
+            <option value="">Select ID Type</option>
+            <option value="aadhaar">Aadhaar Number</option>
+            <option value="pan">PAN Number</option>
+            <option value="dl">Driving License Number</option>
+          </select>
+        </div>
+        
+        <div class="form-group" id="aadhaarGroup" style="display: none;">
+          <label for="aadhaar">Aadhaar Number (12 digits)</label>
+          <input type="text" id="aadhaar" name="aadhaar" data-type="aadhaar" placeholder="Enter your 12-digit Aadhaar number">
+          <small class="text-muted">Format: 1234-5678-9012</small>
+        </div>
+        
+        <div class="form-group" id="panGroup" style="display: none;">
+          <label for="pan">PAN Number</label>
+          <input type="text" id="pan" name="pan" data-type="pan" placeholder="Enter your PAN number">
+          <small class="text-muted">Format: ABCDE1234F</small>
+        </div>
+        
+        <div class="form-group" id="dlGroup" style="display: none;">
+          <label for="dl">Driving License Number</label>
+          <input type="text" id="dl" name="dl" placeholder="Enter your driving license number">
+        </div>
+        
+        <div class="form-group terms">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I consent to store my identity information securely on the blockchain</label>
+        </div>
+        
+        <button type="submit" class="btn primary full-width">Generate Token</button>
+      </form>
+    </div>
   </main>
+  
+  <script>
+    // Show/hide ID input fields based on selection
+    document.addEventListener('DOMContentLoaded', function() {
+      const idTypeSelect = document.getElementById('idType');
+      const aadhaarGroup = document.getElementById('aadhaarGroup');
+      const panGroup = document.getElementById('panGroup');
+      const dlGroup = document.getElementById('dlGroup');
+      
+      idTypeSelect.addEventListener('change', function() {
+        // Hide all ID input fields
+        aadhaarGroup.style.display = 'none';
+        panGroup.style.display = 'none';
+        dlGroup.style.display = 'none';
+        
+        // Show selected ID input field
+        if (this.value === 'aadhaar') {
+          aadhaarGroup.style.display = 'block';
+          document.getElementById('aadhaar').setAttribute('required', '');
+          document.getElementById('pan').removeAttribute('required');
+          document.getElementById('dl').removeAttribute('required');
+        } else if (this.value === 'pan') {
+          panGroup.style.display = 'block';
+          document.getElementById('pan').setAttribute('required', '');
+          document.getElementById('aadhaar').removeAttribute('required');
+          document.getElementById('dl').removeAttribute('required');
+        } else if (this.value === 'dl') {
+          dlGroup.style.display = 'block';
+          document.getElementById('dl').setAttribute('required', '');
+          document.getElementById('aadhaar').removeAttribute('required');
+          document.getElementById('pan').removeAttribute('required');
+        }
+      });
+    });
+  </script>
   
   <!-- CORS handling for local development -->
   <script>
@@ -77,6 +186,7 @@
   <!-- Scripts -->
   <script src="./scripts/logger.js"></script>
   <script src="./scripts/animation.js"></script>
-  <script src="./scripts/generate_real.js"></script>
+  <script src="./scripts/form-validation.js"></script>
+  <script src="./scripts/generate.js"></script>
 </body>
 </html>

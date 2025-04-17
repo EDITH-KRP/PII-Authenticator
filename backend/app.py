@@ -3,11 +3,14 @@ import os
 import time
 import json
 import traceback
+import secrets
 from flask import Flask, request, jsonify, g
 from flask_cors import CORS
 from dotenv import load_dotenv
 from token_auth import get_or_generate_token, verify_token
-from w3_utils import upload_to_filebase, check_blockchain_connection
+from user_auth import register_user, login_user, get_user_by_id, add_token_to_user, get_user_tokens, add_document_to_user, get_user_documents
+from company_auth import register_company, login_company, get_company_by_id, add_validation, get_company_validations, get_validation_stats
+from w3_utils import upload_to_filebase, check_blockchain_connection, store_token_on_blockchain, verify_token_on_blockchain, get_token_transaction_details
 from logger import get_logger, log_access
 
 # Load environment
@@ -314,6 +317,460 @@ def retrieve_data():
         )
         
         return jsonify({"error": str(e)}), 500
+
+# User Authentication Endpoints
+@app.route("/register", methods=["POST"])
+def register():
+    """Register a new user."""
+    data = request.json
+    
+    # Register user
+    success, user_id, message = register_user(data)
+    
+    if success:
+        # Get user data
+        user_data = get_user_by_id(user_id)
+        
+        # Generate JWT token
+        token = secrets.token_hex(16)
+        
+        return jsonify({
+            "message": message,
+            "user_id": user_id,
+            "name": user_data.get("name"),
+            "email": user_data.get("email"),
+            "token": token
+        })
+    else:
+        return jsonify({"error": message}), 400
+
+@app.route("/login", methods=["POST"])
+def login():
+    """Login a user."""
+    data = request.json
+    
+    email = data.get("email")
+    password = data.get("password")
+    
+    # Login user
+    success, user_data, message = login_user(email, password)
+    
+    if success:
+        # Generate JWT token
+        token = secrets.token_hex(16)
+        
+        return jsonify({
+            "message": message,
+            "user_id": user_data.get("user_id"),
+            "name": user_data.get("name"),
+            "email": user_data.get("email"),
+            "token": token
+        })
+    else:
+        return jsonify({"error": message}), 401
+
+@app.route("/user/tokens", methods=["GET"])
+def get_tokens():
+    """Get all tokens for the authenticated user."""
+    # In a real app, get user_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get user_id
+    # For now, we'll use a dummy user_id
+    user_id = "user_1234"
+    
+    # Get user tokens
+    tokens = get_user_tokens(user_id)
+    
+    return jsonify({
+        "tokens": tokens
+    })
+
+@app.route("/user/documents", methods=["GET"])
+def get_documents():
+    """Get all documents for the authenticated user."""
+    # In a real app, get user_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get user_id
+    # For now, we'll use a dummy user_id
+    user_id = "user_1234"
+    
+    # Get user documents
+    documents = get_user_documents(user_id)
+    
+    return jsonify({
+        "documents": documents
+    })
+
+@app.route("/user/documents/upload", methods=["POST"])
+def upload_document():
+    """Upload a document for the authenticated user."""
+    # In a real app, get user_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get user_id
+    # For now, we'll use a dummy user_id
+    user_id = "user_1234"
+    
+    # Get form data
+    title = request.form.get("title")
+    doc_type = request.form.get("type")
+    file = request.files.get("file")
+    
+    if not title or not doc_type or not file:
+        return jsonify({"error": "Missing required fields"}), 400
+    
+    try:
+        # Upload file to Filebase
+        file_url = upload_to_filebase(file)
+        
+        # Store document reference on blockchain
+        tx_hash = store_token_on_blockchain(f"doc_{user_id}_{int(time.time())}")
+        
+        # Add document to user
+        document_data = {
+            "title": title,
+            "type": doc_type,
+            "file_url": file_url,
+            "tx_hash": tx_hash
+        }
+        
+        success, document_id = add_document_to_user(user_id, document_data)
+        
+        if success:
+            return jsonify({
+                "message": "Document uploaded successfully",
+                "document_id": document_id,
+                "file_url": file_url,
+                "tx_hash": tx_hash
+            })
+        else:
+            return jsonify({"error": "Failed to save document"}), 500
+    except Exception as e:
+        logger.error(f"Error uploading document: {e}")
+        return jsonify({"error": "Error uploading document"}), 500
+
+@app.route("/user/profile", methods=["GET"])
+def get_user_profile():
+    """Get user profile information."""
+    # In a real app, get user_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get user_id
+    # For now, we'll use a dummy user_id
+    user_id = "user_1234"
+    
+    # Get user data
+    user_data = get_user_by_id(user_id)
+    
+    if not user_data:
+        return jsonify({"error": "User not found"}), 404
+    
+    return jsonify(user_data)
+
+@app.route("/user/profile", methods=["PUT"])
+def update_user_profile():
+    """Update user profile information."""
+    # In a real app, get user_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get user_id
+    # For now, we'll use a dummy user_id
+    user_id = "user_1234"
+    
+    # Get request data
+    data = request.json
+    
+    # Update user data (in a real app, this would update the database)
+    # For now, we'll just return success
+    return jsonify({
+        "message": "Profile updated successfully"
+    })
+
+@app.route("/user/password", methods=["PUT"])
+def update_user_password():
+    """Update user password."""
+    # In a real app, get user_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get user_id
+    # For now, we'll use a dummy user_id
+    user_id = "user_1234"
+    
+    # Get request data
+    data = request.json
+    
+    # Validate current password (in a real app, this would check against the database)
+    # For now, we'll just return success
+    return jsonify({
+        "message": "Password updated successfully"
+    })
+
+# Company Authentication Endpoints
+@app.route("/company/register", methods=["POST"])
+def register_company_endpoint():
+    """Register a new company."""
+    data = request.json
+    
+    # Register company
+    success, company_id, message = register_company(data)
+    
+    if success:
+        # Get company data
+        company_data = get_company_by_id(company_id)
+        
+        # Generate JWT token
+        token = secrets.token_hex(16)
+        
+        return jsonify({
+            "message": message,
+            "company_id": company_id,
+            "company_name": company_data.get("company_name"),
+            "email": company_data.get("email"),
+            "business_type": company_data.get("business_type"),
+            "token": token
+        })
+    else:
+        return jsonify({"error": message}), 400
+
+@app.route("/company/login", methods=["POST"])
+def login_company_endpoint():
+    """Login a company."""
+    data = request.json
+    
+    email = data.get("email")
+    password = data.get("password")
+    
+    # Login company
+    success, company_data, message = login_company(email, password)
+    
+    if success:
+        # Generate JWT token
+        token = secrets.token_hex(16)
+        
+        return jsonify({
+            "message": message,
+            "company_id": company_data.get("company_id"),
+            "company_name": company_data.get("company_name"),
+            "email": company_data.get("email"),
+            "business_type": company_data.get("business_type"),
+            "token": token
+        })
+    else:
+        return jsonify({"error": message}), 401
+
+@app.route("/company/validate", methods=["POST"])
+def validate_token_endpoint():
+    """Validate a token."""
+    # In a real app, get company_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    auth_token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get company_id
+    # For now, we'll use a dummy company_id or the one provided in the request
+    data = request.json
+    company_id = data.get("company_id", "company_1234")
+    
+    token = data.get("token")
+    purpose = data.get("purpose")
+    
+    if not token:
+        return jsonify({"error": "Token is required"}), 400
+    
+    # Verify token
+    is_valid, user_info = verify_token(token)
+    
+    # Get token transaction details
+    tx_details = get_token_transaction_details(token)
+    tx_hash = tx_details.get("tx_hash") if tx_details else None
+    
+    # Record validation on blockchain
+    validation_tx_hash = store_token_on_blockchain(f"validation_{company_id}_{token}_{int(time.time())}")
+    
+    # Add validation record
+    validation_data = {
+        "token": token,
+        "purpose": purpose,
+        "is_valid": is_valid,
+        "tx_hash": tx_hash,
+        "validation_tx_hash": validation_tx_hash
+    }
+    
+    add_validation(company_id, validation_data)
+    
+    if is_valid:
+        return jsonify({
+            "is_valid": True,
+            "token": token,
+            "user_info": user_info,
+            "tx_hash": tx_hash,
+            "validation_tx_hash": validation_tx_hash
+        })
+    else:
+        return jsonify({
+            "is_valid": False,
+            "error": "Invalid token",
+            "token": token,
+            "validation_tx_hash": validation_tx_hash
+        })
+
+@app.route("/company/validations/recent", methods=["GET"])
+def get_recent_validations():
+    """Get recent validations for the authenticated company."""
+    # In a real app, get company_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get company_id
+    # For now, we'll use a dummy company_id
+    company_id = "company_1234"
+    
+    # Get recent validations
+    validations = get_company_validations(company_id)
+    
+    return jsonify({
+        "validations": validations
+    })
+
+@app.route("/company/validations/all", methods=["GET"])
+def get_all_validations():
+    """Get all validations for the authenticated company."""
+    # In a real app, get company_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get company_id
+    # For now, we'll use a dummy company_id
+    company_id = "company_1234"
+    
+    # Get all validations (no limit)
+    validations = get_company_validations(company_id, limit=1000)
+    
+    return jsonify({
+        "validations": validations
+    })
+
+@app.route("/company/validations/stats", methods=["GET"])
+def get_validation_stats_endpoint():
+    """Get validation statistics for the authenticated company."""
+    # In a real app, get company_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get company_id
+    # For now, we'll use a dummy company_id
+    company_id = "company_1234"
+    
+    # Get validation stats
+    stats = get_validation_stats(company_id)
+    
+    return jsonify(stats)
+
+@app.route("/company/profile", methods=["GET"])
+def get_company_profile():
+    """Get company profile information."""
+    # In a real app, get company_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get company_id
+    # For now, we'll use a dummy company_id
+    company_id = "company_1234"
+    
+    # Get company data
+    company_data = get_company_by_id(company_id)
+    
+    if not company_data:
+        return jsonify({"error": "Company not found"}), 404
+    
+    return jsonify(company_data)
+
+@app.route("/company/profile", methods=["PUT"])
+def update_company_profile():
+    """Update company profile information."""
+    # In a real app, get company_id from JWT token
+    # For now, we'll use a header
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # In a real app, verify JWT token and get company_id
+    # For now, we'll use a dummy company_id
+    company_id = "company_1234"
+    
+    # Get request data
+    data = request.json
+    
+    # Update company data (in a real app, this would update the database)
+    # For now, we'll just return success
+    return jsonify({
+        "message": "Company profile updated successfully"
+    })
 
 # Health check endpoint
 @app.route("/health", methods=["GET"])

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your secure identity dashboard.">
+  <title>Dashboard - PII Authentication</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="generate.html">Generate Token</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Section -->
+  <section class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Welcome, <span id="userName">User</span></h1>
+      <p>Manage your secure identity tokens and documents</p>
+    </div>
+    
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <h3>Active Tokens</h3>
+        <p id="tokenCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Documents</h3>
+        <p id="documentCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Token Status</h3>
+        <p id="tokenStatus">Active</p>
+      </div>
+    </div>
+    
+    <div class="dashboard-main">
+      <div class="token-section">
+        <div class="section-header">
+          <h2>Your Identity Tokens</h2>
+          <a href="generate.html" class="btn primary">Generate New Token</a>
+        </div>
+        
+        <div id="tokenList" class="token-list">
+          <!-- Token cards will be dynamically inserted here -->
+          <div class="empty-state" id="emptyTokenState">
+            <p>You don't have any tokens yet. Generate your first token to secure your identity.</p>
+            <a href="generate.html" class="btn primary">Generate Token</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="document-section">
+        <div class="section-header">
+          <h2>Your Documents</h2>
+          <button id="uploadDocBtn" class="btn secondary">Upload Document</button>
+        </div>
+        
+        <div id="documentList" class="document-list">
+          <!-- Document cards will be dynamically inserted here -->
+          <div class="empty-state" id="emptyDocState">
+            <p>You haven't uploaded any documents yet.</p>
+            <button id="uploadDocBtnEmpty" class="btn secondary">Upload Document</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Document Upload Modal -->
+    <div id="uploadModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Upload Document</h2>
+        <form id="documentUploadForm">
+          <div class="form-group">
+            <label for="docTitle">Document Title</label>
+            <input type="text" id="docTitle" name="docTitle" placeholder="Enter document title" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="docType">Document Type</label>
+            <select id="docType" name="docType" required>
+              <option value="">Select document type</option>
+              <option value="id">ID Card</option>
+              <option value="passport">Passport</option>
+              <option value="license">Driver's License</option>
+              <option value="certificate">Certificate</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="docFile">Upload File</label>
+            <input type="file" id="docFile" name="docFile" required>
+          </div>
+          
+          <button type="submit" class="btn primary full-width">Upload Document</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="./scripts/logger.js"></script>
+  <script src="./scripts/dashboard.js"></script>
+</body>
+</html>

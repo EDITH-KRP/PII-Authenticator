@@ -5692,3 +5692,648 @@ web3.exceptions.BadFunctionCallOutput: Could not transact with/call contract fun
 2025-04-16 17:48:41 [INFO] token_auth.verify_token:357 - Token WR4LVCPN83 is valid
 2025-04-16 17:48:41 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: WR4LVCPN83 | IP: 127.0.0.1 | Status: success | Details: Token validation successful
 2025-04-16 17:48:41 [DEBUG] app.after_request:35 - Request c4b8c7d2675412ca processed in 1.7879 seconds
+2025-04-17 08:06:46 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 08:06:47 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 08:06:47 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 08:06:47 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 08:06:48 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 08:06:53 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 08:06:53 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 08:06:53 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 08:06:53 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 08:06:54 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 08:07:36 [DEBUG] app.after_request:35 - Request 81c7a2be1d1aa90c processed in 0.0066 seconds
+2025-04-17 08:07:36 [INFO] token_auth.verify_token:253 - Verifying token: BWM7YWS0CH
+2025-04-17 08:07:36 [DEBUG] token_auth.log_verification_attempt:393 - Verification attempt logged for token: BWM7YWS0CH
+2025-04-17 08:07:36 [DEBUG] token_auth.verify_token:267 - Token exists in database: True
+2025-04-17 08:07:36 [DEBUG] w3_utils.get_token_transaction_details:611 - Attempting to get transaction details for hash: 0b23eac53747d2d7b39334189e23888b2dc3c42fe3dc8c09190e98eb96eec4d6
+2025-04-17 08:07:36 [DEBUG] w3_utils.get_token_transaction_details:637 - Calling web3.eth.get_transaction...
+2025-04-17 08:07:36 [DEBUG] w3_utils.get_token_transaction_details:658 - Getting transaction receipt...
+2025-04-17 08:07:37 [DEBUG] w3_utils.get_token_transaction_details:661 - Getting block details for block number: 8129950
+2025-04-17 08:07:37 [DEBUG] w3_utils.get_token_transaction_details:664 - Successfully retrieved all transaction details
+2025-04-17 08:07:37 [DEBUG] token_auth.verify_token:271 - Blockchain details for token BWM7YWS0CH: {'tx_hash': '0b23eac53747d2d7b39334189e23888b2dc3c42fe3dc8c09190e98eb96eec4d6', 'block_number': 8129950, 'timestamp': 1744801932, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0x13591389EE06948758541b38547a37FB9483F2f4', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 08:07:37 [INFO] w3_utils.verify_token_on_blockchain:717 - Verifying token on blockchain: BWM7YWS0CH
+2025-04-17 08:07:37 [INFO] w3_utils.verify_token_on_blockchain:737 - Verifying token BWM7YWS0CH directly on the blockchain
+2025-04-17 08:07:37 [INFO] w3_utils.call_contract_with_timeout:746 - Calling verifyToken function on smart contract for token: BWM7YWS0CH
+2025-04-17 08:07:37 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-17 08:07:38 [DEBUG] w3_utils.call_contract_with_timeout:759 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\utils.py", line 207, in call_contract_function
+    output_data = w3.codec.decode(output_types, return_data)
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\codec.py", line 162, in decode
+    return cast(Tuple[Any, ...], decoder(stream))
+                                 ~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 131, in __call__
+    return self.decode(stream)
+           ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_utils\functional.py", line 47, in inner
+    return callback(fn(*args, **kwargs))
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 224, in decode
+    self.validate_pointers(stream)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 218, in validate_pointers
+    decoder(stream)
+    ~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 131, in __call__
+    return self.decode(stream)
+           ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 250, in decode
+    raw_data = self.read_data_from_stream(stream)
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 389, in read_data_from_stream
+    raise InsufficientDataBytes(
+    ...<2 lines>...
+    )
+eth_abi.exceptions.InsufficientDataBytes: Tried to read 32 bytes, only got 0 bytes.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "P:\blockchain-id-authentication\PII-Authenticator\backend\w3_utils.py", line 749, in call_contract_with_timeout
+    result = contract.functions.verifyToken(user_token).call()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\contract.py", line 291, in call
+    return call_contract_function(
+        self.w3,
+    ...<11 lines>...
+        **self.kwargs or {},
+    )
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\utils.py", line 225, in call_contract_function
+    raise BadFunctionCallOutput(msg) from e
+web3.exceptions.BadFunctionCallOutput: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+
+2025-04-17 08:07:38 [WARNING] w3_utils.call_contract_with_timeout:762 - Falling back to local verification due to blockchain error
+2025-04-17 08:07:38 [INFO] w3_utils.call_contract_with_timeout:778 - Token BWM7YWS0CH found in tokens.json (fallback)
+2025-04-17 08:07:38 [INFO] w3_utils.verify_token_on_blockchain:792 - Token BWM7YWS0CH is valid
+2025-04-17 08:07:38 [DEBUG] token_auth.verify_token:354 - Token verification completed in 1.6532 seconds
+2025-04-17 08:07:38 [INFO] token_auth.verify_token:357 - Token BWM7YWS0CH is valid
+2025-04-17 08:07:38 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: BWM7YWS0CH | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 08:07:38 [DEBUG] app.after_request:35 - Request 6d68e8c616a6b1f1 processed in 1.6683 seconds
+2025-04-17 08:07:44 [DEBUG] app.after_request:35 - Request b67aefaf03620661 processed in 0.0004 seconds
+2025-04-17 08:07:44 [INFO] token_auth.verify_token:253 - Verifying token: BWM7YWS0CH
+2025-04-17 08:07:44 [DEBUG] token_auth.log_verification_attempt:393 - Verification attempt logged for token: BWM7YWS0CH
+2025-04-17 08:07:44 [DEBUG] token_auth.verify_token:267 - Token exists in database: True
+2025-04-17 08:07:44 [DEBUG] w3_utils.get_token_transaction_details:611 - Attempting to get transaction details for hash: 0b23eac53747d2d7b39334189e23888b2dc3c42fe3dc8c09190e98eb96eec4d6
+2025-04-17 08:07:44 [DEBUG] w3_utils.get_token_transaction_details:637 - Calling web3.eth.get_transaction...
+2025-04-17 08:07:44 [DEBUG] w3_utils.get_token_transaction_details:658 - Getting transaction receipt...
+2025-04-17 08:07:44 [DEBUG] w3_utils.get_token_transaction_details:661 - Getting block details for block number: 8129950
+2025-04-17 08:07:45 [DEBUG] w3_utils.get_token_transaction_details:664 - Successfully retrieved all transaction details
+2025-04-17 08:07:45 [DEBUG] token_auth.verify_token:271 - Blockchain details for token BWM7YWS0CH: {'tx_hash': '0b23eac53747d2d7b39334189e23888b2dc3c42fe3dc8c09190e98eb96eec4d6', 'block_number': 8129950, 'timestamp': 1744801932, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0x13591389EE06948758541b38547a37FB9483F2f4', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 08:07:45 [INFO] w3_utils.verify_token_on_blockchain:717 - Verifying token on blockchain: BWM7YWS0CH
+2025-04-17 08:07:45 [INFO] w3_utils.verify_token_on_blockchain:737 - Verifying token BWM7YWS0CH directly on the blockchain
+2025-04-17 08:07:45 [INFO] w3_utils.call_contract_with_timeout:746 - Calling verifyToken function on smart contract for token: BWM7YWS0CH
+2025-04-17 08:07:45 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-17 08:07:45 [DEBUG] w3_utils.call_contract_with_timeout:759 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\utils.py", line 207, in call_contract_function
+    output_data = w3.codec.decode(output_types, return_data)
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\codec.py", line 162, in decode
+    return cast(Tuple[Any, ...], decoder(stream))
+                                 ~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 131, in __call__
+    return self.decode(stream)
+           ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_utils\functional.py", line 47, in inner
+    return callback(fn(*args, **kwargs))
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 224, in decode
+    self.validate_pointers(stream)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 218, in validate_pointers
+    decoder(stream)
+    ~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 131, in __call__
+    return self.decode(stream)
+           ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 250, in decode
+    raw_data = self.read_data_from_stream(stream)
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 389, in read_data_from_stream
+    raise InsufficientDataBytes(
+    ...<2 lines>...
+    )
+eth_abi.exceptions.InsufficientDataBytes: Tried to read 32 bytes, only got 0 bytes.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "P:\blockchain-id-authentication\PII-Authenticator\backend\w3_utils.py", line 749, in call_contract_with_timeout
+    result = contract.functions.verifyToken(user_token).call()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\contract.py", line 291, in call
+    return call_contract_function(
+        self.w3,
+    ...<11 lines>...
+        **self.kwargs or {},
+    )
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\utils.py", line 225, in call_contract_function
+    raise BadFunctionCallOutput(msg) from e
+web3.exceptions.BadFunctionCallOutput: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+
+2025-04-17 08:07:45 [WARNING] w3_utils.call_contract_with_timeout:762 - Falling back to local verification due to blockchain error
+2025-04-17 08:07:45 [INFO] w3_utils.call_contract_with_timeout:778 - Token BWM7YWS0CH found in tokens.json (fallback)
+2025-04-17 08:07:45 [INFO] w3_utils.verify_token_on_blockchain:792 - Token BWM7YWS0CH is valid
+2025-04-17 08:07:45 [DEBUG] token_auth.verify_token:354 - Token verification completed in 1.5001 seconds
+2025-04-17 08:07:45 [INFO] token_auth.verify_token:357 - Token BWM7YWS0CH is valid
+2025-04-17 08:07:45 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: BWM7YWS0CH | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 08:07:45 [DEBUG] app.after_request:35 - Request aa719b74bc4b5573 processed in 1.5076 seconds
+2025-04-17 08:09:08 [DEBUG] app.after_request:35 - Request ce8603034be97d45 processed in 0.0008 seconds
+2025-04-17 08:09:08 [DEBUG] token_auth.create_user_key:40 - Created user key: Sanjay_2005-01-01_aadhaar_394997069500
+2025-04-17 08:09:08 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: Sanjay_2005-01-01_aadhaar_394997069500
+2025-04-17 08:09:08 [DEBUG] token_auth.generate_unique_token:20 - Generated token: 1P6SK7DW77
+2025-04-17 08:09:08 [DEBUG] token_auth.get_or_generate_token:94 - Generated new token for user key Sanjay_2005-01-01_aadhaar_394997069500: 1P6SK7DW77
+2025-04-17 08:09:08 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: 1P6SK7DW77
+2025-04-17 08:09:09 [DEBUG] w3_utils.store_token_on_blockchain:353 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 28
+2025-04-17 08:09:09 [DEBUG] w3_utils.store_token_on_blockchain:356 - Building transaction for token: 1P6SK7DW77
+2025-04-17 08:09:09 [DEBUG] w3_utils.store_token_on_blockchain:365 - Signing transaction...
+2025-04-17 08:09:09 [DEBUG] w3_utils.store_token_on_blockchain:368 - Sending transaction to network...
+2025-04-17 08:09:09 [INFO] w3_utils.store_token_on_blockchain:372 - Transaction sent: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:09 [DEBUG] w3_utils.store_token_on_blockchain:376 - Waiting for transaction receipt with timeout: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:12 [INFO] w3_utils.store_token_on_blockchain:378 - Receipt received: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:12 [INFO] w3_utils.store_token_on_blockchain:382 - Transaction successful: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:12 [INFO] w3_utils.store_token_on_blockchain:386 - Transaction hash: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:12 [DEBUG] token_auth.get_or_generate_token:105 - Transaction hash for token 1P6SK7DW77: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:12 [DEBUG] token_auth.save_token_to_file:201 - Saving token data: {'token': '1P6SK7DW77', 'file_url': 'https://s3.filebase.com/pii-authenticator-test/1P6SK7DW77.json', 'txn_hash': 'dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7', 'jwt': '7b22616c67223a20224853323536222c2022747970223a20224a5754227d.7b22737562223a202253616e6a61795f323030352d30312d30315f616164686161725f333934393937303639353030222c2022696174223a20313734343835373535327d.216b97305536393f2c8ac3f43bd70cf00fde01bb03ff81a99ae6ed9da5284c4e', 'timestamp': 1744857552.1754863}
+2025-04-17 08:09:12 [INFO] token_auth.save_token_to_file:207 - Token data saved to tokens.json for user key: Sanjay_2005-01-01_aadhaar_394997069500
+2025-04-17 08:09:12 [DEBUG] token_auth.get_or_generate_token:115 - Token generation completed in 3.3563 seconds
+2025-04-17 08:09:12 [INFO] w3_utils.upload_to_filebase:175 - Uploading file 1P6SK7DW77.json to storage...
+2025-04-17 08:09:15 [INFO] .None:0 - ACCESS: /encrypt | User: sanjay | Token: 1P6SK7DW77 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/1P6SK7DW77.json
+2025-04-17 08:09:15 [DEBUG] app.encrypt:143 - Returning transaction hash: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:15 [INFO] app.encrypt:152 - Final transaction hash being returned: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:15 [DEBUG] app.after_request:35 - Request 28faf5d448fa8065 processed in 6.7721 seconds
+2025-04-17 08:09:53 [DEBUG] app.after_request:35 - Request 779b6157a2280658 processed in 0.0003 seconds
+2025-04-17 08:09:53 [INFO] token_auth.verify_token:253 - Verifying token: 1P6SK7DW77
+2025-04-17 08:09:53 [DEBUG] token_auth.log_verification_attempt:393 - Verification attempt logged for token: 1P6SK7DW77
+2025-04-17 08:09:53 [DEBUG] token_auth.verify_token:267 - Token exists in database: True
+2025-04-17 08:09:53 [DEBUG] w3_utils.get_token_transaction_details:611 - Attempting to get transaction details for hash: dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7
+2025-04-17 08:09:54 [DEBUG] w3_utils.get_token_transaction_details:637 - Calling web3.eth.get_transaction...
+2025-04-17 08:09:54 [DEBUG] w3_utils.get_token_transaction_details:658 - Getting transaction receipt...
+2025-04-17 08:09:54 [DEBUG] w3_utils.get_token_transaction_details:661 - Getting block details for block number: 8134302
+2025-04-17 08:09:54 [DEBUG] w3_utils.get_token_transaction_details:664 - Successfully retrieved all transaction details
+2025-04-17 08:09:54 [DEBUG] token_auth.verify_token:271 - Blockchain details for token 1P6SK7DW77: {'tx_hash': 'dbe572ef28faa518d476e3dd372b17939c5757e0dd8ebffbdc0c6acabbe984f7', 'block_number': 8134302, 'timestamp': 1744857552, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0x13591389EE06948758541b38547a37FB9483F2f4', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 08:09:54 [INFO] w3_utils.verify_token_on_blockchain:717 - Verifying token on blockchain: 1P6SK7DW77
+2025-04-17 08:09:54 [INFO] w3_utils.verify_token_on_blockchain:737 - Verifying token 1P6SK7DW77 directly on the blockchain
+2025-04-17 08:09:54 [INFO] w3_utils.call_contract_with_timeout:746 - Calling verifyToken function on smart contract for token: 1P6SK7DW77
+2025-04-17 08:09:56 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-17 08:09:56 [DEBUG] w3_utils.call_contract_with_timeout:759 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\utils.py", line 207, in call_contract_function
+    output_data = w3.codec.decode(output_types, return_data)
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\codec.py", line 162, in decode
+    return cast(Tuple[Any, ...], decoder(stream))
+                                 ~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 131, in __call__
+    return self.decode(stream)
+           ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_utils\functional.py", line 47, in inner
+    return callback(fn(*args, **kwargs))
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 224, in decode
+    self.validate_pointers(stream)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 218, in validate_pointers
+    decoder(stream)
+    ~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 131, in __call__
+    return self.decode(stream)
+           ~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 250, in decode
+    raw_data = self.read_data_from_stream(stream)
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\eth_abi\decoding.py", line 389, in read_data_from_stream
+    raise InsufficientDataBytes(
+    ...<2 lines>...
+    )
+eth_abi.exceptions.InsufficientDataBytes: Tried to read 32 bytes, only got 0 bytes.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "P:\blockchain-id-authentication\PII-Authenticator\backend\w3_utils.py", line 749, in call_contract_with_timeout
+    result = contract.functions.verifyToken(user_token).call()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\contract.py", line 291, in call
+    return call_contract_function(
+        self.w3,
+    ...<11 lines>...
+        **self.kwargs or {},
+    )
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\web3\contract\utils.py", line 225, in call_contract_function
+    raise BadFunctionCallOutput(msg) from e
+web3.exceptions.BadFunctionCallOutput: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+
+2025-04-17 08:09:56 [WARNING] w3_utils.call_contract_with_timeout:762 - Falling back to local verification due to blockchain error
+2025-04-17 08:09:56 [INFO] w3_utils.call_contract_with_timeout:778 - Token 1P6SK7DW77 found in tokens.json (fallback)
+2025-04-17 08:09:56 [INFO] w3_utils.verify_token_on_blockchain:792 - Token 1P6SK7DW77 is valid
+2025-04-17 08:09:56 [DEBUG] token_auth.verify_token:354 - Token verification completed in 2.7236 seconds
+2025-04-17 08:09:56 [INFO] token_auth.verify_token:357 - Token 1P6SK7DW77 is valid
+2025-04-17 08:09:56 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: 1P6SK7DW77 | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 08:09:56 [DEBUG] app.after_request:35 - Request 4ae71ddde02cde16 processed in 2.7294 seconds
+2025-04-17 11:32:19 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 11:32:20 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 11:32:20 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 11:32:20 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 11:32:21 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 11:32:23 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 11:32:23 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 11:32:23 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 11:32:23 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 11:32:23 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 11:39:12 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 11:39:13 [INFO] w3_utils.<module>:51 - Running in development mode with simulated blockchain (forced by environment variable)
+2025-04-17 11:39:13 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 11:39:13 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 11:39:13 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 11:39:14 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 11:39:15 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 11:39:16 [INFO] w3_utils.<module>:51 - Running in development mode with simulated blockchain (forced by environment variable)
+2025-04-17 11:39:16 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 11:39:16 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 11:39:16 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 11:39:16 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:26:38 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:26:39 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:26:39 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:26:40 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:26:42 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:26:50 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:26:52 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:26:52 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:26:53 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:26:54 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:27:36 [DEBUG] app.after_request:35 - Request 45116fb698d9d353 processed in 0.0003 seconds
+2025-04-17 18:27:36 [DEBUG] token_auth.create_user_key:40 - Created user key: hello_2006-02-26_aadhaar_41234689512015
+2025-04-17 18:27:36 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: hello_2006-02-26_aadhaar_41234689512015
+2025-04-17 18:27:36 [DEBUG] token_auth.generate_unique_token:20 - Generated token: YEMINCU080
+2025-04-17 18:27:36 [DEBUG] token_auth.get_or_generate_token:94 - Generated new token for user key hello_2006-02-26_aadhaar_41234689512015: YEMINCU080
+2025-04-17 18:27:36 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: YEMINCU080
+2025-04-17 18:27:37 [DEBUG] w3_utils.store_token_on_blockchain:353 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 30
+2025-04-17 18:27:37 [DEBUG] w3_utils.store_token_on_blockchain:356 - Building transaction for token: YEMINCU080
+2025-04-17 18:27:38 [DEBUG] w3_utils.store_token_on_blockchain:365 - Signing transaction...
+2025-04-17 18:27:38 [DEBUG] w3_utils.store_token_on_blockchain:368 - Sending transaction to network...
+2025-04-17 18:27:38 [INFO] w3_utils.store_token_on_blockchain:372 - Transaction sent: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:38 [DEBUG] w3_utils.store_token_on_blockchain:376 - Waiting for transaction receipt with timeout: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:53 [WARNING] w3_utils.store_token_on_blockchain:393 - Timeout waiting for receipt, but transaction was sent: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:53 [WARNING] w3_utils.store_token_on_blockchain:394 - Error: Transaction HexBytes('0x777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9') is not in the chain after 15 seconds
+2025-04-17 18:27:54 [INFO] w3_utils.store_token_on_blockchain:400 - Transaction hash: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:54 [DEBUG] token_auth.get_or_generate_token:105 - Transaction hash for token YEMINCU080: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:54 [DEBUG] token_auth.save_token_to_file:201 - Saving token data: {'token': 'YEMINCU080', 'file_url': 'https://s3.filebase.com/pii-authenticator-test/YEMINCU080.json', 'txn_hash': '777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9', 'jwt': '7b22616c67223a20224853323536222c2022747970223a20224a5754227d.7b22737562223a202268656c6c6f5f323030362d30322d32365f616164686161725f3431323334363839353132303135222c2022696174223a20313734343839343637347d.95e808f19524b99fb26027e80900d054da073e3a99cd59f995404952943104e7', 'timestamp': 1744894674.728385}
+2025-04-17 18:27:54 [INFO] token_auth.save_token_to_file:207 - Token data saved to tokens.json for user key: hello_2006-02-26_aadhaar_41234689512015
+2025-04-17 18:27:54 [DEBUG] token_auth.get_or_generate_token:115 - Token generation completed in 18.2591 seconds
+2025-04-17 18:27:54 [INFO] w3_utils.upload_to_filebase:175 - Uploading file YEMINCU080.json to storage...
+2025-04-17 18:27:58 [INFO] .None:0 - ACCESS: /encrypt | User: hello | Token: YEMINCU080 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/YEMINCU080.json
+2025-04-17 18:27:58 [DEBUG] app.encrypt:143 - Returning transaction hash: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:58 [INFO] app.encrypt:152 - Final transaction hash being returned: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:27:58 [DEBUG] app.after_request:35 - Request 2b74d10ca54a1199 processed in 22.3142 seconds
+2025-04-17 18:28:11 [DEBUG] app.after_request:35 - Request fa624f97279e904a processed in 0.0002 seconds
+2025-04-17 18:28:11 [INFO] token_auth.verify_token:253 - Verifying token: YEMINCU080
+2025-04-17 18:28:11 [DEBUG] token_auth.log_verification_attempt:393 - Verification attempt logged for token: YEMINCU080
+2025-04-17 18:28:11 [DEBUG] token_auth.verify_token:267 - Token exists in database: True
+2025-04-17 18:28:11 [DEBUG] w3_utils.get_token_transaction_details:611 - Attempting to get transaction details for hash: 777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9
+2025-04-17 18:28:12 [DEBUG] w3_utils.get_token_transaction_details:637 - Calling web3.eth.get_transaction...
+2025-04-17 18:28:12 [DEBUG] w3_utils.get_token_transaction_details:658 - Getting transaction receipt...
+2025-04-17 18:28:12 [DEBUG] w3_utils.get_token_transaction_details:661 - Getting block details for block number: 8137125
+2025-04-17 18:28:13 [DEBUG] w3_utils.get_token_transaction_details:664 - Successfully retrieved all transaction details
+2025-04-17 18:28:13 [DEBUG] token_auth.verify_token:271 - Blockchain details for token YEMINCU080: {'tx_hash': '777dd320083363b758e95400d1c9c4e0aeb1dafe8276883766de56b29e34abb9', 'block_number': 8137125, 'timestamp': 1744894680, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 18:28:13 [INFO] w3_utils.verify_token_on_blockchain:717 - Verifying token on blockchain: YEMINCU080
+2025-04-17 18:28:13 [INFO] w3_utils.verify_token_on_blockchain:737 - Verifying token YEMINCU080 directly on the blockchain
+2025-04-17 18:28:13 [INFO] w3_utils.call_contract_with_timeout:746 - Calling verifyToken function on smart contract for token: YEMINCU080
+2025-04-17 18:28:14 [INFO] w3_utils.verify_token_on_blockchain:792 - Token YEMINCU080 is valid
+2025-04-17 18:28:14 [DEBUG] token_auth.verify_token:354 - Token verification completed in 3.2311 seconds
+2025-04-17 18:28:14 [INFO] token_auth.verify_token:357 - Token YEMINCU080 is valid
+2025-04-17 18:28:14 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: YEMINCU080 | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 18:28:14 [DEBUG] app.after_request:35 - Request f39948f01aaabddd processed in 3.2346 seconds
+2025-04-17 18:34:08 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:34:09 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:34:09 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:34:09 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:34:09 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:34:09 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:34:09 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:34:10 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:34:10 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:34:10 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:34:13 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:34:14 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:34:14 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:34:14 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:34:14 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:39:25 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:39:26 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:39:26 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:39:26 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:39:27 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:41:06 [DEBUG] app.after_request:35 - Request 4dee3df7c9805720 processed in 0.0005 seconds
+2025-04-17 18:41:06 [DEBUG] token_auth.create_user_key:40 - Created user key: nfeknef_2005-02-26_aadhaar_657651018046574561
+2025-04-17 18:41:06 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: nfeknef_2005-02-26_aadhaar_657651018046574561
+2025-04-17 18:41:06 [DEBUG] token_auth.generate_unique_token:20 - Generated token: XP44H8ROWE
+2025-04-17 18:41:06 [DEBUG] token_auth.get_or_generate_token:94 - Generated new token for user key nfeknef_2005-02-26_aadhaar_657651018046574561: XP44H8ROWE
+2025-04-17 18:41:06 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: XP44H8ROWE
+2025-04-17 18:41:07 [DEBUG] w3_utils.store_token_on_blockchain:344 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 31
+2025-04-17 18:41:07 [DEBUG] w3_utils.store_token_on_blockchain:347 - Building transaction for token: XP44H8ROWE
+2025-04-17 18:41:07 [DEBUG] w3_utils.store_token_on_blockchain:356 - Signing transaction...
+2025-04-17 18:41:07 [DEBUG] w3_utils.store_token_on_blockchain:359 - Sending transaction to network...
+2025-04-17 18:41:07 [INFO] w3_utils.store_token_on_blockchain:363 - Transaction sent: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:07 [DEBUG] w3_utils.store_token_on_blockchain:367 - Waiting for transaction receipt with timeout: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:11 [INFO] w3_utils.store_token_on_blockchain:369 - Receipt received: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:11 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction successful: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:11 [INFO] w3_utils.store_token_on_blockchain:377 - Transaction hash: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:11 [DEBUG] token_auth.get_or_generate_token:105 - Transaction hash for token XP44H8ROWE: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:11 [DEBUG] token_auth.save_token_to_file:201 - Saving token data: {'token': 'XP44H8ROWE', 'file_url': 'https://s3.filebase.com/pii-authenticator-test/XP44H8ROWE.json', 'txn_hash': 'd7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c', 'jwt': '7b22616c67223a20224853323536222c2022747970223a20224a5754227d.7b22737562223a20226e66656b6e65665f323030352d30322d32365f616164686161725f363537363531303138303436353734353631222c2022696174223a20313734343839353437317d.abd95fbdf9fe3d8b0e8a93e171bb2d53332df142209b646838c772b0a1672db1', 'timestamp': 1744895471.534821}
+2025-04-17 18:41:11 [INFO] token_auth.save_token_to_file:207 - Token data saved to tokens.json for user key: nfeknef_2005-02-26_aadhaar_657651018046574561
+2025-04-17 18:41:11 [DEBUG] token_auth.get_or_generate_token:115 - Token generation completed in 4.8191 seconds
+2025-04-17 18:41:11 [INFO] w3_utils.upload_to_filebase:175 - Uploading file XP44H8ROWE.json to storage...
+2025-04-17 18:41:13 [INFO] .None:0 - ACCESS: /encrypt | User: nfeknef | Token: XP44H8ROWE | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/XP44H8ROWE.json
+2025-04-17 18:41:13 [DEBUG] app.encrypt:143 - Returning transaction hash: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:13 [INFO] app.encrypt:152 - Final transaction hash being returned: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:13 [DEBUG] app.after_request:35 - Request 9b0b8d895020eb54 processed in 6.6946 seconds
+2025-04-17 18:41:43 [DEBUG] app.after_request:35 - Request 2f962093ce34c3a2 processed in 0.0005 seconds
+2025-04-17 18:41:43 [INFO] token_auth.verify_token:253 - Verifying token: XP44H8ROWE
+2025-04-17 18:41:43 [DEBUG] token_auth.log_verification_attempt:393 - Verification attempt logged for token: XP44H8ROWE
+2025-04-17 18:41:43 [DEBUG] token_auth.verify_token:267 - Token exists in database: True
+2025-04-17 18:41:43 [DEBUG] w3_utils.get_token_transaction_details:602 - Attempting to get transaction details for hash: d7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c
+2025-04-17 18:41:44 [DEBUG] w3_utils.get_token_transaction_details:628 - Calling web3.eth.get_transaction...
+2025-04-17 18:41:44 [DEBUG] w3_utils.get_token_transaction_details:649 - Getting transaction receipt...
+2025-04-17 18:41:44 [DEBUG] w3_utils.get_token_transaction_details:652 - Getting block details for block number: 8137186
+2025-04-17 18:41:44 [DEBUG] w3_utils.get_token_transaction_details:655 - Successfully retrieved all transaction details
+2025-04-17 18:41:44 [DEBUG] token_auth.verify_token:271 - Blockchain details for token XP44H8ROWE: {'tx_hash': 'd7d6506bc42efe31a7ae266f0471ddbb1136e27314f76c7d008fffea0a3abc9c', 'block_number': 8137186, 'timestamp': 1744895472, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 18:41:44 [INFO] w3_utils.verify_token_on_blockchain:708 - Verifying token on blockchain: XP44H8ROWE
+2025-04-17 18:41:44 [INFO] w3_utils.verify_token_on_blockchain:728 - Verifying token XP44H8ROWE directly on the blockchain
+2025-04-17 18:41:44 [INFO] w3_utils.call_contract_with_timeout:737 - Calling verifyToken function on smart contract for token: XP44H8ROWE
+2025-04-17 18:41:45 [INFO] w3_utils.verify_token_on_blockchain:783 - Token XP44H8ROWE is valid
+2025-04-17 18:41:45 [DEBUG] token_auth.verify_token:354 - Token verification completed in 1.4559 seconds
+2025-04-17 18:41:45 [INFO] token_auth.verify_token:357 - Token XP44H8ROWE is valid
+2025-04-17 18:41:45 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: XP44H8ROWE | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 18:41:45 [DEBUG] app.after_request:35 - Request 6c16c642c09a1c1b processed in 1.4665 seconds
+2025-04-17 18:58:15 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:58:15 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:58:15 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:58:16 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:58:17 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 18:58:22 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 18:58:23 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 18:58:23 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 18:58:23 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 18:58:24 [INFO] app.<module>:448 - Starting PII Authenticator backend server
+2025-04-17 19:00:06 [DEBUG] app.after_request:35 - Request ac962713855a2e4a processed in 0.0015 seconds
+2025-04-17 19:00:06 [DEBUG] token_auth.create_user_key:40 - Created user key: iyfhjf_2005-02-26_aadhaar_67343573537357
+2025-04-17 19:00:06 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: iyfhjf_2005-02-26_aadhaar_67343573537357
+2025-04-17 19:00:06 [DEBUG] token_auth.generate_unique_token:20 - Generated token: SHNBPX7ZW2
+2025-04-17 19:00:06 [DEBUG] token_auth.get_or_generate_token:94 - Generated new token for user key iyfhjf_2005-02-26_aadhaar_67343573537357: SHNBPX7ZW2
+2025-04-17 19:00:06 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: SHNBPX7ZW2
+2025-04-17 19:00:06 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-17 19:00:06 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 32
+2025-04-17 19:00:06 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: SHNBPX7ZW2
+2025-04-17 19:00:07 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-17 19:00:07 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-17 19:00:07 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:07 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:11 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:11 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:11 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:11 [DEBUG] token_auth.get_or_generate_token:105 - Transaction hash for token SHNBPX7ZW2: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:11 [DEBUG] token_auth.save_token_to_file:201 - Saving token data: {'token': 'SHNBPX7ZW2', 'file_url': 'https://s3.filebase.com/pii-authenticator-test/SHNBPX7ZW2.json', 'txn_hash': '83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090', 'jwt': '7b22616c67223a20224853323536222c2022747970223a20224a5754227d.7b22737562223a2022697966686a665f323030352d30322d32365f616164686161725f3637333433353733353337333537222c2022696174223a20313734343839363631317d.05bb852a1d9e975818fd652b1344c0efa9a506b3d4ac196e4f31a70b0231baa7', 'timestamp': 1744896611.7666283}
+2025-04-17 19:00:11 [INFO] token_auth.save_token_to_file:207 - Token data saved to tokens.json for user key: iyfhjf_2005-02-26_aadhaar_67343573537357
+2025-04-17 19:00:11 [DEBUG] token_auth.get_or_generate_token:115 - Token generation completed in 5.3944 seconds
+2025-04-17 19:00:11 [INFO] w3_utils.upload_to_filebase:175 - Uploading file SHNBPX7ZW2.json to storage...
+2025-04-17 19:00:14 [INFO] .None:0 - ACCESS: /encrypt | User: iyfhjf | Token: SHNBPX7ZW2 | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/SHNBPX7ZW2.json
+2025-04-17 19:00:14 [DEBUG] app.encrypt:143 - Returning transaction hash: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:14 [INFO] app.encrypt:152 - Final transaction hash being returned: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:14 [DEBUG] app.after_request:35 - Request cf31abbcf85ab277 processed in 8.4952 seconds
+2025-04-17 19:00:46 [DEBUG] app.after_request:35 - Request 4bd7ab0264f0eea6 processed in 0.0004 seconds
+2025-04-17 19:00:46 [INFO] token_auth.verify_token:253 - Verifying token: SHNBPX7ZW2
+2025-04-17 19:00:46 [DEBUG] token_auth.log_verification_attempt:393 - Verification attempt logged for token: SHNBPX7ZW2
+2025-04-17 19:00:46 [DEBUG] token_auth.verify_token:267 - Token exists in database: True
+2025-04-17 19:00:46 [DEBUG] w3_utils.get_token_transaction_details:589 - Attempting to get transaction details for hash: 83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090
+2025-04-17 19:00:46 [DEBUG] w3_utils.get_token_transaction_details:615 - Calling web3.eth.get_transaction...
+2025-04-17 19:00:46 [DEBUG] w3_utils.get_token_transaction_details:636 - Getting transaction receipt...
+2025-04-17 19:00:46 [DEBUG] w3_utils.get_token_transaction_details:639 - Getting block details for block number: 8137277
+2025-04-17 19:00:47 [DEBUG] w3_utils.get_token_transaction_details:642 - Successfully retrieved all transaction details
+2025-04-17 19:00:47 [DEBUG] token_auth.verify_token:271 - Blockchain details for token SHNBPX7ZW2: {'tx_hash': '83a9af54f4d11c4139e6e07397adbc50537e9cb02cd3ce2e0c5e580bf34c2090', 'block_number': 8137277, 'timestamp': 1744896612, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 19:00:47 [INFO] w3_utils.verify_token_on_blockchain:695 - Verifying token on blockchain: SHNBPX7ZW2
+2025-04-17 19:00:47 [INFO] w3_utils.verify_token_on_blockchain:715 - Verifying token SHNBPX7ZW2 directly on the blockchain
+2025-04-17 19:00:47 [INFO] w3_utils.call_contract_with_timeout:724 - Calling verifyToken function on smart contract for token: SHNBPX7ZW2
+2025-04-17 19:00:47 [INFO] w3_utils.verify_token_on_blockchain:770 - Token SHNBPX7ZW2 is valid
+2025-04-17 19:00:47 [DEBUG] token_auth.verify_token:354 - Token verification completed in 1.6930 seconds
+2025-04-17 19:00:47 [INFO] token_auth.verify_token:357 - Token SHNBPX7ZW2 is valid
+2025-04-17 19:00:47 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: SHNBPX7ZW2 | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 19:00:47 [DEBUG] app.after_request:35 - Request 0557f6d5f9243b31 processed in 1.7062 seconds
+2025-04-17 19:41:17 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 19:41:18 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 19:41:18 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 19:41:18 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 19:41:18 [INFO] app.<module>:783 - Starting PII Authenticator backend server
+2025-04-17 19:41:20 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 19:41:20 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 19:41:20 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 19:41:21 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 19:41:21 [INFO] app.<module>:783 - Starting PII Authenticator backend server
+2025-04-17 19:45:30 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 19:45:32 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 19:45:32 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 19:45:32 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 19:45:32 [INFO] app.<module>:783 - Starting PII Authenticator backend server
+2025-04-17 19:45:33 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 19:45:34 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 19:45:34 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 19:45:34 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 19:45:34 [INFO] app.<module>:783 - Starting PII Authenticator backend server
+2025-04-17 19:45:45 [INFO] user_auth.register_user:50 - Registering new user: test@example.com
+2025-04-17 19:45:45 [INFO] user_auth.register_user:104 - User user_1744899345_42fefbc8 registered successfully
+2025-04-17 19:45:45 [DEBUG] app.after_request:38 - Request 8cbbbe48c57b5847 processed in 0.0511 seconds
+2025-04-17 19:46:21 [INFO] user_auth.login_user:121 - Login attempt for user: test@example.com
+2025-04-17 19:46:21 [INFO] user_auth.login_user:166 - User test@example.com logged in successfully
+2025-04-17 19:46:21 [DEBUG] app.after_request:38 - Request adc40e9bf26a0012 processed in 0.0365 seconds
+2025-04-17 19:49:10 [DEBUG] app.after_request:38 - Request 922771584cb9d328 processed in 0.0022 seconds
+2025-04-17 19:49:10 [INFO] user_auth.register_user:50 - Registering new user: prajwalkr3105@gmail.com
+2025-04-17 19:49:10 [INFO] user_auth.register_user:104 - User user_1744899550_a537e4f4 registered successfully
+2025-04-17 19:49:10 [DEBUG] app.after_request:38 - Request 0cb08302d827a20b processed in 0.0718 seconds
+2025-04-17 19:49:51 [DEBUG] app.after_request:38 - Request d3286aa0bb653669 processed in 0.0006 seconds
+2025-04-17 19:49:51 [DEBUG] token_auth.create_user_key:40 - Created user key: prajwal_k_r_2005-02-26_aadhaar_860097240509
+2025-04-17 19:49:51 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: prajwal_k_r_2005-02-26_aadhaar_860097240509
+2025-04-17 19:49:51 [INFO] token_auth.get_or_generate_token:89 - Found existing token for user key prajwal_k_r_2005-02-26_aadhaar_860097240509: UF6PPE8T4L
+2025-04-17 19:49:51 [INFO] .None:0 - ACCESS: /encrypt | User: prajwal_k_r | Token: UF6PPE8T4L | IP: 127.0.0.1 | Status: success | Details: Existing token retrieved for user
+2025-04-17 19:49:51 [DEBUG] app.after_request:38 - Request 2b386c81d06aa904 processed in 0.0069 seconds
+2025-04-17 19:50:58 [DEBUG] app.after_request:38 - Request 7c35ade8ac75199b processed in 0.0003 seconds
+2025-04-17 19:50:58 [INFO] token_auth.verify_token:260 - Verifying token: UF6PPE8T4L
+2025-04-17 19:50:58 [DEBUG] token_auth.log_verification_attempt:400 - Verification attempt logged for token: UF6PPE8T4L
+2025-04-17 19:50:58 [DEBUG] token_auth.verify_token:274 - Token exists in database: True
+2025-04-17 19:50:58 [DEBUG] w3_utils.get_token_transaction_details:587 - Attempting to get transaction details for hash: 0xSIM_7a24f2b040f9b7d377bf24e35c38a522f9412158f9308031e29f8b2ff336dc
+2025-04-17 19:50:58 [INFO] w3_utils.get_token_transaction_details:591 - Transaction 0xSIM_7a24f2b040f9b7d377bf24e35c38a522f9412158f9308031e29f8b2ff336dc is a simulated hash
+2025-04-17 19:50:58 [DEBUG] token_auth.verify_token:278 - Blockchain details for token UF6PPE8T4L: {'tx_hash': '0xSIM_7a24f2b040f9b7d377bf24e35c38a522f9412158f9308031e29f8b2ff336dc', 'network': 'Sepolia Testnet (simulated)', 'status': 'simulated', 'timestamp': 1744899658, 'dev_mode_message': 'This is a simulated transaction for development purposes. No actual blockchain transaction was created.'}
+2025-04-17 19:50:58 [INFO] w3_utils.verify_token_on_blockchain:693 - Verifying token on blockchain: UF6PPE8T4L
+2025-04-17 19:50:58 [INFO] w3_utils.verify_token_on_blockchain:713 - Verifying token UF6PPE8T4L directly on the blockchain
+2025-04-17 19:50:58 [INFO] w3_utils.call_contract_with_timeout:722 - Calling verifyToken function on smart contract for token: UF6PPE8T4L
+2025-04-17 19:50:59 [INFO] w3_utils.verify_token_on_blockchain:768 - Token UF6PPE8T4L is invalid
+2025-04-17 19:50:59 [WARNING] token_auth.verify_token:357 - Token UF6PPE8T4L exists in database but blockchain verification failed. Considering it valid.
+2025-04-17 19:50:59 [DEBUG] token_auth.verify_token:361 - Token verification completed in 1.0314 seconds
+2025-04-17 19:50:59 [INFO] token_auth.verify_token:364 - Token UF6PPE8T4L is valid
+2025-04-17 19:50:59 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: UF6PPE8T4L | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 19:50:59 [DEBUG] app.after_request:38 - Request b0a06a0a2e2f9f10 processed in 1.0342 seconds
+2025-04-17 19:52:48 [DEBUG] app.after_request:38 - Request 8131fe04e8688134 processed in 0.0003 seconds
+2025-04-17 19:52:48 [INFO] company_auth.register_company:51 - Registering new company: EDITH
+2025-04-17 19:52:48 [INFO] company_auth.register_company:112 - Company company_1744899768_2c3b924e registered successfully
+2025-04-17 19:52:48 [DEBUG] app.after_request:38 - Request b3ab046d839afe71 processed in 0.0719 seconds
+2025-04-17 19:52:48 [DEBUG] app.after_request:38 - Request c8ac74ee6aea4305 processed in 0.0001 seconds
+2025-04-17 19:52:48 [DEBUG] app.after_request:38 - Request b1346edeac5df811 processed in 0.0002 seconds
+2025-04-17 19:52:48 [INFO] company_auth.get_validation_stats:381 - Getting validation stats for company company_1234
+2025-04-17 19:52:48 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-17 19:52:48 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-17 19:52:48 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-17 19:52:48 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-17 19:52:48 [DEBUG] app.after_request:38 - Request 538bc8e5055ac7ae processed in 0.0045 seconds
+2025-04-17 19:52:48 [DEBUG] app.after_request:38 - Request 9bb13dafe6692585 processed in 0.0016 seconds
+2025-04-17 19:53:42 [DEBUG] app.after_request:38 - Request 93ba505b8145f119 processed in 0.0005 seconds
+2025-04-17 19:53:42 [INFO] token_auth.verify_token:260 - Verifying token: PHRCT1DVJ1
+2025-04-17 19:53:42 [DEBUG] token_auth.log_verification_attempt:400 - Verification attempt logged for token: PHRCT1DVJ1
+2025-04-17 19:53:42 [DEBUG] token_auth.verify_token:274 - Token exists in database: False
+2025-04-17 19:53:42 [DEBUG] token_auth.verify_token:278 - Blockchain details for token PHRCT1DVJ1: {'error_message': 'No transaction hash found for this token. The token may not have been stored on the blockchain yet.'}
+2025-04-17 19:53:42 [INFO] w3_utils.verify_token_on_blockchain:693 - Verifying token on blockchain: PHRCT1DVJ1
+2025-04-17 19:53:42 [INFO] w3_utils.verify_token_on_blockchain:713 - Verifying token PHRCT1DVJ1 directly on the blockchain
+2025-04-17 19:53:42 [INFO] w3_utils.call_contract_with_timeout:722 - Calling verifyToken function on smart contract for token: PHRCT1DVJ1
+2025-04-17 19:53:43 [INFO] w3_utils.verify_token_on_blockchain:768 - Token PHRCT1DVJ1 is invalid
+2025-04-17 19:53:43 [DEBUG] token_auth.verify_token:361 - Token verification completed in 0.8794 seconds
+2025-04-17 19:53:43 [INFO] token_auth.verify_token:366 - Token PHRCT1DVJ1 is invalid
+2025-04-17 19:53:43 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: validation_company_1744899768_2c3b924e_PHRCT1DVJ1_1744899823
+2025-04-17 19:53:43 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-17 19:53:43 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 33
+2025-04-17 19:53:43 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: validation_company_1744899768_2c3b924e_PHRCT1DVJ1_1744899823
+2025-04-17 19:53:44 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-17 19:53:44 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-17 19:53:44 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 0902236fb9a91f10ee724ef7a2fb6ef1d478195ccaf9eb0a5fd37753f2da613c
+2025-04-17 19:53:44 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 0902236fb9a91f10ee724ef7a2fb6ef1d478195ccaf9eb0a5fd37753f2da613c
+2025-04-17 19:53:49 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 0902236fb9a91f10ee724ef7a2fb6ef1d478195ccaf9eb0a5fd37753f2da613c
+2025-04-17 19:53:49 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 0902236fb9a91f10ee724ef7a2fb6ef1d478195ccaf9eb0a5fd37753f2da613c
+2025-04-17 19:53:49 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 0902236fb9a91f10ee724ef7a2fb6ef1d478195ccaf9eb0a5fd37753f2da613c
+2025-04-17 19:53:49 [INFO] company_auth.add_validation:229 - Adding validation for company company_1744899768_2c3b924e
+2025-04-17 19:53:49 [INFO] company_auth.add_validation:262 - Validation val_1744899829_8fdfe26b added successfully
+2025-04-17 19:53:49 [INFO] company_auth.add_validation_to_company:310 - Validation val_1744899829_8fdfe26b added to company company_1744899768_2c3b924e
+2025-04-17 19:53:49 [DEBUG] app.after_request:38 - Request b0c37e8e31eb3174 processed in 7.1629 seconds
+2025-04-17 20:00:13 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 20:00:13 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 20:00:13 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 20:00:14 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 20:00:14 [INFO] app.<module>:855 - Starting PII Authenticator backend server
+2025-04-17 20:00:43 [DEBUG] app.after_request:38 - Request e3a4c84827b6946f processed in 0.0001 seconds
+2025-04-17 20:00:43 [INFO] company_auth.login_company:129 - Login attempt for company: 22btcs126@gcu.edu.in
+2025-04-17 20:00:43 [INFO] company_auth.login_company:175 - Company 22btcs126@gcu.edu.in logged in successfully
+2025-04-17 20:00:43 [DEBUG] app.after_request:38 - Request beb8fb24b28ad2aa processed in 0.0371 seconds
+2025-04-17 20:00:43 [DEBUG] app.after_request:38 - Request b1caea87f9edd288 processed in 0.0002 seconds
+2025-04-17 20:00:43 [DEBUG] app.after_request:38 - Request 24bdc0a63eadf25b processed in 0.0001 seconds
+2025-04-17 20:00:43 [INFO] company_auth.get_validation_stats:381 - Getting validation stats for company company_1234
+2025-04-17 20:00:43 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-17 20:00:43 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-17 20:00:43 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-17 20:00:43 [DEBUG] app.after_request:38 - Request a0af0e571f9d944c processed in 0.0007 seconds
+2025-04-17 20:00:43 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-17 20:00:43 [DEBUG] app.after_request:38 - Request 841b547e46add348 processed in 0.0026 seconds
+2025-04-17 20:00:46 [DEBUG] app.after_request:38 - Request 47248b3365b63cff processed in 0.0001 seconds
+2025-04-17 20:00:46 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-17 20:00:46 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-17 20:00:46 [DEBUG] app.after_request:38 - Request 1cb557e9df8f69d5 processed in 0.0012 seconds
+2025-04-17 20:00:50 [DEBUG] app.after_request:38 - Request 7e3d274395b3b00a processed in 0.0004 seconds
+2025-04-17 20:00:50 [WARNING] company_auth.get_company_by_id:202 - Company with ID company_1234 not found
+2025-04-17 20:00:50 [DEBUG] app.after_request:38 - Request e9f51a2510e78ef4 processed in 0.0019 seconds
+2025-04-17 20:01:21 [DEBUG] app.after_request:38 - Request 8c9a4c071428ac50 processed in 0.0001 seconds
+2025-04-17 20:01:21 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-17 20:01:21 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-17 20:01:21 [DEBUG] app.after_request:38 - Request cf00274a21737474 processed in 0.0013 seconds
+2025-04-17 20:01:29 [DEBUG] app.after_request:38 - Request 18f623b27f63f5cc processed in 0.0002 seconds
+2025-04-17 20:01:29 [DEBUG] app.after_request:38 - Request 487bb2e3601afd8e processed in 0.0001 seconds
+2025-04-17 20:01:29 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-17 20:01:29 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-17 20:01:29 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-17 20:01:29 [DEBUG] app.after_request:38 - Request d79203517a01ed45 processed in 0.0016 seconds
+2025-04-17 20:01:29 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-17 20:01:29 [DEBUG] app.after_request:38 - Request 783d8e3ab21acb29 processed in 0.0053 seconds
+2025-04-17 20:02:50 [DEBUG] app.after_request:38 - Request 58f0a85d73bebac2 processed in 0.0001 seconds
+2025-04-17 20:02:50 [DEBUG] token_auth.create_user_key:40 - Created user key: prajwal_k_r_2005-02-26_aadhaar_860097240509
+2025-04-17 20:02:50 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: prajwal_k_r_2005-02-26_aadhaar_860097240509
+2025-04-17 20:02:50 [INFO] token_auth.get_or_generate_token:89 - Found existing token for user key prajwal_k_r_2005-02-26_aadhaar_860097240509: UF6PPE8T4L
+2025-04-17 20:02:50 [INFO] .None:0 - ACCESS: /encrypt | User: prajwal_k_r | Token: UF6PPE8T4L | IP: 127.0.0.1 | Status: success | Details: Existing token retrieved for user
+2025-04-17 20:02:50 [DEBUG] app.after_request:38 - Request 1ff0d0d13719aac2 processed in 0.0057 seconds
+2025-04-17 20:02:59 [DEBUG] app.after_request:38 - Request 6d482aeaf082327f processed in 0.0001 seconds
+2025-04-17 20:02:59 [DEBUG] token_auth.create_user_key:40 - Created user key: prajwal_k_r_2005-02-26_aadhaar_8600972405095
+2025-04-17 20:02:59 [INFO] token_auth.get_or_generate_token:56 - Checking/generating token for user key: prajwal_k_r_2005-02-26_aadhaar_8600972405095
+2025-04-17 20:02:59 [DEBUG] token_auth.generate_unique_token:20 - Generated token: 6ZKM0E45XI
+2025-04-17 20:02:59 [DEBUG] token_auth.get_or_generate_token:94 - Generated new token for user key prajwal_k_r_2005-02-26_aadhaar_8600972405095: 6ZKM0E45XI
+2025-04-17 20:02:59 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: 6ZKM0E45XI
+2025-04-17 20:02:59 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-17 20:02:59 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 34
+2025-04-17 20:02:59 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: 6ZKM0E45XI
+2025-04-17 20:03:00 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-17 20:03:00 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-17 20:03:00 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:00 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:12 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:12 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:12 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:12 [DEBUG] token_auth.get_or_generate_token:112 - Transaction hash for token 6ZKM0E45XI: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:12 [DEBUG] token_auth.save_token_to_file:208 - Saving token data: {'token': '6ZKM0E45XI', 'file_url': 'https://s3.filebase.com/pii-authenticator-test/6ZKM0E45XI.json', 'txn_hash': '881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1', 'jwt': '7b22616c67223a20224853323536222c2022747970223a20224a5754227d.7b22737562223a20227072616a77616c5f6b5f725f323030352d30322d32365f616164686161725f38363030393732343035303935222c2022696174223a20313734343930303339327d.5e23bc11a2c16214e8570930e7bfa890ea55cbfd94609f92e0ec15c7410f5432', 'timestamp': 1744900392.6117997}
+2025-04-17 20:03:12 [INFO] token_auth.save_token_to_file:214 - Token data saved to tokens.json for user key: prajwal_k_r_2005-02-26_aadhaar_8600972405095
+2025-04-17 20:03:12 [DEBUG] token_auth.get_or_generate_token:122 - Token generation completed in 13.4072 seconds
+2025-04-17 20:03:12 [INFO] w3_utils.upload_to_filebase:175 - Uploading file 6ZKM0E45XI.json to storage...
+2025-04-17 20:03:14 [INFO] .None:0 - ACCESS: /encrypt | User: prajwal_k_r | Token: 6ZKM0E45XI | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/6ZKM0E45XI.json
+2025-04-17 20:03:14 [DEBUG] app.encrypt:146 - Returning transaction hash: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:14 [INFO] app.encrypt:155 - Final transaction hash being returned: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:14 [DEBUG] app.after_request:38 - Request 3a4db83078fab9ef processed in 15.0019 seconds
+2025-04-17 20:03:25 [DEBUG] app.after_request:38 - Request d8d26ee714fe0467 processed in 0.0002 seconds
+2025-04-17 20:03:25 [INFO] token_auth.verify_token:260 - Verifying token: 6ZKM0E45XI
+2025-04-17 20:03:25 [DEBUG] token_auth.log_verification_attempt:400 - Verification attempt logged for token: 6ZKM0E45XI
+2025-04-17 20:03:25 [DEBUG] token_auth.verify_token:274 - Token exists in database: True
+2025-04-17 20:03:25 [DEBUG] w3_utils.get_token_transaction_details:587 - Attempting to get transaction details for hash: 881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1
+2025-04-17 20:03:25 [DEBUG] w3_utils.get_token_transaction_details:613 - Calling web3.eth.get_transaction...
+2025-04-17 20:03:25 [DEBUG] w3_utils.get_token_transaction_details:634 - Getting transaction receipt...
+2025-04-17 20:03:26 [DEBUG] w3_utils.get_token_transaction_details:637 - Getting block details for block number: 8137584
+2025-04-17 20:03:26 [DEBUG] w3_utils.get_token_transaction_details:640 - Successfully retrieved all transaction details
+2025-04-17 20:03:26 [DEBUG] token_auth.verify_token:278 - Blockchain details for token 6ZKM0E45XI: {'tx_hash': '881aba22de66ae2d4d33e1451a4e3118de19668762e184cae14cb85d7c1243f1', 'block_number': 8137584, 'timestamp': 1744900392, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-17 20:03:26 [INFO] w3_utils.verify_token_on_blockchain:693 - Verifying token on blockchain: 6ZKM0E45XI
+2025-04-17 20:03:26 [INFO] w3_utils.verify_token_on_blockchain:713 - Verifying token 6ZKM0E45XI directly on the blockchain
+2025-04-17 20:03:26 [INFO] w3_utils.call_contract_with_timeout:722 - Calling verifyToken function on smart contract for token: 6ZKM0E45XI
+2025-04-17 20:03:26 [INFO] w3_utils.verify_token_on_blockchain:768 - Token 6ZKM0E45XI is valid
+2025-04-17 20:03:26 [DEBUG] token_auth.verify_token:361 - Token verification completed in 1.5331 seconds
+2025-04-17 20:03:26 [INFO] token_auth.verify_token:364 - Token 6ZKM0E45XI is valid
+2025-04-17 20:03:26 [INFO] .None:0 - ACCESS: /validate_token | User: N/A | Token: 6ZKM0E45XI | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-17 20:03:26 [DEBUG] app.after_request:38 - Request ece6703d5a9e5c1c processed in 1.5354 seconds
+2025-04-17 20:03:37 [DEBUG] app.after_request:38 - Request e98b19e3a954f0b3 processed in 0.0001 seconds
+2025-04-17 20:03:37 [DEBUG] app.after_request:38 - Request ef4b2d3d6e264c9a processed in 0.0002 seconds
+2025-04-17 20:03:37 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-17 20:03:37 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-17 20:03:37 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-17 20:03:37 [DEBUG] app.after_request:38 - Request 6dfc7157edc6ae51 processed in 0.0062 seconds
+2025-04-17 20:03:37 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-17 20:03:37 [DEBUG] app.after_request:38 - Request 8e818428cd0f45a5 processed in 0.0050 seconds
+2025-04-17 20:03:53 [DEBUG] app.after_request:38 - Request a240b35338057019 processed in 0.0003 seconds
+2025-04-17 20:03:53 [DEBUG] app.after_request:38 - Request fe9d16f5de5d15ad processed in 0.0001 seconds
+2025-04-17 20:09:28 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-17 20:09:29 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-17 20:09:29 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-17 20:09:29 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-17 20:09:29 [INFO] app.<module>:905 - Starting PII Authenticator backend server
+2025-04-17 20:09:41 [DEBUG] app.after_request:38 - Request 4557dbd0c492813f processed in 0.0003 seconds
+2025-04-17 20:09:41 [DEBUG] app.after_request:38 - Request 60f6772c389a05b1 processed in 0.0001 seconds
+2025-04-17 20:09:41 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-17 20:09:41 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-17 20:09:41 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-17 20:09:41 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-17 20:09:41 [DEBUG] app.after_request:38 - Request ff186d06838aa90f processed in 0.0015 seconds
+2025-04-17 20:09:41 [DEBUG] app.after_request:38 - Request fdc85adffbf7514b processed in 0.0024 seconds
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request dfb230ad80bcffcb processed in 0.0006 seconds
+2025-04-17 20:10:06 [INFO] user_auth.login_user:121 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-17 20:10:06 [INFO] user_auth.login_user:166 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request f2e054104831fbed processed in 0.0366 seconds
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request 9d8ffcb3042e0c91 processed in 0.0001 seconds
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request b32390de06739a1f processed in 0.0002 seconds
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request 52e24af109e220df processed in 0.0001 seconds
+2025-04-17 20:10:06 [WARNING] user_auth.get_user_by_id:193 - User with ID user_1234 not found
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request fe3e078ec25e8b17 processed in 0.0024 seconds
+2025-04-17 20:10:06 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-17 20:10:06 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-17 20:10:06 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request cf0e4229ffdc46d0 processed in 0.0075 seconds
+2025-04-17 20:10:06 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-17 20:10:06 [DEBUG] app.after_request:38 - Request 408343077ae138b1 processed in 0.0023 seconds
+2025-04-17 20:49:05 [DEBUG] app.after_request:38 - Request ef0a0d3fd1d0a780 processed in 0.0026 seconds
+2025-04-17 20:49:05 [INFO] user_auth.login_user:121 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-17 20:49:06 [INFO] user_auth.login_user:166 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 69af9719b7614d22 processed in 0.0889 seconds
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 352385c8bc1b7c9b processed in 0.0002 seconds
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 87ca2c2f9af5b10c processed in 0.0002 seconds
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 001d85655b000dec processed in 0.0006 seconds
+2025-04-17 20:49:06 [WARNING] user_auth.get_user_by_id:193 - User with ID user_1234 not found
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 6658b88f238395cf processed in 0.0072 seconds
+2025-04-17 20:49:06 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-17 20:49:06 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-17 20:49:06 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 05db7285d7f61c01 processed in 0.0133 seconds
+2025-04-17 20:49:06 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 7ae2477675509d48 processed in 0.0131 seconds

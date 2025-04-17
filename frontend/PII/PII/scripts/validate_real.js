@@ -11,25 +11,17 @@ function renderBlockchainDetails(details) {
         timestamp = date.toLocaleString();
     }
     
-    // Check if this is simulated data or has errors
-    const isSimulated = details.network && details.network.includes('simulated');
+    // Check if there are errors
     const hasError = details.error_message;
-    const isSimulatedHash = details.tx_hash && details.tx_hash.startsWith('0xSIM_');
     
-    // Create a blockchain explorer link (only for non-simulated transactions without errors)
-    const explorerLink = (!isSimulated && !isSimulatedHash && !hasError && details.tx_hash) ? 
-        `https://sepolia.etherscan.io/tx/${details.tx_hash}` : '';
+    // We don't need these variables anymore since we're always using real blockchain
+    // const isSimulated = false;
+    // const isSimulatedHash = false;
     
     return `
         <div style="background: rgba(0, 114, 255, 0.1); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; border: 1px solid rgba(0, 195, 255, 0.3);">
             <p style="margin-bottom: 0.5rem;"><strong>Blockchain Transaction Details:</strong></p>
-            ${isSimulated || isSimulatedHash ? 
-                `<div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.8rem;">
-                    <p style="color: #ffc107; font-size: 0.9rem;">⚠️ This is simulated blockchain data for demonstration purposes.</p>
-                    <p style="font-size: 0.8rem; margin-top: 0.3rem;">In production, this would show real transaction data from the Ethereum blockchain.</p>
-                    ${details.dev_mode_message ? `<p style="font-size: 0.8rem; margin-top: 0.3rem;">${details.dev_mode_message}</p>` : ''}
-                </div>` : 
-                hasError ?
+            ${hasError ?
                 `<div style="background: rgba(255, 99, 71, 0.1); border: 1px solid rgba(255, 99, 71, 0.3); padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.8rem;">
                     <p style="color: #ff6347; font-size: 0.9rem;">⚠️ ${details.error_message}</p>
                     <p style="font-size: 0.8rem; margin-top: 0.3rem;">The token is still valid in our system, but blockchain verification encountered an issue.</p>
@@ -44,15 +36,16 @@ function renderBlockchainDetails(details) {
                 ${details.network ? `<p style="margin-bottom: 0.3rem;"><strong>Network:</strong> ${details.network}</p>` : ''}
                 ${details.status ? `<p style="margin-bottom: 0.3rem;"><strong>Status:</strong> ${details.status}</p>` : ''}
             </div>
-            ${explorerLink ? `<a href="${explorerLink}" target="_blank" style="color: #00c3ff; text-decoration: none; display: inline-block; margin-top: 0.5rem;">
+            ${details.tx_hash && details.tx_hash.startsWith('0x') ? `<a href="https://sepolia.etherscan.io/tx/${details.tx_hash}" target="_blank" style="color: #00c3ff; text-decoration: none; display: inline-block; margin-top: 0.5rem;">
                 <span style="display: flex; align-items: center;">
-                   
-                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.3rem;">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                    View on Etherscan
                 </span>
-            </a>` : isSimulated || isSimulatedHash ? 
-                `<p style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem;">
-                    Etherscan link not available for simulated transactions
-                </p>` : hasError ?
+            </a>` : hasError ?
                 `<p style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem;">
                     Etherscan link not available - transaction details could not be retrieved
                 </p>

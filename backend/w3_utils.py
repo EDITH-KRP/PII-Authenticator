@@ -24,8 +24,8 @@ if not ALCHEMY_API_KEY or not PRIVATE_KEY or not CONTRACT_ADDRESS:
     logger.warning("⚠️ Missing environment variables (ALCHEMY_API_KEY, PRIVATE_KEY, CONTRACT_ADDRESS)")
     logger.warning("⚠️ Using development placeholders - DO NOT USE IN PRODUCTION")
 
-# Check if we should force development mode
-BLOCKCHAIN_DEV_MODE = os.getenv('BLOCKCHAIN_DEV_MODE', 'false').lower() == 'true'
+# Always use real blockchain mode
+BLOCKCHAIN_DEV_MODE = False  # Force to false to always use real blockchain
 
 # Try to connect to Sepolia via Alchemy
 try:
@@ -321,21 +321,8 @@ def store_token_on_blockchain(user_token):
     logger.info(f"Storing token on blockchain: {user_token}")
     start_time = time.time()
     
-    if BLOCKCHAIN_DEV_MODE:
-        # Simulate blockchain storage in development mode
-        DEV_TOKENS.add(user_token)
-        
-        # Add a small delay to simulate blockchain transaction time
-        time.sleep(0.5)
-        
-        elapsed_time = time.time() - start_time
-        logger.info(f"✅ [DEV MODE] Token stored in memory: {user_token} in {elapsed_time:.4f} seconds")
-        
-        # Generate a more realistic dummy transaction hash with a special prefix to indicate it's simulated
-        import random
-        dummy_hash = "0xSIM_" + ''.join(random.choices('0123456789abcdef', k=60))
-        logger.debug(f"Returning simulated transaction hash: {dummy_hash}")
-        return dummy_hash
+    # Always use the real blockchain
+    logger.info("Using real blockchain for token storage")
     
     try:
         # Check if web3 is connected
@@ -404,14 +391,8 @@ def store_token_on_blockchain(user_token):
         logger.error(f"❌ Blockchain store failed: {e}")
         logger.debug(traceback.format_exc())
         
-        # If we're in development mode, return a simulated hash
-        if os.getenv('FALLBACK_TO_SIM', 'true').lower() == 'true':
-            logger.info("Falling back to simulated hash due to error")
-            import random
-            dummy_hash = "0xSIM_" + ''.join(random.choices('0123456789abcdef', k=60))
-            logger.debug(f"Returning simulated transaction hash: {dummy_hash}")
-            return dummy_hash
-            
+        # Don't generate simulated hashes, just return None to indicate failure
+        logger.error("Blockchain transaction failed and no fallback is available")
         return None
 
 def regenerate_blockchain_record(user_token, existing_tx_hash=None):
@@ -428,13 +409,8 @@ def regenerate_blockchain_record(user_token, existing_tx_hash=None):
     """
     logger.info(f"Regenerating blockchain record for token: {user_token}")
     
-    # If we're in development mode, just return a simulated hash
-    if BLOCKCHAIN_DEV_MODE:
-        logger.info("Running in development mode, returning simulated hash")
-        import random
-        dummy_hash = "0xSIM_" + ''.join(random.choices('0123456789abcdef', k=60))
-        logger.debug(f"Returning simulated transaction hash: {dummy_hash}")
-        return dummy_hash
+    # Always use real blockchain transactions
+    logger.info("Using real blockchain for token regeneration")
     
     # Check if the web3 connection is working
     if not web3.is_connected():

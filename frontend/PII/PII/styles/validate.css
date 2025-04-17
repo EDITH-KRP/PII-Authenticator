@@ -1,0 +1,209 @@
+/* Validation Page Styles */
+
+.validate-container {
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(0, 24, 57, 0.8) 0%, rgba(0, 24, 57, 0.9) 100%);
+  min-height: calc(100vh - 200px);
+}
+
+.validate-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.validate-header h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.validate-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1rem;
+}
+
+.validate-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.validate-form {
+  background: rgba(16, 24, 39, 0.95);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 195, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.validate-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.validate-form label {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.validate-form input,
+.validate-form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.validate-form input:focus,
+.validate-form select:focus {
+  outline: none;
+  border-color: #0072ff;
+  background: rgba(0, 114, 255, 0.1);
+  box-shadow: 0 0 0 2px rgba(0, 114, 255, 0.2);
+}
+
+.validate-form input::placeholder,
+.validate-form select::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.validate-form .terms {
+  display: flex;
+  align-items: flex-start;
+}
+
+.validate-form .terms input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.validate-form .terms label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.validation-result {
+  background: rgba(16, 24, 39, 0.95);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 195, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.validation-result .initial-state {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.user-info {
+  margin-top: 1rem;
+}
+
+.user-info h4 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.user-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.user-info-item {
+  background: rgba(0, 114, 255, 0.05);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(0, 195, 255, 0.2);
+}
+
+.user-info-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.user-info-value {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.blockchain-verification {
+  margin-top: 1rem;
+  background: rgba(0, 114, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(0, 195, 255, 0.3);
+}
+
+.blockchain-verification h4 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.blockchain-verification h4 svg {
+  margin-right: 0.5rem;
+}
+
+.transaction-hash {
+  font-family: 'Courier New', monospace;
+  background: rgba(16, 24, 39, 0.8);
+  color: #00ff88;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  word-break: break-all;
+  margin: 0.5rem 0;
+}
+
+.etherscan-link {
+  display: inline-flex;
+  align-items: center;
+  color: #00c3ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.etherscan-link svg {
+  margin-right: 0.3rem;
+}
+
+.etherscan-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .validate-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .validate-container {
+    padding: 1rem;
+  }
+  
+  .validate-header h1 {
+    font-size: 2rem;
+  }
+  
+  .user-info-grid {
+    grid-template-columns: 1fr;
+  }
+}

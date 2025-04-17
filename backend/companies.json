@@ -1,0 +1,17 @@
+{
+  "company_1744899768_2c3b924e": {
+    "id": "company_1744899768_2c3b924e",
+    "company_name": "EDITH",
+    "business_type": "education",
+    "registration_number": "GCU2026",
+    "email": "22btcs126@gcu.edu.in",
+    "phone": "9590861058",
+    "address": "bijsbijfbib",
+    "password_hash": "e134339502d383efd24782500958b5f5a085030e81155c4594a90d8e106d97b6",
+    "password_salt": "9bca044d440e26bf96b8383ce9b2d8bc",
+    "created_at": 1744899768.1204073,
+    "validations": [
+      "val_1744899829_8fdfe26b"
+    ]
+  }
+}

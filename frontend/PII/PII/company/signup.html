@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Company signup for token validation.">
+  <title>Company Sign Up - PII Authentication</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/auth.css">
+  <link rel="stylesheet" href="../styles/enhanced.css">
+  <link rel="stylesheet" href="../styles/blockchain-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../login.html">User Login</a>
+        <a href="login.html">Company Login</a>
+        <a href="signup.html" class="active">Company Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Signup Form Section -->
+  <section class="auth-container">
+    <div class="auth-card company">
+      <h2>Register Company</h2>
+      <p class="auth-subtitle">Create a company account to validate user tokens</p>
+      
+      <form id="companySignupForm" class="auth-form">
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="businessType">Business Type</label>
+          <select id="businessType" name="businessType" required>
+            <option value="">Select business type</option>
+            <option value="financial">Financial Services</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="education">Education</option>
+            <option value="government">Government</option>
+            <option value="retail">Retail</option>
+            <option value="technology">Technology</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="registrationNumber">Business Registration Number</label>
+          <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Company Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter company email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Company Phone (10 digits)</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter company phone number" required>
+          <small class="text-muted">Format: 123-456-7890</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="address">Company Address</label>
+          <textarea id="address" name="address" placeholder="Enter company address" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+        </div>
+        
+        <div class="form-group terms">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+        
+        <button type="submit" class="btn primary full-width">Register Company</button>
+      </form>
+      
+      <div class="auth-footer">
+        <p>Already have a company account? <a href="login.html">Login</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="../assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="../assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/form-validation.js"></script>
+  <script src="../scripts/company-auth.js"></script>
+</body>
+</html>

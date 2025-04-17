@@ -188,24 +188,18 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Transaction hash (txn_hash):', data.txn_hash);
             console.log('Transaction hash (tx_hash):', data.tx_hash);
             
-            // ALWAYS ensure we have a valid transaction hash
-            if (!data.txn_hash && !data.tx_hash) {
-                console.warn('No transaction hash found in response');
-                // Generate a random transaction hash
-                const randomHash = '0x' + Array.from({length: 64}, () => 
-                    '0123456789abcdef'[Math.floor(Math.random() * 16)]).join('');
-                data.txn_hash = randomHash;
-                console.log('Generated random transaction hash:', data.txn_hash);
+            // Log the transaction hash for debugging
+            console.log('Transaction hash from backend:', data.txn_hash || data.tx_hash);
+            
+            // Use txn_hash if available, otherwise use tx_hash
+            if (!data.txn_hash && data.tx_hash) {
+                data.txn_hash = data.tx_hash;
             }
             
-            // If the transaction hash is "pending" or invalid, replace it
-            if (data.txn_hash === "pending" || data.tx_hash === "pending" || 
-                !data.txn_hash.startsWith('0x') || data.txn_hash.length < 10) {
-                console.warn('Invalid transaction hash detected, replacing with random hash');
-                const randomHash = '0x' + Array.from({length: 64}, () => 
-                    '0123456789abcdef'[Math.floor(Math.random() * 16)]).join('');
-                data.txn_hash = randomHash;
-                console.log('Replaced with random transaction hash:', data.txn_hash);
+            // If no transaction hash is provided, show a pending message
+            if (!data.txn_hash) {
+                console.warn('No transaction hash found in response');
+                data.txn_hash = 'Transaction pending...';
             }
             
             if (response.ok) {
@@ -243,8 +237,28 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${data.txn_hash || data.tx_hash || 'Transaction pending...'}
                         </div>
                         <p style="margin-top: 0.5rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">
-                            <small>This is the blockchain transaction ID that confirms your token is stored securely.</small>
+                            <small>
+                                This is the real blockchain transaction ID that confirms your token is stored securely on the Sepolia testnet.
+                            </small>
                         </p>
+                        <div style="display: flex; align-items: center; margin-top: 0.8rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #00c3ff; margin-right: 0.5rem;">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                            <a href="https://sepolia.etherscan.io/tx/${data.txn_hash || data.tx_hash}" target="_blank" style="color: #00c3ff; text-decoration: underline; font-weight: bold;" id="etherscan-link">
+                                View on Etherscan
+                            </a>
+                        </div>
+                        <script>
+                            // Verify the transaction hash is valid
+                            document.getElementById('etherscan-link').addEventListener('click', function(e) {
+                                const txHash = "${data.txn_hash || data.tx_hash}";
+                                console.log("Opening Etherscan with transaction hash:", txHash);
+                                // No need to prevent default - let the link work normally
+                            });
+                        </script>
                     </div>
                     <div style="display: flex; align-items: center; margin-top: 1rem;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #00c3ff; margin-right: 0.5rem;">

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Company login for token validation.">
+  <title>Company Login - PII Authentication</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/auth.css">
+  <link rel="stylesheet" href="../styles/enhanced.css">
+  <link rel="stylesheet" href="../styles/blockchain-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../login.html">User Login</a>
+        <a href="login.html" class="active">Company Login</a>
+        <a href="signup.html">Company Sign Up</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Form Section -->
+  <section class="auth-container">
+    <div class="auth-card company">
+      <h2>Company Login</h2>
+      <p class="auth-subtitle">Access your company validation dashboard</p>
+      
+      <form id="companyLoginForm" class="auth-form">
+        <div class="form-group">
+          <label for="email">Company Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter company email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter password" required>
+        </div>
+        
+        <div class="form-group remember-me">
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Remember me</label>
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+        
+        <button type="submit" class="btn primary full-width">Login</button>
+      </form>
+      
+      <div class="auth-footer">
+        <p>Don't have a company account? <a href="signup.html">Sign Up</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="../assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="../assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/form-validation.js"></script>
+  <script src="../scripts/company-auth.js"></script>
+</body>
+</html>

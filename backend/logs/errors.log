@@ -42,3 +42,6 @@ TypeError: cannot unpack non-iterable bool object
 2025-04-16 17:14:01 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
 2025-04-16 17:17:19 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
 2025-04-16 17:48:41 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-17 08:07:37 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-17 08:07:45 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-17 08:09:56 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?

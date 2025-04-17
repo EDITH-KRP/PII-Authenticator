@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Company dashboard for token validation.">
+  <title>Company Dashboard - PII Authentication</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/company.css">
+  <link rel="stylesheet" href="../styles/enhanced.css">
+  <link rel="stylesheet" href="../styles/blockchain-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="validate.html">Validate Token</a>
+        <a href="history.html">Validation History</a>
+        <a href="settings.html">Company Settings</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Section -->
+  <section class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Welcome, <span id="companyName">Company</span></h1>
+      <p>Validate and verify user identity tokens</p>
+    </div>
+    
+    <div class="dashboard-stats">
+      <div class="stat-card">
+        <h3>Validations Today</h3>
+        <p id="todayCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Validations</h3>
+        <p id="totalCount">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Verification Rate</h3>
+        <p id="successRate">0%</p>
+      </div>
+    </div>
+    
+    <div class="dashboard-main">
+      <div class="validation-section">
+        <div class="section-header">
+          <h2>Quick Token Validation</h2>
+        </div>
+        
+        <div class="validation-form">
+          <form id="quickValidateForm">
+            <div class="form-group">
+              <label for="tokenInput">Enter Token to Validate</label>
+              <div class="token-input-group">
+                <input type="text" id="tokenInput" name="token" placeholder="Enter user token" required>
+                <button type="submit" class="btn primary">Validate</button>
+              </div>
+            </div>
+          </form>
+          
+          <div id="validationResult" class="validation-result">
+            <!-- Validation result will be displayed here -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="recent-section">
+        <div class="section-header">
+          <h2>Recent Validations</h2>
+          <a href="history.html" class="btn secondary">View All</a>
+        </div>
+        
+        <div id="recentList" class="recent-list">
+          <!-- Recent validation entries will be dynamically inserted here -->
+          <div class="empty-state" id="emptyRecentState">
+            <p>No recent validations found.</p>
+            <a href="validate.html" class="btn primary">Start Validating</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="../assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="../assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/company-dashboard.js"></script>
+</body>
+</html>

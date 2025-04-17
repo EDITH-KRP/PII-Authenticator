@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Validate user identity tokens.">
+  <title>Validate Tokens - PII Authentication</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/company.css">
+  <link rel="stylesheet" href="../styles/validate.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="validate.html" class="active">Validate Token</a>
+        <a href="history.html">Validation History</a>
+        <a href="settings.html">Company Settings</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Validation Section -->
+  <section class="validate-container">
+    <div class="validate-header">
+      <h1>Validate User Identity Token</h1>
+      <p>Verify the authenticity of user identity tokens on the blockchain</p>
+    </div>
+    
+    <div class="validate-card">
+      <div class="validate-form">
+        <form id="validateForm">
+          <div class="form-group">
+            <label for="tokenInput">Enter Token</label>
+            <input type="text" id="tokenInput" name="token" placeholder="Enter the user's token" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="validationPurpose">Validation Purpose</label>
+            <select id="validationPurpose" name="purpose" required>
+              <option value="">Select purpose</option>
+              <option value="identity">Identity Verification</option>
+              <option value="employment">Employment Verification</option>
+              <option value="financial">Financial Service</option>
+              <option value="healthcare">Healthcare Service</option>
+              <option value="education">Educational Service</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group" id="otherPurposeGroup" style="display: none;">
+            <label for="otherPurpose">Specify Purpose</label>
+            <input type="text" id="otherPurpose" name="otherPurpose" placeholder="Specify validation purpose">
+          </div>
+          
+          <div class="form-group terms">
+            <input type="checkbox" id="consentCheck" name="consent" required>
+            <label for="consentCheck">I confirm that I have the user's consent to validate this token</label>
+          </div>
+          
+          <button type="submit" class="btn primary full-width">Validate Token</button>
+        </form>
+      </div>
+      
+      <div id="validationResult" class="validation-result">
+        <!-- Validation result will be displayed here -->
+        <div class="initial-state">
+          <p>Enter a token above to validate user identity</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="blockchain-info">
+      <h2>Blockchain Verification</h2>
+      <p>All validations are securely recorded on the Sepolia blockchain for transparency and auditability.</p>
+      <div id="blockchainDetails" class="blockchain-details">
+        <!-- Blockchain details will be displayed here after validation -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="../assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="../assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/company-validate.js"></script>
+</body>
+</html>

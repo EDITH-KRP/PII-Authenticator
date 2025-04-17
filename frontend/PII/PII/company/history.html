@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Company validation history.">
+  <title>Validation History - PII Authentication</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/company.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="validate.html">Validate Token</a>
+        <a href="history.html" class="active">Validation History</a>
+        <a href="settings.html">Company Settings</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- History Section -->
+  <section class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Validation History</h1>
+      <p>View and manage your token validation history</p>
+    </div>
+    
+    <div class="history-filters">
+      <div class="filter-group">
+        <label for="dateFilter">Date Range</label>
+        <select id="dateFilter">
+          <option value="all">All Time</option>
+          <option value="today">Today</option>
+          <option value="week">This Week</option>
+          <option value="month">This Month</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="statusFilter">Status</label>
+        <select id="statusFilter">
+          <option value="all">All Status</option>
+          <option value="valid">Valid</option>
+          <option value="invalid">Invalid</option>
+        </select>
+      </div>
+      
+      <div class="filter-group search">
+        <label for="searchInput">Search</label>
+        <input type="text" id="searchInput" placeholder="Search by token or ID">
+      </div>
+    </div>
+    
+    <div class="history-table-container">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>Token</th>
+            <th>Purpose</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody">
+          <!-- History entries will be dynamically inserted here -->
+        </tbody>
+      </table>
+      
+      <div class="empty-state" id="emptyHistoryState">
+        <p>No validation history found.</p>
+        <a href="validate.html" class="btn primary">Start Validating</a>
+      </div>
+      
+      <div class="pagination">
+        <button id="prevPage" class="btn secondary">Previous</button>
+        <span id="pageInfo">Page 1 of 1</span>
+        <button id="nextPage" class="btn secondary">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="../assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="../assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/company-history.js"></script>
+</body>
+</html>

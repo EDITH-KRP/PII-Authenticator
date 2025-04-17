@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Company settings and profile.">
+  <title>Company Settings - PII Authentication</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/company.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="validate.html">Validate Token</a>
+        <a href="history.html">Validation History</a>
+        <a href="settings.html" class="active">Company Settings</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Settings Section -->
+  <section class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>Company Settings</h1>
+      <p>Manage your company profile and preferences</p>
+    </div>
+    
+    <div class="settings-container">
+      <div class="settings-sidebar">
+        <ul class="settings-nav">
+          <li><a href="#profile" class="active">Company Profile</a></li>
+          <li><a href="#security">Security Settings</a></li>
+          <li><a href="#api">API Access</a></li>
+          <li><a href="#notifications">Notification Preferences</a></li>
+          <li><a href="#billing">Billing & Subscription</a></li>
+        </ul>
+      </div>
+      
+      <div class="settings-content">
+        <!-- Company Profile Section -->
+        <div id="profile" class="settings-section active">
+          <h2>Company Profile</h2>
+          <form id="profileForm">
+            <div class="form-group">
+              <label for="companyName">Company Name</label>
+              <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
+            </div>
+            
+            <div class="form-group">
+              <label for="businessType">Business Type</label>
+              <select id="businessType" name="businessType">
+                <option value="financial">Financial Services</option>
+                <option value="healthcare">Healthcare</option>
+                <option value="education">Education</option>
+                <option value="government">Government</option>
+                <option value="retail">Retail</option>
+                <option value="technology">Technology</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="registrationNumber">Registration Number</label>
+              <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter registration number">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter email address">
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter phone number">
+            </div>
+            
+            <div class="form-group">
+              <label for="address">Business Address</label>
+              <textarea id="address" name="address" placeholder="Enter business address"></textarea>
+            </div>
+            
+            <button type="submit" class="btn primary">Save Changes</button>
+          </form>
+        </div>
+        
+        <!-- Security Settings Section -->
+        <div id="security" class="settings-section">
+          <h2>Security Settings</h2>
+          <form id="securityForm">
+            <div class="form-group">
+              <label for="currentPassword">Current Password</label>
+              <input type="password" id="currentPassword" name="currentPassword" placeholder="Enter current password">
+            </div>
+            
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input type="password" id="newPassword" name="newPassword" placeholder="Enter new password">
+            </div>
+            
+            <div class="form-group">
+              <label for="confirmPassword">Confirm New Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm new password">
+            </div>
+            
+            <div class="form-group">
+              <label>Two-Factor Authentication</label>
+              <div class="toggle-switch">
+                <input type="checkbox" id="twoFactorAuth" name="twoFactorAuth">
+                <label for="twoFactorAuth"></label>
+                <span>Enable two-factor authentication</span>
+              </div>
+            </div>
+            
+            <button type="submit" class="btn primary">Update Security Settings</button>
+          </form>
+        </div>
+        
+        <!-- API Access Section -->
+        <div id="api" class="settings-section">
+          <h2>API Access</h2>
+          <div class="api-key-section">
+            <h3>Your API Keys</h3>
+            <p>Use these keys to authenticate API requests from your applications.</p>
+            
+            <div class="api-key-container">
+              <div class="api-key">
+                <div class="key-info">
+                  <h4>Production API Key</h4>
+                  <div class="key-value">••••••••••••••••••••••••</div>
+                </div>
+                <div class="key-actions">
+                  <button class="btn secondary btn-show-key">Show</button>
+                  <button class="btn secondary btn-copy-key">Copy</button>
+                  <button class="btn danger btn-regenerate-key">Regenerate</button>
+                </div>
+              </div>
+              
+              <div class="api-key">
+                <div class="key-info">
+                  <h4>Test API Key</h4>
+                  <div class="key-value">••••••••••••••••••••••••</div>
+                </div>
+                <div class="key-actions">
+                  <button class="btn secondary btn-show-key">Show</button>
+                  <button class="btn secondary btn-copy-key">Copy</button>
+                  <button class="btn danger btn-regenerate-key">Regenerate</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="api-documentation">
+              <h3>API Documentation</h3>
+              <p>Learn how to integrate our validation API into your applications.</p>
+              <a href="#" class="btn secondary">View Documentation</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Notification Preferences Section -->
+        <div id="notifications" class="settings-section">
+          <h2>Notification Preferences</h2>
+          <form id="notificationForm">
+            <div class="form-group">
+              <label>Email Notifications</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="emailValidations" name="emailValidations" checked>
+                  <label for="emailValidations">Validation Reports</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="emailSecurity" name="emailSecurity" checked>
+                  <label for="emailSecurity">Security Alerts</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="emailUpdates" name="emailUpdates" checked>
+                  <label for="emailUpdates">Product Updates</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="emailMarketing" name="emailMarketing">
+                  <label for="emailMarketing">Marketing Communications</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Notification Frequency</label>
+              <select id="notificationFrequency" name="notificationFrequency">
+                <option value="immediate">Immediate</option>
+                <option value="daily">Daily Digest</option>
+                <option value="weekly">Weekly Summary</option>
+              </select>
+            </div>
+            
+            <button type="submit" class="btn primary">Save Preferences</button>
+          </form>
+        </div>
+        
+        <!-- Billing & Subscription Section -->
+        <div id="billing" class="settings-section">
+          <h2>Billing & Subscription</h2>
+          
+          <div class="current-plan">
+            <h3>Current Plan</h3>
+            <div class="plan-details">
+              <div class="plan-name">Business Pro</div>
+              <div class="plan-price">$99/month</div>
+              <div class="plan-features">
+                <ul>
+                  <li>Up to 1,000 validations per month</li>
+                  <li>API access</li>
+                  <li>Priority support</li>
+                  <li>Advanced analytics</li>
+                </ul>
+              </div>
+              <button class="btn secondary">Upgrade Plan</button>
+            </div>
+          </div>
+          
+          <div class="billing-history">
+            <h3>Billing History</h3>
+            <table class="billing-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Invoice</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Apr 1, 2025</td>
+                  <td>Business Pro Plan - Monthly</td>
+                  <td>$99.00</td>
+                  <td><span class="status-paid">Paid</span></td>
+                  <td><a href="#" class="invoice-link">Download</a></td>
+                </tr>
+                <tr>
+                  <td>Mar 1, 2025</td>
+                  <td>Business Pro Plan - Monthly</td>
+                  <td>$99.00</td>
+                  <td><span class="status-paid">Paid</span></td>
+                  <td><a href="#" class="invoice-link">Download</a></td>
+                </tr>
+                <tr>
+                  <td>Feb 1, 2025</td>
+                  <td>Business Pro Plan - Monthly</td>
+                  <td>$99.00</td>
+                  <td><span class="status-paid">Paid</span></td>
+                  <td><a href="#" class="invoice-link">Download</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="payment-methods">
+            <h3>Payment Methods</h3>
+            <div class="payment-method">
+              <div class="payment-info">
+                <div class="payment-icon">
+                  <img src="../assets/icons/credit-card.svg" alt="Credit Card">
+                </div>
+                <div class="payment-details">
+                  <div class="payment-name">Visa ending in 4242</div>
+                  <div class="payment-expiry">Expires 12/25</div>
+                </div>
+              </div>
+              <div class="payment-actions">
+                <button class="btn secondary">Edit</button>
+                <button class="btn danger">Remove</button>
+              </div>
+            </div>
+            
+            <button class="btn secondary">Add Payment Method</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="../assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="../assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="../assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="../assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="../scripts/logger.js"></script>
+  <script src="../scripts/company-settings.js"></script>
+</body>
+</html>

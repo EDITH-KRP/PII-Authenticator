@@ -1,0 +1,191 @@
+/* Company-specific Styles */
+
+.company-header {
+  background: linear-gradient(135deg, rgba(0, 36, 61, 0.9) 0%, rgba(0, 48, 82, 0.9) 100%);
+  border-bottom: 2px solid rgba(0, 195, 255, 0.3);
+}
+
+.validation-form {
+  background: rgba(0, 114, 255, 0.05);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 195, 255, 0.2);
+}
+
+.token-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.token-input-group input {
+  flex: 1;
+}
+
+.validation-result {
+  background: rgba(16, 24, 39, 0.8);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  min-height: 150px;
+  border: 1px solid rgba(0, 195, 255, 0.3);
+}
+
+.validation-result .initial-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.validation-success,
+.validation-error {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.validation-success {
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.validation-error {
+  background: rgba(255, 59, 92, 0.1);
+  border: 1px solid rgba(255, 59, 92, 0.3);
+}
+
+.validation-success h3 {
+  color: #00ff88;
+  margin-bottom: 0.5rem;
+}
+
+.validation-error h3 {
+  color: #ff3b5c;
+  margin-bottom: 0.5rem;
+}
+
+.validation-details {
+  background: rgba(0, 114, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.validation-details h4 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.validation-details p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.validation-details .detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.validation-details .detail-item:last-child {
+  border-bottom: none;
+}
+
+.validation-details .detail-label {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.validation-details .detail-value {
+  color: #ffffff;
+}
+
+.recent-validation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 114, 255, 0.05);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(0, 195, 255, 0.2);
+}
+
+.recent-validation:hover {
+  background: rgba(0, 114, 255, 0.1);
+}
+
+.recent-validation .validation-info {
+  flex: 1;
+}
+
+.recent-validation .token-id {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.recent-validation .validation-time {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.recent-validation .validation-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-valid {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.status-invalid {
+  background: rgba(255, 59, 92, 0.1);
+  color: #ff3b5c;
+  border: 1px solid rgba(255, 59, 92, 0.3);
+}
+
+.blockchain-info {
+  margin-top: 2rem;
+}
+
+.blockchain-info h2 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.blockchain-info p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+}
+
+.blockchain-details {
+  background: rgba(16, 24, 39, 0.8);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 195, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .token-input-group {
+    flex-direction: column;
+  }
+  
+  .recent-validation {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .recent-validation .validation-status {
+    margin-top: 0.5rem;
+  }
+}

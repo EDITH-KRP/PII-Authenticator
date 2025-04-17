@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your secure identity account.">
+  <title>Sign Up - PII Authentication</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/auth.css">
+  <link rel="stylesheet" href="styles/enhanced.css">
+  <link rel="stylesheet" href="styles/blockchain-theme.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html" class="active">Sign Up</a>
+        <a href="company/login.html">Company Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Signup Form Section -->
+  <section class="auth-container">
+    <div class="auth-card">
+      <h2>Create Account</h2>
+      <p class="auth-subtitle">Secure your identity with blockchain technology</p>
+      
+      <form id="signupForm" class="auth-form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="phone">Phone Number (10 digits)</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your 10-digit phone number" required>
+          <small class="text-muted">Format: 123-456-7890</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="aadhaar">Aadhaar Number (12 digits)</label>
+          <input type="text" id="aadhaar" name="aadhaar" data-type="aadhaar" placeholder="Enter your 12-digit Aadhaar number" required>
+          <small class="text-muted">Format: 1234-5678-9012</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="pan">PAN Number (Optional)</label>
+          <input type="text" id="pan" name="pan" data-type="pan" placeholder="Enter your PAN number">
+          <small class="text-muted">Format: ABCDE1234F</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+        </div>
+        
+        <div class="form-group terms">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+        </div>
+        
+        <button type="submit" class="btn primary full-width">Create Account</button>
+      </form>
+      
+      <div class="auth-footer">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="./scripts/logger.js"></script>
+  <script src="./scripts/form-validation.js"></script>
+  <script src="./scripts/auth.js"></script>
+</body>
+</html>
