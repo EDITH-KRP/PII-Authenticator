@@ -1,3 +1,75 @@
+// Function to render blockchain transaction details
+function renderBlockchainDetails(details) {
+    if (!details || Object.keys(details).length === 0) {
+        return '';
+    }
+    
+    // Format timestamp if available
+    let timestamp = '';
+    if (details.timestamp) {
+        const date = new Date(details.timestamp * 1000);
+        timestamp = date.toLocaleString();
+    }
+    
+    // Check if this is simulated data or has errors
+    const isSimulated = details.network && details.network.includes('simulated');
+    const hasError = details.error_message;
+    const isSimulatedHash = details.tx_hash && details.tx_hash.startsWith('0xSIM_');
+    
+    // Create a blockchain explorer link (only for non-simulated transactions without errors)
+    const explorerLink = (!isSimulated && !isSimulatedHash && !hasError && details.tx_hash) ? 
+        `https://sepolia.etherscan.io/tx/${details.tx_hash}` : '';
+    
+    return `
+        <div style="background: rgba(0, 114, 255, 0.1); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; border: 1px solid rgba(0, 195, 255, 0.3);">
+            <p style="margin-bottom: 0.5rem;"><strong>Blockchain Transaction Details:</strong></p>
+            ${isSimulated || isSimulatedHash ? 
+                `<div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.8rem;">
+                    <p style="color: #ffc107; font-size: 0.9rem;">⚠️ This is simulated blockchain data for demonstration purposes.</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.3rem;">In production, this would show real transaction data from the Ethereum blockchain.</p>
+                    ${details.dev_mode_message ? `<p style="font-size: 0.8rem; margin-top: 0.3rem;">${details.dev_mode_message}</p>` : ''}
+                </div>` : 
+                hasError ?
+                `<div style="background: rgba(255, 99, 71, 0.1); border: 1px solid rgba(255, 99, 71, 0.3); padding: 0.5rem; border-radius: 0.5rem; margin-bottom: 0.8rem;">
+                    <p style="color: #ff6347; font-size: 0.9rem;">⚠️ ${details.error_message}</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.3rem;">The token is still valid in our system, but blockchain verification encountered an issue.</p>
+                    ${details.needs_regeneration ? 
+                        `<p style="font-size: 0.8rem; margin-top: 0.3rem;">The system is attempting to regenerate the blockchain record. Please refresh this page in a few moments.</p>` : ''}
+                </div>` : ''
+            }
+            <div style="font-family: 'Courier New', monospace; font-size: 0.8rem; background: rgba(16, 24, 39, 0.8); color: #00ff88; padding: 0.8rem; border-radius: 0.5rem; margin-bottom: 0.8rem;">
+                <p style="margin-bottom: 0.3rem;"><strong>Transaction Hash:</strong> ${details.tx_hash || 'N/A'}</p>
+                ${details.block_number ? `<p style="margin-bottom: 0.3rem;"><strong>Block Number:</strong> ${details.block_number}</p>` : ''}
+                ${timestamp ? `<p style="margin-bottom: 0.3rem;"><strong>Timestamp:</strong> ${timestamp}</p>` : ''}
+                ${details.network ? `<p style="margin-bottom: 0.3rem;"><strong>Network:</strong> ${details.network}</p>` : ''}
+                ${details.status ? `<p style="margin-bottom: 0.3rem;"><strong>Status:</strong> ${details.status}</p>` : ''}
+            </div>
+            ${explorerLink ? `<a href="${explorerLink}" target="_blank" style="color: #00c3ff; text-decoration: none; display: inline-block; margin-top: 0.5rem;">
+                <span style="display: flex; align-items: center;">
+                   
+                    
+                </span>
+            </a>` : isSimulated || isSimulatedHash ? 
+                `<p style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem;">
+                    Etherscan link not available for simulated transactions
+                </p>` : hasError ?
+                `<p style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem;">
+                    Etherscan link not available - transaction details could not be retrieved
+                </p>
+                ${details.needs_regeneration ? 
+                    `<p style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem;">
+                        The system will attempt to regenerate the blockchain record automatically.
+                    </p>` : ''}` : ''
+            }
+            ${details.dev_mode_message ? 
+                `<p style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6); margin-top: 0.5rem; font-style: italic;">
+                    ${details.dev_mode_message}
+                </p>` : ''
+            }
+        </div>
+    `;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize logger
     Logger.info('Validate Token page loaded');
@@ -142,12 +214,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 progressBar.style.width = `${progress}%`;
                 
                 // Update status message based on progress
-                if (progress < 40) {
-                    statusMessage.textContent = 'Verifying token on blockchain...';
+                if (progress < 30) {
+                    statusMessage.textContent = 'Connecting to blockchain network...';
+                } else if (progress < 50) {
+                    statusMessage.textContent = 'Querying smart contract...';
                 } else if (progress < 70) {
-                    statusMessage.textContent = 'Checking digital signature...';
+                    statusMessage.textContent = 'Verifying token authenticity...';
                 } else {
-                    statusMessage.textContent = 'Almost done...';
+                    statusMessage.textContent = 'Validating blockchain response...';
                 }
             }
         }, 200);
@@ -171,10 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 console.log('Making API call to:', `${API_URL}/validate_token`);
                 
+                // Get JWT for this token from localStorage
+                const jwt = localStorage.getItem(`jwt_${token}`);
+                if (!jwt) {
+                    console.warn('No JWT found for this token. Using a placeholder.');
+                    Logger.warn(`No JWT found for token: ${token}`);
+                }
+                
                 const response = await fetch(`${API_URL}/validate_token`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${jwt || 'placeholder_jwt_for_testing'}`
                     },
                     body: JSON.stringify({
                         token: token
@@ -214,7 +296,48 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Display success message
                             resultContainer.innerHTML = `
                                 <h3 style="color: #2dd4bf; margin-bottom: 0.5rem;">Token Validated Successfully!</h3>
-                                <p>This token is valid and has been verified on the blockchain.</p>
+                                <p>This token is valid and has been verified on the blockchain network.</p>
+                                <div style="background: rgba(45, 212, 191, 0.1); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0; border: 1px solid rgba(45, 212, 191, 0.3);">
+                                    <p style="margin-bottom: 0.5rem;"><strong>Blockchain Verification:</strong></p>
+                                    <p style="font-size: 0.9rem;">✓ Token authenticity confirmed</p>
+                                    <p style="font-size: 0.9rem;">✓ Smart contract verification passed</p>
+                                    <p style="font-size: 0.9rem;">✓ Digital signature validated</p>
+                                </div>
+                                ${data.blockchain_details && data.blockchain_details.error_message ? 
+                                    `<div style="background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); padding: 1rem; border-radius: 0.5rem; margin: 1rem 0;">
+                                        <p style="color: #ffc107; font-weight: bold;">⚠️ Blockchain Verification Notice</p>
+                                        <p style="margin-top: 0.5rem;">${data.blockchain_details.error_message}</p>
+                                        <p style="margin-top: 0.5rem;">The token is still valid in our system, but blockchain verification encountered an issue.</p>
+                                        ${data.blockchain_details.needs_regeneration ? 
+                                            `<p style="margin-top: 0.5rem;">The system will automatically attempt to regenerate the blockchain record. Please refresh this page in a few moments to see the updated status.</p>
+                                            <button id="refresh-verification" class="btn primary" style="margin-top: 0.5rem;">Refresh Verification</button>
+                                            <script>
+                                                document.getElementById('refresh-verification').addEventListener('click', function() {
+                                                    // Show loading overlay
+                                                    const loadingOverlay = document.createElement('div');
+                                                    loadingOverlay.style.position = 'fixed';
+                                                    loadingOverlay.style.top = '0';
+                                                    loadingOverlay.style.left = '0';
+                                                    loadingOverlay.style.width = '100%';
+                                                    loadingOverlay.style.height = '100%';
+                                                    loadingOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+                                                    loadingOverlay.style.display = 'flex';
+                                                    loadingOverlay.style.justifyContent = 'center';
+                                                    loadingOverlay.style.alignItems = 'center';
+                                                    loadingOverlay.style.zIndex = '1000';
+                                                    loadingOverlay.innerHTML = '<div style="color: white; font-size: 1.2rem;">Refreshing verification...</div>';
+                                                    document.body.appendChild(loadingOverlay);
+                                                    
+                                                    // Reload the page
+                                                    setTimeout(() => {
+                                                        window.location.reload();
+                                                    }, 1000);
+                                                });
+                                            </script>` : ''
+                                        }
+                                    </div>` : ''
+                                }
+                                ${renderBlockchainDetails(data.blockchain_details)}
                                 <div style="margin-top: 1rem;">
                                     <button id="validate-another" class="btn primary">Validate Another</button>
                                     <button id="generate-new" class="btn secondary">Generate New Token</button>

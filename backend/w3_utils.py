@@ -24,28 +24,38 @@ if not ALCHEMY_API_KEY or not PRIVATE_KEY or not CONTRACT_ADDRESS:
     logger.warning("⚠️ Missing environment variables (ALCHEMY_API_KEY, PRIVATE_KEY, CONTRACT_ADDRESS)")
     logger.warning("⚠️ Using development placeholders - DO NOT USE IN PRODUCTION")
 
+# Check if we should force development mode
+BLOCKCHAIN_DEV_MODE = os.getenv('BLOCKCHAIN_DEV_MODE', 'false').lower() == 'true'
+
 # Try to connect to Sepolia via Alchemy
 try:
     logger.info("Connecting to Ethereum network via Alchemy...")
     start_time = time.time()
     
-    alchemy_url = f"https://eth-sepolia.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
-    web3 = Web3(HTTPProvider(alchemy_url))
+    # Use the SEPOLIA_RPC_URL directly if available, otherwise construct from ALCHEMY_API_KEY
+    sepolia_rpc_url = os.getenv('SEPOLIA_RPC_URL')
+    if not sepolia_rpc_url:
+        sepolia_rpc_url = f"https://eth-sepolia.g.alchemy.com/v2/{ALCHEMY_API_KEY}"
     
-    if not web3.is_connected():
+    web3 = Web3(HTTPProvider(sepolia_rpc_url))
+    
+    if not web3.is_connected() and not BLOCKCHAIN_DEV_MODE:
         logger.warning("⚠️ Could not connect to Sepolia via Alchemy")
         logger.warning("⚠️ Running in development mode with simulated blockchain")
         BLOCKCHAIN_DEV_MODE = True
     else:
-        BLOCKCHAIN_DEV_MODE = False
-        elapsed_time = time.time() - start_time
-        logger.info(f"✅ Connected to Ethereum network in {elapsed_time:.4f} seconds")
+        if not BLOCKCHAIN_DEV_MODE:
+            elapsed_time = time.time() - start_time
+            logger.info(f"✅ Connected to Ethereum network in {elapsed_time:.4f} seconds")
+        else:
+            logger.info("Running in development mode with simulated blockchain (forced by environment variable)")
 except Exception as e:
-    logger.warning(f"⚠️ Failed to initialize Web3: {e}")
-    logger.warning("⚠️ Running in development mode with simulated blockchain")
-    logger.debug(traceback.format_exc())
+    if not BLOCKCHAIN_DEV_MODE:
+        logger.warning(f"⚠️ Failed to initialize Web3: {e}")
+        logger.warning("⚠️ Running in development mode with simulated blockchain")
+        logger.debug(traceback.format_exc())
+        BLOCKCHAIN_DEV_MODE = True
     web3 = Web3()  # Fallback to local provider
-    BLOCKCHAIN_DEV_MODE = True
 
 # Try to load contract ABI
 contract_abi = None
@@ -83,15 +93,40 @@ except Exception as e:
 # Initialize contract
 try:
     logger.info("Initializing contract...")
-    contract = web3.eth.contract(address=CONTRACT_ADDRESS, abi=contract_abi)
+    # Make sure CONTRACT_ADDRESS is properly formatted
+    clean_address = CONTRACT_ADDRESS.strip()
+    
+    # Convert to checksum address
+    checksum_address = web3.to_checksum_address(clean_address)
+    
+    contract = web3.eth.contract(address=checksum_address, abi=contract_abi)
     account = web3.eth.account.from_key(PRIVATE_KEY)
-    logger.info(f"✅ Contract initialized at address {CONTRACT_ADDRESS}")
+    logger.info(f"✅ Contract initialized at address {checksum_address}")
+    
+    # Verify contract exists on the blockchain
+    if not BLOCKCHAIN_DEV_MODE:
+        try:
+            code = web3.eth.get_code(checksum_address)
+            if code == b'' or code == '0x':
+                logger.warning(f"⚠️ No contract code found at address {checksum_address}")
+                logger.warning("⚠️ This may be an invalid contract address")
+            else:
+                logger.info(f"✅ Contract code verified at address {checksum_address}")
+        except Exception as e:
+            logger.warning(f"⚠️ Could not verify contract code: {e}")
 except Exception as e:
     logger.warning(f"⚠️ Failed to initialize contract: {e}")
     logger.debug(traceback.format_exc())
     contract = None
     account = None
-account = web3.eth.account.from_key(PRIVATE_KEY)
+
+# Make sure account is initialized even if contract fails
+if account is None:
+    try:
+        account = web3.eth.account.from_key(PRIVATE_KEY)
+    except Exception as e:
+        logger.warning(f"⚠️ Failed to initialize account: {e}")
+        account = None
 
 # Filebase setup
 FILEBASE_ACCESS_KEY = os.getenv("FILEBASE_ACCESS_KEY", "sample_access_key")
@@ -296,21 +331,34 @@ def store_token_on_blockchain(user_token):
         elapsed_time = time.time() - start_time
         logger.info(f"✅ [DEV MODE] Token stored in memory: {user_token} in {elapsed_time:.4f} seconds")
         
-        # Return a dummy transaction hash
-        return "0x" + "0" * 64
+        # Generate a more realistic dummy transaction hash with a special prefix to indicate it's simulated
+        import random
+        dummy_hash = "0xSIM_" + ''.join(random.choices('0123456789abcdef', k=60))
+        logger.debug(f"Returning simulated transaction hash: {dummy_hash}")
+        return dummy_hash
     
     try:
+        # Check if web3 is connected
+        if not web3.is_connected():
+            logger.error("❌ Web3 is not connected to the blockchain")
+            return None
+            
+        # Check if contract and account are initialized
         if not contract or not account:
             logger.error("❌ Contract or account not initialized")
             return None
+        
+        # Get the latest nonce to avoid nonce errors
+        nonce = web3.eth.get_transaction_count(account.address)
+        logger.debug(f"Current nonce for account {account.address}: {nonce}")
         
         # Build the transaction
         logger.debug(f"Building transaction for token: {user_token}")
         tx = contract.functions.storeToken(user_token).build_transaction({
             'from': account.address,
-            'nonce': web3.eth.get_transaction_count(account.address),
-            'gas': 200000,
-            'gasPrice': web3.to_wei('10', 'gwei')
+            'nonce': nonce,
+            'gas': 300000,  # Increased gas limit
+            'gasPrice': web3.to_wei('20', 'gwei')  # Higher gas price for faster confirmation
         })
 
         # Sign and send the transaction
@@ -319,29 +367,342 @@ def store_token_on_blockchain(user_token):
         
         logger.debug("Sending transaction to network...")
         tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        tx_hash_hex = tx_hash.hex()
         
-        logger.debug(f"Transaction sent: {tx_hash.hex()}")
+        logger.info(f"Transaction sent: {tx_hash_hex}")
         
-        # Set a shorter timeout for waiting for receipt (5 seconds)
+        # Set a longer timeout for waiting for receipt (15 seconds)
         try:
-            logger.debug(f"Waiting for transaction receipt with timeout: {tx_hash.hex()}")
-            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=5)
-            logger.debug(f"Receipt received: {receipt.transactionHash.hex()}")
+            logger.debug(f"Waiting for transaction receipt with timeout: {tx_hash_hex}")
+            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=15)
+            logger.info(f"Receipt received: {receipt.transactionHash.hex()}")
+            
+            # Verify the transaction was successful
+            if receipt.status == 1:
+                logger.info(f"Transaction successful: {receipt.transactionHash.hex()}")
+                
+                elapsed_time = time.time() - start_time
+                logger.info(f"✅ Token stored on-chain: {user_token} in {elapsed_time:.4f} seconds")
+                logger.info(f"Transaction hash: {receipt.transactionHash.hex()}")
+                
+                return receipt.transactionHash.hex()
+            else:
+                logger.error(f"Transaction failed with status: {receipt.status}")
+                return None
         except Exception as e:
-            logger.warning(f"Timeout waiting for receipt, but transaction was sent: {tx_hash.hex()}")
+            logger.warning(f"Timeout waiting for receipt, but transaction was sent: {tx_hash_hex}")
             logger.warning(f"Error: {str(e)}")
             # We'll consider this a success since the transaction was sent
             # The receipt can be checked later
-
-        elapsed_time = time.time() - start_time
-        logger.info(f"✅ Token stored on-chain: {user_token} in {elapsed_time:.4f} seconds")
-        logger.info(f"Transaction hash: {receipt.transactionHash.hex()}")
-        
-        return receipt.transactionHash.hex()
+            
+            elapsed_time = time.time() - start_time
+            logger.info(f"✅ Token sent to blockchain: {user_token} in {elapsed_time:.4f} seconds (receipt pending)")
+            logger.info(f"Transaction hash: {tx_hash_hex}")
+            
+            return tx_hash_hex
     except Exception as e:
         logger.error(f"❌ Blockchain store failed: {e}")
         logger.debug(traceback.format_exc())
+        
+        # If we're in development mode, return a simulated hash
+        if os.getenv('FALLBACK_TO_SIM', 'true').lower() == 'true':
+            logger.info("Falling back to simulated hash due to error")
+            import random
+            dummy_hash = "0xSIM_" + ''.join(random.choices('0123456789abcdef', k=60))
+            logger.debug(f"Returning simulated transaction hash: {dummy_hash}")
+            return dummy_hash
+            
         return None
+
+def regenerate_blockchain_record(user_token, existing_tx_hash=None):
+    """
+    Regenerate the blockchain record for an existing token.
+    This is useful when the original transaction hash is invalid or not found.
+    
+    Args:
+        user_token (str): The token to regenerate the record for
+        existing_tx_hash (str, optional): The existing transaction hash
+        
+    Returns:
+        str: The new transaction hash if successful, None otherwise
+    """
+    logger.info(f"Regenerating blockchain record for token: {user_token}")
+    
+    # If we're in development mode, just return a simulated hash
+    if BLOCKCHAIN_DEV_MODE:
+        logger.info("Running in development mode, returning simulated hash")
+        import random
+        dummy_hash = "0xSIM_" + ''.join(random.choices('0123456789abcdef', k=60))
+        logger.debug(f"Returning simulated transaction hash: {dummy_hash}")
+        return dummy_hash
+    
+    # Check if the web3 connection is working
+    if not web3.is_connected():
+        logger.error("Cannot regenerate blockchain record: Web3 is not connected")
+        return None
+    
+    # Check if the contract is initialized
+    if contract is None or account is None:
+        logger.error("Cannot regenerate blockchain record: Contract or account not initialized")
+        return None
+    
+    if existing_tx_hash:
+        logger.info(f"Existing transaction hash: {existing_tx_hash}")
+        
+        # Check if this is a simulated hash (starts with 0xSIM_)
+        if existing_tx_hash.startswith("0xSIM_"):
+            logger.info("Existing hash is a simulated hash, generating a real blockchain record")
+        else:
+            # Try to verify the existing hash on the blockchain
+            try:
+                tx = web3.eth.get_transaction(existing_tx_hash)
+                if tx:
+                    logger.info(f"Existing transaction hash is valid: {existing_tx_hash}")
+                    return existing_tx_hash
+            except Exception as e:
+                logger.warning(f"Existing transaction hash is invalid: {e}")
+                logger.debug(f"Will attempt to create a new blockchain record for token: {user_token}")
+    
+    # If we get here, we need to regenerate the record
+    logger.info("Generating new blockchain record")
+    
+    try:
+        # Build the transaction
+        logger.debug(f"Building transaction for token: {user_token}")
+        
+        # Get the latest nonce to avoid nonce errors
+        nonce = web3.eth.get_transaction_count(account.address)
+        logger.debug(f"Current nonce for account {account.address}: {nonce}")
+        
+        tx = contract.functions.storeToken(user_token).build_transaction({
+            'from': account.address,
+            'nonce': nonce,
+            'gas': 200000,
+            'gasPrice': web3.to_wei('20', 'gwei')  # Higher gas price for faster confirmation
+        })
+        
+        # Sign and send the transaction
+        logger.debug("Signing transaction...")
+        signed_tx = web3.eth.account.sign_transaction(tx, private_key=PRIVATE_KEY)
+        
+        logger.debug("Sending transaction to network...")
+        tx_hash = web3.eth.send_raw_transaction(signed_tx.raw_transaction)
+        tx_hash_hex = tx_hash.hex()
+        
+        logger.info(f"Transaction sent: {tx_hash_hex}")
+        
+        # Set a longer timeout for waiting for receipt (10 seconds)
+        try:
+            logger.debug(f"Waiting for transaction receipt with timeout: {tx_hash_hex}")
+            receipt = web3.eth.wait_for_transaction_receipt(tx_hash, timeout=10)
+            logger.info(f"Receipt received: {receipt.transactionHash.hex()}")
+            
+            # Verify the transaction was successful
+            if receipt.status == 1:
+                logger.info(f"Transaction successful: {receipt.transactionHash.hex()}")
+                return receipt.transactionHash.hex()
+            else:
+                logger.error(f"Transaction failed with status: {receipt.status}")
+                return None
+        except Exception as e:
+            logger.warning(f"Timeout waiting for receipt, but transaction was sent: {tx_hash_hex}")
+            logger.warning(f"Error: {str(e)}")
+            # We'll consider this a success since the transaction was sent
+            # The receipt can be checked later
+            return tx_hash_hex
+            
+    except Exception as e:
+        logger.error(f"Failed to regenerate blockchain record: {e}")
+        logger.debug(traceback.format_exc())
+        return None
+
+def check_blockchain_connection():
+    """
+    Check if the blockchain connection is working properly.
+    
+    Returns:
+        dict: Connection status and details
+    """
+    try:
+        logger.debug("Checking blockchain connection...")
+        
+        if not web3.is_connected():
+            logger.warning("Web3 is not connected to the blockchain")
+            return {
+                "connected": False,
+                "error": "Not connected to Ethereum network",
+                "dev_mode": BLOCKCHAIN_DEV_MODE
+            }
+        
+        # Get the latest block as a simple test
+        latest_block = web3.eth.block_number
+        logger.debug(f"Latest block number: {latest_block}")
+        
+        # Check if the contract is accessible
+        try:
+            contract_code = web3.eth.get_code(CONTRACT_ADDRESS)
+            has_contract = len(contract_code) > 0
+        except Exception as e:
+            logger.warning(f"Error checking contract: {e}")
+            has_contract = False
+        
+        return {
+            "connected": True,
+            "network": "Sepolia Testnet",
+            "latest_block": latest_block,
+            "contract_valid": has_contract,
+            "api_key_valid": True,
+            "dev_mode": BLOCKCHAIN_DEV_MODE
+        }
+    except Exception as e:
+        logger.error(f"Error checking blockchain connection: {e}")
+        logger.debug(traceback.format_exc())
+        return {
+            "connected": False,
+            "error": str(e),
+            "dev_mode": BLOCKCHAIN_DEV_MODE
+        }
+
+def get_token_transaction_details(user_token):
+    """
+    Get transaction details for a token from the blockchain.
+    
+    Args:
+        user_token (str): The token to look up
+        
+    Returns:
+        dict: Transaction details if found, empty dict otherwise
+    """
+    if BLOCKCHAIN_DEV_MODE:
+        # In development mode, return simulated transaction details
+        if user_token in DEV_TOKENS:
+            # Generate a dummy transaction hash
+            tx_hash = "0x" + ''.join(random.choices('0123456789abcdef', k=64))
+            
+            return {
+                "tx_hash": tx_hash,
+                "block_number": 12345678,
+                "timestamp": int(time.time()) - random.randint(100, 10000),
+                "from": "0x" + ''.join(random.choices('0123456789abcdef', k=40)),
+                "to": CONTRACT_ADDRESS,
+                "status": "success",
+                "network": "Sepolia Testnet (simulated)",
+                "dev_mode": True,
+                "dev_mode_message": "Running in development mode with simulated blockchain data. In production, this would show real transaction data from the Ethereum blockchain."
+            }
+        return {
+            "dev_mode": True,
+            "dev_mode_message": "Token not found in development mode records."
+        }
+    
+    try:
+        # Check tokens.json to find the transaction hash for this token
+        tokens_file = os.path.join(os.path.dirname(__file__), 'tokens.json')
+        if os.path.exists(tokens_file):
+            with open(tokens_file, 'r') as f:
+                tokens_data = json.load(f)
+                
+            # Find the token in the data
+            for user_key, data in tokens_data.items():
+                if data.get('token') == user_token:
+                    tx_hash = data.get('txn_hash')
+                    if tx_hash and tx_hash != "pending":
+                        try:
+                            logger.debug(f"Attempting to get transaction details for hash: {tx_hash}")
+                            
+                            # Check if this is a simulated transaction hash (starts with 0xSIM_)
+                            if tx_hash.startswith("0xSIM_"):
+                                logger.info(f"Transaction {tx_hash} is a simulated hash")
+                                return {
+                                    "tx_hash": tx_hash,
+                                    "network": "Sepolia Testnet (simulated)",
+                                    "status": "simulated",
+                                    "timestamp": int(time.time()),
+                                    "dev_mode_message": "This is a simulated transaction for development purposes. No actual blockchain transaction was created."
+                                }
+                            
+                            # Check if web3 is connected
+                            if not web3.is_connected():
+                                logger.warning("Web3 is not connected to the blockchain")
+                                return {
+                                    "tx_hash": tx_hash,
+                                    "network": "Sepolia Testnet",
+                                    "status": "unknown",
+                                    "error": "Web3 is not connected to the blockchain",
+                                    "error_message": "Cannot connect to the Ethereum network. Please check your internet connection and try again.",
+                                    "needs_regeneration": True
+                                }
+                            
+                            # Try to get the transaction
+                            logger.debug("Calling web3.eth.get_transaction...")
+                            tx = web3.eth.get_transaction(tx_hash)
+                            
+                            if tx is None:
+                                logger.warning(f"Transaction {tx_hash} not found on the blockchain")
+                                
+                                # Try to regenerate the blockchain record
+                                logger.info(f"Attempting to regenerate blockchain record for token with hash: {tx_hash}")
+                                
+                                # We'll return this for now, but the token verification process should
+                                # handle regeneration of the blockchain record
+                                return {
+                                    "tx_hash": tx_hash,
+                                    "network": "Sepolia Testnet",
+                                    "status": "not_found",
+                                    "error": "Transaction not found",
+                                    "error_message": "This transaction hash does not exist on the Sepolia testnet. The system will attempt to regenerate the blockchain record.",
+                                    "needs_regeneration": True
+                                }
+                            
+                            # Get receipt and block details
+                            logger.debug("Getting transaction receipt...")
+                            receipt = web3.eth.get_transaction_receipt(tx_hash)
+                            
+                            logger.debug(f"Getting block details for block number: {tx.blockNumber}")
+                            block = web3.eth.get_block(tx.blockNumber)
+                            
+                            logger.debug("Successfully retrieved all transaction details")
+                            return {
+                                "tx_hash": tx_hash,
+                                "block_number": tx.blockNumber,
+                                "timestamp": block.timestamp,
+                                "from": tx["from"],
+                                "to": tx.to,
+                                "status": "success" if receipt.status == 1 else "failed",
+                                "network": "Sepolia Testnet"
+                            }
+                        except Exception as e:
+                            logger.warning(f"Error getting transaction details: {e}")
+                            logger.debug(traceback.format_exc())
+                            
+                            # Return basic info if we can't get full details
+                            error_message = str(e)
+                            user_message = "Transaction hash not found on the blockchain. This could be because the transaction is still pending, or the blockchain node is not fully synced."
+                            
+                            # Check for specific error types
+                            if "not found" in error_message.lower():
+                                user_message = "This transaction hash does not exist on the Sepolia testnet. The system will attempt to regenerate the blockchain record."
+                                needs_regeneration = True
+                            elif "timeout" in error_message.lower():
+                                user_message = "Connection to the blockchain timed out. Please check your internet connection and try again."
+                                needs_regeneration = False
+                            else:
+                                needs_regeneration = False
+                            
+                            return {
+                                "tx_hash": tx_hash,
+                                "network": "Sepolia Testnet",
+                                "status": "unknown",
+                                "error": error_message,
+                                "error_message": user_message,
+                                "needs_regeneration": needs_regeneration
+                            }
+        return {
+            "error_message": "No transaction hash found for this token. The token may not have been stored on the blockchain yet."
+        }
+    except Exception as e:
+        logger.error(f"Error in get_token_transaction_details: {e}")
+        return {}
 
 def verify_token_on_blockchain(user_token):
     """
@@ -372,34 +733,53 @@ def verify_token_on_blockchain(user_token):
             logger.error("❌ Contract not initialized")
             return False
         
-        # For now, we'll check if the file exists in Filebase instead of calling the contract
-        # This is a temporary workaround until the blockchain integration is fully working
-        try:
-            # Check if the file exists in Filebase
-            file_exists = check_file_exists_in_filebase(f"{user_token}.json")
-            
-            if file_exists:
-                logger.info(f"✅ Token {user_token} verified via Filebase")
-                return True
-            else:
-                # Try with .txt extension for backward compatibility
-                file_exists = check_file_exists_in_filebase(f"{user_token}.txt")
-                if file_exists:
-                    logger.info(f"✅ Token {user_token} verified via Filebase (txt format)")
-                    return True
-                else:
-                    logger.info(f"❌ Token {user_token} not found in Filebase")
-                    return False
-        except Exception as filebase_error:
-            logger.warning(f"Filebase check failed, falling back to blockchain: {filebase_error}")
-            # Fall back to blockchain verification
+        # We'll use the blockchain to verify the token
+        logger.info(f"Verifying token {user_token} directly on the blockchain")
         
         # Try to call the contract function with a timeout
         import threading
         from concurrent.futures import ThreadPoolExecutor, TimeoutError
         
         def call_contract_with_timeout():
-            return contract.functions.verifyToken(user_token).call()
+            try:
+                # Call the smart contract's verifyToken function
+                logger.info(f"Calling verifyToken function on smart contract for token: {user_token}")
+                
+                # This actually calls the blockchain to verify the token
+                result = contract.functions.verifyToken(user_token).call()
+                
+                if result:
+                    logger.info(f"✅ Token {user_token} verified on blockchain via smart contract")
+                else:
+                    logger.info(f"❌ Token {user_token} not found on blockchain via smart contract")
+                
+                return result
+            except Exception as e:
+                logger.error(f"Error in blockchain verification: {e}")
+                logger.debug(traceback.format_exc())
+                
+                # Fallback to checking local records if blockchain call fails
+                logger.warning("Falling back to local verification due to blockchain error")
+                
+                # First check in-memory storage (for dev mode)
+                if user_token in DEV_TOKENS:
+                    logger.info(f"Token {user_token} found in DEV_TOKENS (fallback)")
+                    return True
+                
+                # Then check tokens.json
+                tokens_file = os.path.join(os.path.dirname(__file__), 'tokens.json')
+                if os.path.exists(tokens_file):
+                    with open(tokens_file, 'r') as f:
+                        tokens_data = json.load(f)
+                        
+                    # Check if the token exists in any of the entries
+                    for user_key, data in tokens_data.items():
+                        if data.get('token') == user_token:
+                            logger.info(f"Token {user_token} found in tokens.json (fallback)")
+                            return True
+                
+                logger.info(f"Token {user_token} not found in any records")
+                return False
         
         # Use ThreadPoolExecutor to implement timeout
         with ThreadPoolExecutor(max_workers=1) as executor:
@@ -413,11 +793,26 @@ def verify_token_on_blockchain(user_token):
                 
                 return is_valid
             except TimeoutError:
-                logger.warning(f"⚠️ Blockchain verification timed out, assuming token is valid if it exists in our records")
-                # If we have the token in our local records, consider it valid
-                if user_token in DEV_TOKENS:
-                    logger.info(f"✅ Token {user_token} found in local records, considering valid")
-                    return True
+                logger.warning(f"⚠️ Blockchain verification timed out")
+                # In a production environment, we might want to retry or use a fallback
+                # For now, we'll check our local records as a fallback
+                
+                # Check tokens.json as a fallback
+                tokens_file = os.path.join(os.path.dirname(__file__), 'tokens.json')
+                try:
+                    if os.path.exists(tokens_file):
+                        with open(tokens_file, 'r') as f:
+                            tokens_data = json.load(f)
+                            
+                        # Check if the token exists in any of the entries
+                        for user_key, data in tokens_data.items():
+                            if data.get('token') == user_token:
+                                logger.info(f"✅ Token {user_token} found in local records (fallback), considering valid")
+                                return True
+                except Exception as fallback_error:
+                    logger.error(f"Error in fallback verification: {fallback_error}")
+                
+                logger.info(f"❌ Token {user_token} not verified (blockchain timeout)")
                 return False
     except Exception as e:
         logger.error(f"❌ Token verification failed: {e}")

@@ -1,0 +1,44 @@
+2025-04-16 15:33:42 [ERROR] w3_utils.call_contract_with_timeout:467 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 15:33:42 [ERROR] app.validate:226 - Error in /validate_token: cannot unpack non-iterable bool object
+2025-04-16 15:33:42 [ERROR] app.validate:227 - Traceback (most recent call last):
+  File "P:\blockchain-id-authentication\PII-Authenticator\backend\app.py", line 209, in validate
+    valid, blockchain_details = verify_token(token)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: cannot unpack non-iterable bool object
+
+2025-04-16 15:50:36 [ERROR] w3_utils.call_contract_with_timeout:467 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 15:57:21 [ERROR] w3_utils.call_contract_with_timeout:476 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:09:00 [ERROR] w3_utils.call_contract_with_timeout:564 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:10:21 [ERROR] w3_utils.call_contract_with_timeout:564 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:19:15 [ERROR] w3_utils.regenerate_blockchain_record:389 - Failed to regenerate blockchain record
+2025-04-16 16:19:15 [ERROR] token_auth.verify_token:278 - Failed to regenerate blockchain record for token C04RL2MN8Q
+2025-04-16 16:19:16 [ERROR] w3_utils.call_contract_with_timeout:631 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:19:20 [ERROR] w3_utils.regenerate_blockchain_record:389 - Failed to regenerate blockchain record
+2025-04-16 16:19:20 [ERROR] token_auth.verify_token:278 - Failed to regenerate blockchain record for token C04RL2MN8Q
+2025-04-16 16:19:21 [ERROR] w3_utils.call_contract_with_timeout:631 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:22:47 [ERROR] w3_utils.call_contract_with_timeout:631 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:23:54 [ERROR] w3_utils.regenerate_blockchain_record:389 - Failed to regenerate blockchain record
+2025-04-16 16:23:54 [ERROR] token_auth.verify_token:278 - Failed to regenerate blockchain record for token BWM7YWS0CH
+2025-04-16 16:23:55 [ERROR] w3_utils.call_contract_with_timeout:631 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:30:04 [ERROR] w3_utils.call_contract_with_timeout:725 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:30:12 [ERROR] w3_utils.call_contract_with_timeout:725 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:42:15 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:44:24 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:45:19 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:50:05 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:51:03 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:51:37 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:53:05 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:54:17 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:54:59 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:55:19 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:55:36 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:56:06 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 16:58:22 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:10:13 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:10:19 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:10:29 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:12:36 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:14:01 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:17:19 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
+2025-04-16 17:48:41 [ERROR] w3_utils.call_contract_with_timeout:758 - Error in blockchain verification: Could not transact with/call contract function, is contract deployed correctly and chain synced?
