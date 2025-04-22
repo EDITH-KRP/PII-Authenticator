@@ -1,0 +1,361 @@
+// Document Scanner Module
+// This module handles document scanning and PII extraction
+
+// API URL
+const API_URL = 'http://127.0.0.1:5000';
+
+// Document types
+const DOCUMENT_TYPES = {
+    PASSPORT: 'passport',
+    DRIVERS_LICENSE: 'driver_license',
+    NATIONAL_ID: 'national_id'
+};
+
+// Initialize the document scanner
+function initDocumentScanner() {
+    console.log('Initializing document scanner...');
+    
+    // Get DOM elements
+    const scanDocBtn = document.getElementById('scanDocBtn');
+    const scanModal = document.getElementById('scanModal');
+    const closeScanModalBtn = document.querySelector('#scanModal .close');
+    const scanForm = document.getElementById('scanDocumentForm');
+    const docTypeSelect = document.getElementById('docTypeSelect');
+    const docFileInput = document.getElementById('docFileInput');
+    const previewContainer = document.getElementById('previewContainer');
+    const previewImage = document.getElementById('previewImage');
+    const extractedDataContainer = document.getElementById('extractedDataContainer');
+    const scanSubmitBtn = document.getElementById('scanSubmitBtn');
+    const scanningSpinner = document.getElementById('scanningSpinner');
+    const tokenResultContainer = document.getElementById('tokenResultContainer');
+    
+    // If any element is missing, return
+    if (!scanDocBtn || !scanModal || !closeScanModalBtn || !scanForm || 
+        !docTypeSelect || !docFileInput || !previewContainer || !previewImage || 
+        !extractedDataContainer || !scanSubmitBtn || !scanningSpinner || 
+        !tokenResultContainer) {
+        console.error('Missing required DOM elements for document scanner');
+        return;
+    }
+    
+    // Open scan modal
+    scanDocBtn.addEventListener('click', () => {
+        scanModal.style.display = 'block';
+        resetScanForm();
+    });
+    
+    // Close scan modal
+    closeScanModalBtn.addEventListener('click', () => {
+        scanModal.style.display = 'none';
+    });
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (event) => {
+        if (event.target === scanModal) {
+            scanModal.style.display = 'none';
+        }
+    });
+    
+    // Show preview when file is selected
+    docFileInput.addEventListener('change', () => {
+        const file = docFileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                previewContainer.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        } else {
+            previewContainer.style.display = 'none';
+        }
+    });
+    
+    // Handle form submission
+    console.log('Adding submit listener to scan form');
+    scanForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        console.log('Scan form submitted');
+        
+        // Get form data
+        const docType = docTypeSelect.value;
+        const docFile = docFileInput.files[0];
+        
+        // Validate form data
+        if (!docType || !docFile) {
+            alert('Please select a document type and upload a document image');
+            return;
+        }
+        
+        // Check file size (max 10MB)
+        const maxSize = 10 * 1024 * 1024; // 10MB in bytes
+        if (docFile.size > maxSize) {
+            alert('File is too large. Maximum size is 10MB.');
+            return;
+        }
+        
+        // Disable submit button and show loading state
+        scanSubmitBtn.disabled = true;
+        scanningSpinner.style.display = 'block';
+        
+        try {
+            // Scan document
+            const response = await scanDocument(docType, docFile);
+            
+            // Process response
+            await processResponse(response);
+        } catch (error) {
+            console.error('Error scanning document:', error);
+            alert('An error occurred while scanning the document. Please try again.');
+            scanningSpinner.style.display = 'none';
+            scanSubmitBtn.disabled = false;
+        }
+    });
+    
+    // Reset scan form
+    function resetScanForm() {
+        scanForm.reset();
+        previewContainer.style.display = 'none';
+        extractedDataContainer.style.display = 'none';
+        tokenResultContainer.style.display = 'none';
+        scanningSpinner.style.display = 'none';
+    }
+    
+    // Update scanning steps
+    function updateScanningStep(step) {
+        const steps = document.querySelectorAll('.scanning-step');
+        if (!steps || steps.length === 0) return;
+        
+        steps.forEach((stepEl, index) => {
+            if (index + 1 < step) {
+                stepEl.classList.remove('active');
+                stepEl.classList.add('completed');
+            } else if (index + 1 === step) {
+                stepEl.classList.add('active');
+                stepEl.classList.remove('completed');
+            } else {
+                stepEl.classList.remove('active');
+                stepEl.classList.remove('completed');
+            }
+        });
+    }
+    
+    // Function to display extracted data
+    function displayExtractedData(data) {
+        // Get the container
+        const container = document.getElementById('extractedDataList');
+        if (!container) return;
+        
+        // Clear previous data
+        container.innerHTML = '';
+        
+        // Create list items for each data field
+        for (const [key, value] of Object.entries(data)) {
+            // Skip empty values and metadata fields
+            if (!value || key === 'user_id' || key === 'processed_at' || key === 'document_type') continue;
+            
+            // Create a modified token that includes the user ID
+            const modifiedToken = `${userData.id}:${jwt}`;
+            
+            // Create list item
+            const listItem = document.createElement('li');
+            listItem.className = 'extracted-data-item';
+            
+            // Format key for display
+            const formattedKey = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            
+            // Create content with copy button for important fields
+            listItem.innerHTML = `
+                <div class="data-label">${formattedKey}:</div>
+                <div class="data-value">${value}</div>
+                ${['name', 'id_number', 'passport_number', 'license_number'].includes(key) ? 
+                    `<button class="copy-btn" data-value="${value}">Copy</button>` : ''}
+            `;
+            
+            container.appendChild(listItem);
+        }
+        
+        // Add event listeners for copy buttons
+        container.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const value = button.getAttribute('data-value');
+                navigator.clipboard.writeText(value)
+                    .then(() => {
+                        button.textContent = 'Copied!';
+                        setTimeout(() => {
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('Copy failed:', err);
+                        alert('Failed to copy. Please try again.');
+                    });
+            });
+        });
+    }
+    
+    // Function to scan document
+    async function scanDocument(docType, docFile) {
+        // Get JWT token from localStorage
+        const currentUser = localStorage.getItem('currentUser');
+        if (!currentUser) {
+            throw new Error('User not logged in');
+        }
+        
+        const userData = JSON.parse(currentUser);
+        const jwt = userData.token;
+        
+        // Create form data
+        const formData = new FormData();
+        formData.append('document_type', docType);
+        formData.append('file', docFile);
+        
+        // Log form data for debugging
+        console.log('Scanning document with type:', docType);
+        console.log('File name:', docFile.name);
+        console.log('File size:', docFile.size);
+        
+        try {
+            // Update spinner text and steps
+            const scanningText = document.getElementById('scanningText');
+            if (scanningText) {
+                scanningText.textContent = 'Scanning document and extracting information...';
+            }
+            
+            // Update scanning steps
+            updateScanningStep(1);
+            
+            const response = await fetch(`${API_URL}/user/documents/scan_ai`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${jwt}`
+                },
+                body: formData
+            });
+            
+            // Update spinner text and steps
+            if (scanningText) {
+                scanningText.textContent = 'Extracting PII data...';
+            }
+            
+            // Update scanning steps
+            updateScanningStep(2);
+            
+            return response;
+        } catch (error) {
+            // Hide spinner
+            scanningSpinner.style.display = 'none';
+            scanSubmitBtn.disabled = false;
+            
+            // Show error
+            alert(`Error: ${error.message}. Please try again.`);
+            
+            return null;
+        }
+    }
+    
+    // Function to process response
+    async function processResponse(response) {
+        // If response is null (timeout or error occurred), return early
+        if (!response) return;
+        
+        // Parse response
+        let data;
+        try {
+            data = await response.json();
+        } catch (e) {
+            console.error(`Error parsing response: ${e.message}`);
+            console.error('Full response:', response);
+            data = { error: 'Server error. Could not parse response.' };
+        }
+        
+        // Hide spinner
+        scanningSpinner.style.display = 'none';
+        scanSubmitBtn.disabled = false;
+        
+        if (response.ok) {
+            console.log('Scan successful:', data);
+            
+            // Display extracted data
+            if (data.extracted_data) {
+                displayExtractedData(data.extracted_data);
+                extractedDataContainer.style.display = 'block';
+            } else {
+                alert('No data could be extracted from the document. Please try with a clearer image.');
+                return;
+            }
+            
+            // Display verification result
+            const verificationStatus = document.getElementById('verificationStatus');
+            const documentId = document.getElementById('documentId');
+            
+            if (verificationStatus) {
+                verificationStatus.textContent = 'Verified';
+            }
+            
+            if (documentId && data.document_id) {
+                documentId.textContent = data.document_id;
+            } else if (documentId) {
+                documentId.textContent = 'DOC-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+            }
+            
+            // Display blockchain transaction details
+            const txHash = document.getElementById('txHash');
+            if (txHash && data.tx_hash) {
+                txHash.textContent = data.tx_hash;
+                txHash.href = `https://etherscan.io/tx/${data.tx_hash}`;
+            }
+            
+            tokenResultContainer.style.display = 'block';
+            
+            // Show success message
+            const successMessage = document.querySelector('.success-message');
+            if (successMessage) {
+                successMessage.innerHTML = 'Your document has been successfully verified and securely stored on the blockchain!';
+                successMessage.innerHTML += '<br><br>The extracted information has been encrypted and can only be accessed with your permission.';
+            }
+            
+            // Update scanning steps
+            updateScanningStep(3);
+            
+            // Reload the page after 10 seconds
+            setTimeout(() => {
+                window.location.reload();
+            }, 10000);
+            
+            // Show countdown message
+            if (successMessage) {
+                let countdown = 10;
+                successMessage.innerHTML += `<br><span id="countdown">Page will refresh in ${countdown} seconds...</span>`;
+                
+                const countdownInterval = setInterval(() => {
+                    countdown--;
+                    const countdownElement = document.getElementById('countdown');
+                    if (countdownElement) {
+                        if (countdown > 0) {
+                            countdownElement.textContent = `Page will refresh in ${countdown} seconds...`;
+                        } else {
+                            countdownElement.textContent = 'Refreshing...';
+                            clearInterval(countdownInterval);
+                        }
+                    }
+                }, 1000);
+            }
+        } else {
+            console.error('API Error:', data);
+            console.error('Response status:', response.status);
+            
+            // Show detailed error message
+            if (response.status === 500) {
+                alert(`Server error (500): ${data.error || 'Internal server error'}. Please contact support.`);
+            } else {
+                alert(`Error: ${data.error || 'Failed to scan document'}`);
+            }
+        }
+    }
+}
+
+// Export the function
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { initDocumentScanner };
+}

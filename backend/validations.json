@@ -8,5 +8,25 @@
     "tx_hash": null,
     "validation_tx_hash": "0902236fb9a91f10ee724ef7a2fb6ef1d478195ccaf9eb0a5fd37753f2da613c",
     "timestamp": 1744899829.361404
+  },
+  "val_1745304887_414bfd32": {
+    "id": "val_1745304887_414bfd32",
+    "company_id": "company_1234",
+    "token": "K8U2EH36EP",
+    "purpose": "quick_check",
+    "is_valid": true,
+    "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
+    "validation_tx_hash": "2741dc60fdcd352923510c17856ae06dc852ef02c3c61cebb2bf0c8a427c097a",
+    "timestamp": 1745304887.0613952
+  },
+  "val_1745304912_e6ae2772": {
+    "id": "val_1745304912_e6ae2772",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K8U2EH36EP",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
+    "validation_tx_hash": "8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2",
+    "timestamp": 1745304912.655054
   }
 }

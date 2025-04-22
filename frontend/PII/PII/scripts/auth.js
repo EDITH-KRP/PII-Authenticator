@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         localStorage.removeItem('rememberMe');
                     }
                     
-                    // Redirect to profile
-                    window.location.href = 'profile.html';
+                    // Redirect to dashboard
+                    window.location.href = 'dashboard.html';
                 } else {
                     Logger.error(`Login failed: ${data.error}`);
                     alert(data.error || 'Login failed. Please check your credentials and try again.');
@@ -148,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         token: data.token
                     }));
                     
-                    // Redirect to profile page
-                    window.location.href = 'profile.html';
+                    // Redirect to dashboard page
+                    window.location.href = 'dashboard.html';
                 } else {
                     Logger.error(`Signup failed: ${data.error}`);
                     alert(data.error || 'Registration failed. Please try again.');

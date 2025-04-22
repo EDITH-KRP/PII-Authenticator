@@ -17,6 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // API URL
     const API_URL = 'http://127.0.0.1:5000';
     
+    // Check if user already has a token
+    fetch(`${API_URL}/user/tokens`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${userData.token}`
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.tokens && data.tokens.length > 0) {
+            // User already has a token, redirect to profile page
+            Logger.info('User already has a token, redirecting to profile page');
+            alert('You already have a token. Redirecting to your profile page.');
+            window.location.href = 'profile.html';
+        }
+    })
+    .catch(error => {
+        Logger.error(`Error checking if user has tokens: ${error.message}`);
+    });
+    
     // Generate token form
     const generateForm = document.getElementById('generateForm');
     if (generateForm) {

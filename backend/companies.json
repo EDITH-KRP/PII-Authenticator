@@ -11,7 +11,8 @@
     "password_salt": "9bca044d440e26bf96b8383ce9b2d8bc",
     "created_at": 1744899768.1204073,
     "validations": [
-      "val_1744899829_8fdfe26b"
+      "val_1744899829_8fdfe26b",
+      "val_1745304912_e6ae2772"
     ]
   }
 }

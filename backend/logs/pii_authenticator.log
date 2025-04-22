@@ -6337,3 +6337,1655 @@ web3.exceptions.BadFunctionCallOutput: Could not transact with/call contract fun
 2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 05db7285d7f61c01 processed in 0.0133 seconds
 2025-04-17 20:49:06 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
 2025-04-17 20:49:06 [DEBUG] app.after_request:38 - Request 7ae2477675509d48 processed in 0.0131 seconds
+2025-04-21 09:44:41 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:44:45 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:44:45 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:44:48 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:44:52 [INFO] app.<module>:905 - Starting PII Authenticator backend server
+2025-04-21 09:44:56 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:44:59 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:44:59 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:44:59 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:45:01 [INFO] app.<module>:905 - Starting PII Authenticator backend server
+2025-04-21 09:53:10 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:53:13 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:53:13 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:53:13 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:54:20 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:54:22 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:54:22 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:54:23 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:58:25 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:58:27 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:58:27 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:58:27 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:59:38 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:59:39 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:59:39 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:59:39 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:59:40 [WARNING] document_processor.<module>:23 - Tesseract OCR not found at C:\Program Files\Tesseract-OCR\tesseract.exe. Please install Tesseract OCR and update the path.
+2025-04-21 09:59:40 [INFO] app.<module>:976 - Starting PII Authenticator backend server
+2025-04-21 09:59:41 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 09:59:42 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 09:59:42 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 09:59:43 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 09:59:43 [WARNING] document_processor.<module>:23 - Tesseract OCR not found at C:\Program Files\Tesseract-OCR\tesseract.exe. Please install Tesseract OCR and update the path.
+2025-04-21 09:59:43 [INFO] app.<module>:976 - Starting PII Authenticator backend server
+2025-04-21 10:06:29 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 10:06:32 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 10:06:32 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 10:06:32 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 10:08:13 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 10:08:14 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 10:08:14 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 10:08:15 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 10:08:15 [INFO] app.<module>:1130 - Starting PII Authenticator backend server
+2025-04-21 10:08:17 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 10:08:18 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 10:08:18 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 10:08:18 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 10:08:18 [INFO] app.<module>:1130 - Starting PII Authenticator backend server
+2025-04-21 10:11:56 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 10:11:58 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 10:11:58 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 10:11:58 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 10:12:00 [INFO] app.<module>:1130 - Starting PII Authenticator backend server
+2025-04-21 10:12:02 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 10:12:02 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 10:12:02 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 10:12:02 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 10:12:03 [INFO] app.<module>:1130 - Starting PII Authenticator backend server
+2025-04-21 10:12:15 [DEBUG] app.after_request:39 - Request dc20945a163ce451 processed in 0.0002 seconds
+2025-04-21 10:12:15 [DEBUG] app.after_request:39 - Request 6f5b3e4ae5d1eb4b processed in 0.0002 seconds
+2025-04-21 10:12:15 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 10:12:15 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:12:15 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 10:12:15 [DEBUG] app.after_request:39 - Request 916f29859b8bd6dd processed in 0.0053 seconds
+2025-04-21 10:12:15 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:12:15 [DEBUG] app.after_request:39 - Request 24fef30b8e68bef1 processed in 0.0028 seconds
+2025-04-21 10:12:51 [DEBUG] app.after_request:39 - Request 13fa72cf4fd25af4 processed in 0.0001 seconds
+2025-04-21 10:12:51 [DEBUG] app.after_request:39 - Request ece54cd18ec05d7e processed in 0.0006 seconds
+2025-04-21 10:12:51 [DEBUG] app.after_request:39 - Request 6c5e15035bed6ff8 processed in 0.0003 seconds
+2025-04-21 10:12:51 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 10:12:51 [WARNING] user_auth.get_user_by_id:193 - User with ID user_1234 not found
+2025-04-21 10:12:51 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:12:51 [DEBUG] app.after_request:39 - Request f960bf9a493b2972 processed in 0.0373 seconds
+2025-04-21 10:12:51 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 10:12:51 [DEBUG] app.after_request:39 - Request c61e24b3df03042a processed in 0.0376 seconds
+2025-04-21 10:12:51 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:12:51 [DEBUG] app.after_request:39 - Request 1929c6af165575a1 processed in 0.0286 seconds
+2025-04-21 10:13:12 [DEBUG] app.after_request:39 - Request ce08cc958b5b3127 processed in 0.0001 seconds
+2025-04-21 10:13:12 [ERROR] app.upload_document:624 - Error uploading document: upload_to_filebase() missing 1 required positional argument: 'file_data'
+2025-04-21 10:13:12 [DEBUG] app.after_request:39 - Request 2f20efebf25c84d5 processed in 0.0046 seconds
+2025-04-21 10:17:04 [DEBUG] app.after_request:39 - Request db7487b0ac7b64ff processed in 0.0125 seconds
+2025-04-21 10:17:04 [DEBUG] app.after_request:39 - Request 4e6547ccf0d921d2 processed in 0.0064 seconds
+2025-04-21 10:17:06 [DEBUG] app.after_request:39 - Request 9a99896719bd6c54 processed in 0.0001 seconds
+2025-04-21 10:17:06 [WARNING] user_auth.get_user_by_id:193 - User with ID user_1234 not found
+2025-04-21 10:17:06 [DEBUG] app.after_request:39 - Request 4bce0d2ee22753a8 processed in 0.0546 seconds
+2025-04-21 10:21:01 [DEBUG] app.after_request:39 - Request c55a107d3ab650b8 processed in 0.0003 seconds
+2025-04-21 10:21:01 [DEBUG] app.after_request:39 - Request 7d44524bc3792962 processed in 0.0002 seconds
+2025-04-21 10:21:01 [DEBUG] app.after_request:39 - Request 54695b2884b0b5db processed in 0.0001 seconds
+2025-04-21 10:21:01 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 10:21:01 [WARNING] user_auth.get_user_by_id:193 - User with ID user_1234 not found
+2025-04-21 10:21:01 [DEBUG] app.after_request:39 - Request dfa105104cdfe9a0 processed in 0.0088 seconds
+2025-04-21 10:21:01 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:21:01 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 10:21:01 [DEBUG] app.after_request:39 - Request b6416be05acac0ba processed in 0.0075 seconds
+2025-04-21 10:21:01 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:21:01 [DEBUG] app.after_request:39 - Request 5105719da9a408ab processed in 0.0040 seconds
+2025-04-21 10:21:18 [DEBUG] app.after_request:39 - Request 7ebfa401e292a51d processed in 0.0002 seconds
+2025-04-21 10:21:18 [INFO] user_auth.login_user:121 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-21 10:21:19 [INFO] user_auth.login_user:166 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-21 10:21:19 [DEBUG] app.after_request:39 - Request 7fbefe4a99aca7e5 processed in 0.0737 seconds
+2025-04-21 10:21:19 [DEBUG] app.after_request:39 - Request 4abd996a39056b62 processed in 0.0001 seconds
+2025-04-21 10:21:19 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 10:21:19 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 10:21:19 [DEBUG] app.after_request:39 - Request 76cfafe471342068 processed in 0.0021 seconds
+2025-04-21 10:21:19 [DEBUG] app.after_request:39 - Request 52d9902ac2c911c2 processed in 0.0001 seconds
+2025-04-21 10:21:19 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:21:19 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:21:19 [DEBUG] app.after_request:39 - Request 4329c68c4e0af4c5 processed in 0.0022 seconds
+2025-04-21 10:21:31 [DEBUG] app.after_request:39 - Request 4fb88898ea0e0091 processed in 0.0002 seconds
+2025-04-21 10:21:31 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 10:21:31 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 10:21:31 [DEBUG] app.after_request:39 - Request cad9230fe95a25c6 processed in 0.0023 seconds
+2025-04-21 10:21:31 [DEBUG] app.after_request:39 - Request a651fea1b181cc7f processed in 0.0002 seconds
+2025-04-21 10:21:31 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:21:31 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:21:31 [DEBUG] app.after_request:39 - Request c89855b19024a560 processed in 0.0010 seconds
+2025-04-21 10:21:44 [DEBUG] app.after_request:39 - Request e106d1e0a6d2a7cc processed in 0.0001 seconds
+2025-04-21 10:21:44 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 10:21:44 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 10:21:44 [DEBUG] app.after_request:39 - Request ddae4a6513cd7593 processed in 0.0027 seconds
+2025-04-21 10:21:44 [DEBUG] app.after_request:39 - Request d3a0fc8ccd13abb2 processed in 0.0001 seconds
+2025-04-21 10:21:44 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:21:44 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:21:44 [DEBUG] app.after_request:39 - Request a526f764f2b75896 processed in 0.0036 seconds
+2025-04-21 10:25:53 [DEBUG] app.after_request:39 - Request d944b80faa0b1f16 processed in 0.0011 seconds
+2025-04-21 10:25:53 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:25:53 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:25:53 [DEBUG] app.after_request:39 - Request 37e758838f29b100 processed in 0.0027 seconds
+2025-04-21 10:26:11 [DEBUG] app.after_request:39 - Request df8187ef040df094 processed in 0.0001 seconds
+2025-04-21 10:26:11 [ERROR] app.upload_document:624 - Error uploading document: upload_to_filebase() missing 1 required positional argument: 'file_data'
+2025-04-21 10:26:11 [DEBUG] app.after_request:39 - Request df76ee3c90b65dcd processed in 0.0116 seconds
+2025-04-21 10:29:21 [DEBUG] app.after_request:39 - Request 237d911492eb195b processed in 0.0016 seconds
+2025-04-21 10:29:21 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:29:21 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:29:21 [DEBUG] app.after_request:39 - Request e334d3dd9449051a processed in 0.0028 seconds
+2025-04-21 10:29:24 [DEBUG] app.after_request:39 - Request 72b1f6be69fc4ce7 processed in 0.0001 seconds
+2025-04-21 10:29:24 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:29:24 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:29:24 [DEBUG] app.after_request:39 - Request 096ccf8b1873c005 processed in 0.0039 seconds
+2025-04-21 10:29:25 [DEBUG] app.after_request:39 - Request 30426ad9aeb30e08 processed in 0.0001 seconds
+2025-04-21 10:29:25 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:29:25 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:29:25 [DEBUG] app.after_request:39 - Request a8087ef2e677f95d processed in 0.0010 seconds
+2025-04-21 10:29:25 [DEBUG] app.after_request:39 - Request a1bef3555b6a0886 processed in 0.0001 seconds
+2025-04-21 10:29:25 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:29:25 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:29:25 [DEBUG] app.after_request:39 - Request aeb8ca3244681a21 processed in 0.0011 seconds
+2025-04-21 10:29:25 [DEBUG] app.after_request:39 - Request 72965a5c2ebce356 processed in 0.0001 seconds
+2025-04-21 10:29:25 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:29:25 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:29:25 [DEBUG] app.after_request:39 - Request 153dfedd6ff95903 processed in 0.0009 seconds
+2025-04-21 10:29:34 [DEBUG] app.after_request:39 - Request 296ced502f9092ac processed in 0.0025 seconds
+2025-04-21 10:29:34 [ERROR] app.upload_document:624 - Error uploading document: upload_to_filebase() missing 1 required positional argument: 'file_data'
+2025-04-21 10:29:34 [DEBUG] app.after_request:39 - Request 53e860326b7f9221 processed in 0.0227 seconds
+2025-04-21 10:33:58 [DEBUG] app.after_request:39 - Request 8ac43d4d0c64b848 processed in 0.0025 seconds
+2025-04-21 10:33:58 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:33:58 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:33:58 [DEBUG] app.after_request:39 - Request efbb56e25d31d55c processed in 0.0052 seconds
+2025-04-21 10:34:00 [DEBUG] app.after_request:39 - Request a119fc837a257baf processed in 0.0002 seconds
+2025-04-21 10:34:00 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 10:34:00 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 10:34:00 [DEBUG] app.after_request:39 - Request c967765f2391d39b processed in 0.0018 seconds
+2025-04-21 10:34:08 [DEBUG] app.after_request:39 - Request f4cfe530a6922041 processed in 0.0002 seconds
+2025-04-21 10:34:08 [ERROR] app.upload_document:624 - Error uploading document: upload_to_filebase() missing 1 required positional argument: 'file_data'
+2025-04-21 10:34:08 [DEBUG] app.after_request:39 - Request da709e93ae2eca25 processed in 0.0183 seconds
+2025-04-21 10:37:06 [DEBUG] app.after_request:39 - Request eaf11fc429e9b384 processed in 0.0013 seconds
+2025-04-21 10:37:07 [DEBUG] app.after_request:39 - Request 64f1c2119ed33c6c processed in 0.0001 seconds
+2025-04-21 10:37:14 [DEBUG] app.after_request:39 - Request 54b37bf4fc2a4fd4 processed in 0.0004 seconds
+2025-04-21 10:45:09 [DEBUG] app.after_request:39 - Request 32b06e27b94d4f5c processed in 0.0038 seconds
+2025-04-21 11:06:12 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 11:06:13 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 11:06:13 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 11:06:13 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 11:06:15 [INFO] app.<module>:1130 - Starting PII Authenticator backend server
+2025-04-21 11:06:18 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 11:06:18 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 11:06:18 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 11:06:19 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 11:06:19 [INFO] app.<module>:1130 - Starting PII Authenticator backend server
+2025-04-21 11:07:47 [DEBUG] app.after_request:39 - Request d65526f7f825d4ca processed in 0.0104 seconds
+2025-04-21 11:07:47 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:07:47 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:07:47 [DEBUG] app.after_request:39 - Request 70ec0abe911c0496 processed in 0.0102 seconds
+2025-04-21 11:07:59 [DEBUG] app.after_request:39 - Request 28330957d59b001b processed in 0.0005 seconds
+2025-04-21 11:07:59 [ERROR] app.upload_document:624 - Error uploading document: upload_to_filebase() missing 1 required positional argument: 'file_data'
+2025-04-21 11:07:59 [DEBUG] app.after_request:39 - Request bdc6a066524f2976 processed in 0.0228 seconds
+2025-04-21 11:15:05 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 11:15:06 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 11:15:06 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 11:15:06 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 11:15:07 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 11:15:07 [INFO] app.<module>:1188 - Starting PII Authenticator backend server
+2025-04-21 11:22:18 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 11:22:18 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 11:22:18 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 11:22:19 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 11:22:20 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 11:22:20 [INFO] app.<module>:1188 - Starting PII Authenticator backend server
+2025-04-21 11:22:23 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 11:22:24 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 11:22:24 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 11:22:24 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 11:22:25 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 11:22:25 [INFO] app.<module>:1188 - Starting PII Authenticator backend server
+2025-04-21 11:29:15 [DEBUG] app.after_request:83 - Request 4b90a224ccc5a3d5 processed in 0.0260 seconds
+2025-04-21 11:29:15 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:29:15 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:29:15 [DEBUG] app.after_request:83 - Request 899e41f2118575d3 processed in 0.0128 seconds
+2025-04-21 11:29:18 [DEBUG] app.after_request:83 - Request 079cf8026ba08625 processed in 0.0002 seconds
+2025-04-21 11:29:18 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:29:18 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:29:18 [DEBUG] app.after_request:83 - Request 671891d9fa2e1cfc processed in 0.0028 seconds
+2025-04-21 11:29:19 [DEBUG] app.after_request:83 - Request 64f025efb9f652ca processed in 0.0001 seconds
+2025-04-21 11:29:19 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:29:19 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:29:19 [DEBUG] app.after_request:83 - Request e4ced9449b4357a8 processed in 0.0028 seconds
+2025-04-21 11:29:19 [DEBUG] app.after_request:83 - Request 643bdc552a29cfa3 processed in 0.0001 seconds
+2025-04-21 11:29:19 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:29:19 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:29:19 [DEBUG] app.after_request:83 - Request e256fa63103ff549 processed in 0.0030 seconds
+2025-04-21 11:29:30 [DEBUG] app.after_request:83 - Request f024fd80d74fa111 processed in 0.0003 seconds
+2025-04-21 11:29:30 [DEBUG] app.after_request:83 - Request 7785be222c345f9b processed in 0.0002 seconds
+2025-04-21 11:29:30 [DEBUG] app.after_request:83 - Request dd3db171955289c3 processed in 0.0002 seconds
+2025-04-21 11:29:30 [INFO] user_auth.get_user_tokens:280 - Getting tokens for user user_1234
+2025-04-21 11:29:30 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:29:30 [WARNING] user_auth.get_user_by_id:193 - User with ID user_1234 not found
+2025-04-21 11:29:30 [DEBUG] app.after_request:83 - Request b05f3b1ac0a36f86 processed in 0.0082 seconds
+2025-04-21 11:29:30 [WARNING] user_auth.get_user_tokens:296 - User with ID user_1234 not found
+2025-04-21 11:29:30 [DEBUG] app.after_request:83 - Request f62d1b67a6b4f14a processed in 0.0085 seconds
+2025-04-21 11:29:30 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:29:30 [DEBUG] app.after_request:83 - Request a76db10d39a3943d processed in 0.0067 seconds
+2025-04-21 11:29:56 [DEBUG] app.after_request:83 - Request 6f2f5008d21188c1 processed in 0.0001 seconds
+2025-04-21 11:29:56 [INFO] user_auth.login_user:121 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-21 11:29:57 [INFO] user_auth.login_user:166 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-21 11:29:57 [DEBUG] app.after_request:83 - Request 3ec9d6a23b28af03 processed in 0.0777 seconds
+2025-04-21 11:29:57 [DEBUG] app.after_request:83 - Request fbc7b8a9c9958673 processed in 0.0002 seconds
+2025-04-21 11:29:57 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 11:29:57 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 11:29:57 [DEBUG] app.after_request:83 - Request e7ac4d57feede8c5 processed in 0.0019 seconds
+2025-04-21 11:30:07 [DEBUG] app.after_request:83 - Request a638e73aafd993d9 processed in 0.0002 seconds
+2025-04-21 11:30:07 [INFO] w3_utils.upload_to_filebase:175 - Uploading file Screenshot_29.png to storage...
+2025-04-21 11:30:09 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 11:30:12 [DEBUG] document_processor.process_document:76 - Extracted text: N
+
+1gdrhadnpgve oD
+
+ge
+6
+
+@
+3
+
+© Pll-Authenticator
+> wscode
+V backend
+> _pycache_
+> storage
+env
+.git...
+2025-04-21 11:30:12 [INFO] document_processor.process_document:93 - Successfully extracted PII data from passport
+2025-04-21 11:30:12 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1234_1745215212
+2025-04-21 11:30:12 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 11:30:13 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 35
+2025-04-21 11:30:13 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1234_1745215212
+2025-04-21 11:30:14 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 11:30:14 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 11:30:14 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 2f5e94c46a0766fc4b9123916a4384744ddc7a8100f61551d08e5639b7a2f225
+2025-04-21 11:30:14 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 2f5e94c46a0766fc4b9123916a4384744ddc7a8100f61551d08e5639b7a2f225
+2025-04-21 11:30:24 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 2f5e94c46a0766fc4b9123916a4384744ddc7a8100f61551d08e5639b7a2f225
+2025-04-21 11:30:24 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 2f5e94c46a0766fc4b9123916a4384744ddc7a8100f61551d08e5639b7a2f225
+2025-04-21 11:30:24 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 2f5e94c46a0766fc4b9123916a4384744ddc7a8100f61551d08e5639b7a2f225
+2025-04-21 11:30:24 [INFO] user_auth.add_document_to_user:312 - Adding document to user user_1234
+2025-04-21 11:30:24 [WARNING] user_auth.add_document_to_user:328 - User with ID user_1234 not found
+2025-04-21 11:30:24 [DEBUG] app.after_request:83 - Request 78095772a857f281 processed in 17.2686 seconds
+2025-04-21 12:17:41 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:17:43 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:17:43 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:17:43 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:17:47 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:17:47 [INFO] app.<module>:1238 - Starting PII Authenticator backend server
+2025-04-21 12:17:48 [DEBUG] app.after_request:109 - Request b3bffa4d9e4875f5 processed in 0.0004 seconds
+2025-04-21 12:17:48 [DEBUG] app.after_request:109 - Request 596b75b62b9e3f68 processed in 0.0002 seconds
+2025-04-21 12:17:48 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1234
+2025-04-21 12:17:48 [WARNING] app.upload_document:666 - Using default user_id: user_1234
+2025-04-21 12:17:48 [WARNING] user_auth.get_user_documents:385 - User with ID user_1234 not found
+2025-04-21 12:17:48 [DEBUG] app.after_request:109 - Request a46140e4c81bdc82 processed in 0.0163 seconds
+2025-04-21 12:17:48 [INFO] w3_utils.upload_to_filebase:175 - Uploading file Screenshot_29.png to storage...
+2025-04-21 12:17:51 [INFO] document_processor.process_document:53 - Processing document of type: id
+2025-04-21 12:18:03 [DEBUG] document_processor.process_document:76 - Extracted text: N
+
+1gdrhadnpgve oD
+
+ge
+6
+
+@
+3
+
+© Pll-Authenticator
+> wscode
+V backend
+> _pycache_
+> storage
+env
+.git...
+2025-04-21 12:18:03 [WARNING] document_processor.process_document:86 - Unsupported document type: id
+2025-04-21 12:18:03 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1234_1745218083
+2025-04-21 12:18:03 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 12:18:05 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 36
+2025-04-21 12:18:05 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1234_1745218083
+2025-04-21 12:18:05 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 12:18:05 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 12:18:05 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 25bb03104d1b78734eb7f70598e5cddfad2af4fc83e8caf3ec1c986b22f127a1
+2025-04-21 12:18:06 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 25bb03104d1b78734eb7f70598e5cddfad2af4fc83e8caf3ec1c986b22f127a1
+2025-04-21 12:18:11 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 25bb03104d1b78734eb7f70598e5cddfad2af4fc83e8caf3ec1c986b22f127a1
+2025-04-21 12:18:11 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 25bb03104d1b78734eb7f70598e5cddfad2af4fc83e8caf3ec1c986b22f127a1
+2025-04-21 12:18:11 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 25bb03104d1b78734eb7f70598e5cddfad2af4fc83e8caf3ec1c986b22f127a1
+2025-04-21 12:18:11 [INFO] user_auth.add_document_to_user:312 - Adding document to user user_1234
+2025-04-21 12:18:11 [WARNING] user_auth.add_document_to_user:328 - User with ID user_1234 not found
+2025-04-21 12:18:11 [DEBUG] app.after_request:109 - Request 58fd24f06833f2b9 processed in 23.1240 seconds
+2025-04-21 12:24:00 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:24:01 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:24:01 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:24:02 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:24:03 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:24:03 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:24:10 [DEBUG] app.after_request:109 - Request 320457e970ade23b processed in 0.0003 seconds
+2025-04-21 12:24:10 [INFO] app.extract_user_id_from_token:67 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 12:24:10 [INFO] user_auth.get_user_documents:369 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 12:24:10 [DEBUG] app.after_request:109 - Request 0a436b5485d67c05 processed in 0.0017 seconds
+2025-04-21 12:24:18 [DEBUG] app.after_request:109 - Request 3bc8b15dba069f1b processed in 0.0012 seconds
+2025-04-21 12:24:18 [WARNING] app.extract_user_id_from_token:72 - Using default user_id: user_1234
+2025-04-21 12:24:18 [INFO] w3_utils.upload_to_filebase:175 - Uploading file Screenshot_27.png to storage...
+2025-04-21 12:24:21 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 12:24:21 [DEBUG] document_processor.process_document:76 - Extracted text: @ ID Encryption & Token Generat X = +
+
+& ff © 127.0.0.1:5500/Pll-Authenticator/frontend/index.html <...
+2025-04-21 12:24:21 [INFO] document_processor.process_document:93 - Successfully extracted PII data from passport
+2025-04-21 12:24:21 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1234_1745218461
+2025-04-21 12:24:21 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 12:24:23 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 37
+2025-04-21 12:24:23 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1234_1745218461
+2025-04-21 12:24:23 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 12:24:23 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 12:24:23 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: cbddc99c0174739d3a8a1aa7515a02e5af9b1cc2e0f54cd7ed174962023afee0
+2025-04-21 12:24:23 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: cbddc99c0174739d3a8a1aa7515a02e5af9b1cc2e0f54cd7ed174962023afee0
+2025-04-21 12:24:35 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: cbddc99c0174739d3a8a1aa7515a02e5af9b1cc2e0f54cd7ed174962023afee0
+2025-04-21 12:24:35 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: cbddc99c0174739d3a8a1aa7515a02e5af9b1cc2e0f54cd7ed174962023afee0
+2025-04-21 12:24:35 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1234_1745218461 in 13.8853 seconds
+2025-04-21 12:24:35 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: cbddc99c0174739d3a8a1aa7515a02e5af9b1cc2e0f54cd7ed174962023afee0
+2025-04-21 12:24:35 [INFO] user_auth.add_document_to_user:312 - Adding document to user user_1234
+2025-04-21 12:24:35 [WARNING] user_auth.add_document_to_user:328 - User with ID user_1234 not found
+2025-04-21 12:24:35 [DEBUG] app.after_request:109 - Request 8fbe0433c7fcad00 processed in 17.2800 seconds
+2025-04-21 12:30:24 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:30:26 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:30:26 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:30:26 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:30:29 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:30:29 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:32:33 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:32:35 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:32:35 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:32:35 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:32:37 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:32:37 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:35:12 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:35:13 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:35:13 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:35:13 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:35:14 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:35:14 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:35:16 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:35:17 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:35:17 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:35:17 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:35:17 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:35:17 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:43:01 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:43:04 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 2.1823 seconds
+2025-04-21 12:43:04 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:43:04 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:43:04 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:43:07 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:43:07 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:48:15 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1724 seconds
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 12:48:17 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:48:18 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.9116 seconds
+2025-04-21 12:48:18 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:48:18 [INFO] app.<module>:1200 - Starting PII Authenticator backend server
+2025-04-21 12:48:27 [DEBUG] app.after_request:109 - Request 1dc7bd3bb0f0ceaf processed in 0.0003 seconds
+2025-04-21 12:48:27 [INFO] app.extract_user_id_from_token:67 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 12:48:27 [INFO] user_auth.get_user_documents:397 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 12:48:27 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 12:48:27 [DEBUG] app.after_request:109 - Request a2570f373347cffa processed in 0.0221 seconds
+2025-04-21 12:48:36 [DEBUG] app.after_request:109 - Request c3f6949bb18d050a processed in 0.0003 seconds
+2025-04-21 12:48:36 [WARNING] app.extract_user_id_from_token:72 - Using default user_id: user_1234
+2025-04-21 12:48:37 [INFO] w3_utils.upload_to_filebase:175 - Uploading file Screenshot_27.png to storage...
+2025-04-21 12:48:39 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/Screenshot_27.png in 2.7824 seconds
+2025-04-21 12:48:39 [INFO] document_processor.process_document:53 - Processing document of type: id
+2025-04-21 12:48:45 [DEBUG] document_processor.process_document:76 - Extracted text: @ ID Encryption & Token Generat X = +
+
+& ff © 127.0.0.1:5500/Pll-Authenticator/frontend/index.html <...
+2025-04-21 12:48:45 [WARNING] document_processor.process_document:86 - Unsupported document type: id
+2025-04-21 12:48:45 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1234_1745219925
+2025-04-21 12:48:45 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 12:48:46 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 38
+2025-04-21 12:48:46 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1234_1745219925
+2025-04-21 12:48:46 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 12:48:46 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 12:48:46 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 2784774426a22513b81fbfe39d278818e0dde619fcc81ca446c96cd06313c634
+2025-04-21 12:48:46 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 2784774426a22513b81fbfe39d278818e0dde619fcc81ca446c96cd06313c634
+2025-04-21 12:49:00 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 2784774426a22513b81fbfe39d278818e0dde619fcc81ca446c96cd06313c634
+2025-04-21 12:49:00 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 2784774426a22513b81fbfe39d278818e0dde619fcc81ca446c96cd06313c634
+2025-04-21 12:49:00 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1234_1745219925 in 14.9546 seconds
+2025-04-21 12:49:00 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 2784774426a22513b81fbfe39d278818e0dde619fcc81ca446c96cd06313c634
+2025-04-21 12:49:00 [INFO] user_auth.add_document_to_user:346 - Adding document to user user_1234
+2025-04-21 12:49:00 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 12:49:00 [WARNING] user_auth.add_document_to_user:358 - User with ID user_1234 not found
+2025-04-21 12:49:00 [DEBUG] app.after_request:109 - Request 6a8b36a97f4f138a processed in 23.4098 seconds
+2025-04-21 12:55:42 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.6164 seconds
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 12:55:43 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 12:55:44 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.7431 seconds
+2025-04-21 12:55:45 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 12:55:45 [INFO] app.<module>:1260 - Starting PII Authenticator backend server
+2025-04-21 12:55:45 [DEBUG] app.after_request:109 - Request 9d497cf78433794d processed in 0.0002 seconds
+2025-04-21 12:55:45 [INFO] app.extract_user_id_from_token:67 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 12:55:45 [INFO] user_auth.get_user_documents:397 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 12:55:45 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 12:55:45 [DEBUG] app.after_request:109 - Request 8717f133defd31b9 processed in 0.0071 seconds
+2025-04-21 12:56:33 [DEBUG] app.after_request:109 - Request a946562fd0f35ba2 processed in 0.0004 seconds
+2025-04-21 13:10:47 [DEBUG] app.after_request:109 - Request 22b61d1965bcdf88 processed in 0.0122 seconds
+2025-04-21 13:18:06 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.6933 seconds
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:18:07 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:18:09 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 1.9912 seconds
+2025-04-21 13:18:11 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:18:11 [INFO] app.<module>:1337 - Starting PII Authenticator backend server
+2025-04-21 13:18:21 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:18:22 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1741 seconds
+2025-04-21 13:18:22 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:18:22 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:18:22 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:18:22 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:18:23 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:18:23 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:18:23 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.6004 seconds
+2025-04-21 13:18:24 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:18:24 [INFO] app.<module>:1337 - Starting PII Authenticator backend server
+2025-04-21 13:18:24 [DEBUG] app.after_request:109 - Request 64f55f35a5e99722 processed in 0.0003 seconds
+2025-04-21 13:18:24 [INFO] app.extract_user_id_from_token:67 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:18:24 [INFO] user_auth.get_user_documents:397 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:18:24 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:18:24 [DEBUG] app.after_request:109 - Request 059aca547f7fe4d1 processed in 0.0023 seconds
+2025-04-21 13:18:34 [DEBUG] app.after_request:109 - Request 862ae876b6b3b86e processed in 0.0003 seconds
+2025-04-21 13:18:34 [WARNING] app.extract_user_id_from_token:72 - Using default user_id: user_1234
+2025-04-21 13:18:34 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:18:36 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document.jpg in 1.5446 seconds
+2025-04-21 13:18:36 [INFO] document_processor.process_document:53 - Processing document of type: id
+2025-04-21 13:18:36 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:18:36 [INFO] document_processor.process_document:109 - Successfully extracted PII data from id
+2025-04-21 13:18:36 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:18:37 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.6569 seconds
+2025-04-21 13:18:37 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1234_1745221717
+2025-04-21 13:18:37 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:18:38 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 39
+2025-04-21 13:18:38 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1234_1745221717
+2025-04-21 13:18:38 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:18:38 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:18:38 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: ced3281a914a2bbe2ca4321975c098ca4b1dff3cd09393bbf0cff313fde82d57
+2025-04-21 13:18:38 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: ced3281a914a2bbe2ca4321975c098ca4b1dff3cd09393bbf0cff313fde82d57
+2025-04-21 13:18:47 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: ced3281a914a2bbe2ca4321975c098ca4b1dff3cd09393bbf0cff313fde82d57
+2025-04-21 13:18:47 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: ced3281a914a2bbe2ca4321975c098ca4b1dff3cd09393bbf0cff313fde82d57
+2025-04-21 13:18:47 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1234_1745221717 in 10.4446 seconds
+2025-04-21 13:18:47 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: ced3281a914a2bbe2ca4321975c098ca4b1dff3cd09393bbf0cff313fde82d57
+2025-04-21 13:18:47 [INFO] user_auth.add_document_to_user:346 - Adding document to user user_1234
+2025-04-21 13:18:47 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:18:47 [WARNING] user_auth.add_document_to_user:358 - User with ID user_1234 not found
+2025-04-21 13:18:47 [WARNING] app.upload_document:811 - Failed to save document to user user_1234, but files were uploaded
+2025-04-21 13:18:47 [DEBUG] app.after_request:109 - Request 830811882b5dd6a9 processed in 13.1172 seconds
+2025-04-21 13:18:47 [DEBUG] app.after_request:109 - Request c6bc61c725cc8bd7 processed in 0.0001 seconds
+2025-04-21 13:18:47 [INFO] app.extract_user_id_from_token:67 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:18:47 [INFO] user_auth.get_user_documents:397 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:18:47 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:18:47 [DEBUG] app.after_request:109 - Request 7bc50c7dd0408b0e processed in 0.0019 seconds
+2025-04-21 13:18:58 [DEBUG] app.after_request:109 - Request df084a0a0a34fb57 processed in 0.0004 seconds
+2025-04-21 13:18:58 [INFO] app.extract_user_id_from_token:67 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:18:58 [INFO] user_auth.get_user_documents:397 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:18:58 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:18:58 [DEBUG] app.after_request:109 - Request 2f18b3ba70a60e39 processed in 0.0014 seconds
+2025-04-21 13:21:32 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.8088 seconds
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:21:33 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.5671 seconds
+2025-04-21 13:21:34 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:21:34 [INFO] app.<module>:1371 - Starting PII Authenticator backend server
+2025-04-21 13:22:54 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.8946 seconds
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:22:55 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:23:00 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 4.6445 seconds
+2025-04-21 13:23:00 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:23:00 [INFO] app.<module>:1374 - Starting PII Authenticator backend server
+2025-04-21 13:24:05 [DEBUG] app.after_request:146 - Request ba768347abb85c7d processed in 0.0070 seconds
+2025-04-21 13:24:06 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:24:06 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:24:06 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:06 [DEBUG] app.after_request:146 - Request e29758dd986c744a processed in 0.0095 seconds
+2025-04-21 13:24:07 [DEBUG] app.after_request:146 - Request 938b4f08d573d16a processed in 0.0001 seconds
+2025-04-21 13:24:07 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:24:07 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:24:07 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:07 [DEBUG] app.after_request:146 - Request 6dd7f81c909b7674 processed in 0.0015 seconds
+2025-04-21 13:24:08 [DEBUG] app.after_request:146 - Request 5e9162b686a1fa02 processed in 0.0001 seconds
+2025-04-21 13:24:08 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:24:08 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:24:08 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:08 [DEBUG] app.after_request:146 - Request ac44c69e8ed6fe62 processed in 0.0019 seconds
+2025-04-21 13:24:18 [DEBUG] app.after_request:146 - Request d930b7f842cb7080 processed in 0.0001 seconds
+2025-04-21 13:24:18 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:24:18 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:18 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:24:18 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:24:20 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document.jpg in 1.6911 seconds
+2025-04-21 13:24:20 [INFO] document_processor.process_document:53 - Processing document of type: id
+2025-04-21 13:24:21 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:24:21 [INFO] document_processor.process_document:109 - Successfully extracted PII data from id
+2025-04-21 13:24:21 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:24:21 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.6022 seconds
+2025-04-21 13:24:21 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1744899345_42fefbc8_1745222061
+2025-04-21 13:24:21 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:24:22 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 41
+2025-04-21 13:24:22 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1744899345_42fefbc8_1745222061
+2025-04-21 13:24:22 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:24:22 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:24:23 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 8a92bc2ef5f7d81d6e3d30fbbfddbf29dd48305d0dfd4f0ba7bf264c7dc05299
+2025-04-21 13:24:23 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 8a92bc2ef5f7d81d6e3d30fbbfddbf29dd48305d0dfd4f0ba7bf264c7dc05299
+2025-04-21 13:24:35 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 8a92bc2ef5f7d81d6e3d30fbbfddbf29dd48305d0dfd4f0ba7bf264c7dc05299
+2025-04-21 13:24:35 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 8a92bc2ef5f7d81d6e3d30fbbfddbf29dd48305d0dfd4f0ba7bf264c7dc05299
+2025-04-21 13:24:35 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1744899345_42fefbc8_1745222061 in 13.9573 seconds
+2025-04-21 13:24:35 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 8a92bc2ef5f7d81d6e3d30fbbfddbf29dd48305d0dfd4f0ba7bf264c7dc05299
+2025-04-21 13:24:35 [INFO] user_auth.add_document_to_user:346 - Adding document to user user_1744899345_42fefbc8
+2025-04-21 13:24:35 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:35 [DEBUG] user_auth.save_users:65 - Saved 2 users to data\users.json
+2025-04-21 13:24:35 [INFO] user_auth.add_document_to_user:404 - Document doc_1745222075_d816cd91 added to user user_1744899345_42fefbc8
+2025-04-21 13:24:35 [DEBUG] app.after_request:146 - Request 6c2b00d8c27c9659 processed in 16.7370 seconds
+2025-04-21 13:24:35 [DEBUG] app.after_request:146 - Request fe5a1beb6e7d0364 processed in 0.0001 seconds
+2025-04-21 13:24:35 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:24:35 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:24:35 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:35 [DEBUG] app.after_request:146 - Request 28c767961b6df10a processed in 0.0177 seconds
+2025-04-21 13:24:41 [DEBUG] app.after_request:146 - Request 8dafc10c5958759d processed in 0.0001 seconds
+2025-04-21 13:24:41 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:24:41 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:24:41 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:24:41 [DEBUG] app.after_request:146 - Request 8618a27e0d50a36c processed in 0.0011 seconds
+2025-04-21 13:26:19 [DEBUG] app.after_request:146 - Request 6938f8e53b5e4c44 processed in 0.0452 seconds
+2025-04-21 13:26:21 [INFO] user_auth.register_user:106 - Registering new user: test_user_1745222179@example.com
+2025-04-21 13:26:21 [DEBUG] user_auth.load_users:31 - Loaded 2 existing users from data\users.json
+2025-04-21 13:26:21 [DEBUG] user_auth.save_users:65 - Saved 3 users to data\users.json
+2025-04-21 13:26:21 [INFO] user_auth.register_user:152 - User user_1745222181_07a6bf5c registered successfully
+2025-04-21 13:26:21 [DEBUG] user_auth.load_users:31 - Loaded 3 existing users from data\users.json
+2025-04-21 13:26:21 [DEBUG] app.after_request:146 - Request acc33c60df6e86b1 processed in 0.1468 seconds
+2025-04-21 13:26:23 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:26:23 [DEBUG] user_auth.load_users:31 - Loaded 3 existing users from data\users.json
+2025-04-21 13:26:23 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:26:23 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:26:24 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document.jpg in 0.8064 seconds
+2025-04-21 13:26:24 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 13:26:24 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:26:24 [INFO] document_processor.process_document:109 - Successfully extracted PII data from passport
+2025-04-21 13:26:24 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:26:25 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.6218 seconds
+2025-04-21 13:26:25 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1744899345_42fefbc8_1745222185
+2025-04-21 13:26:25 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:26:26 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 42
+2025-04-21 13:26:26 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1744899345_42fefbc8_1745222185
+2025-04-21 13:26:26 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:26:26 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:26:26 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 592b72c6d4c489ce52b72686ee90733f289b66c30ec2ba32c66bd90443957330
+2025-04-21 13:26:26 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 592b72c6d4c489ce52b72686ee90733f289b66c30ec2ba32c66bd90443957330
+2025-04-21 13:26:37 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 592b72c6d4c489ce52b72686ee90733f289b66c30ec2ba32c66bd90443957330
+2025-04-21 13:26:37 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 592b72c6d4c489ce52b72686ee90733f289b66c30ec2ba32c66bd90443957330
+2025-04-21 13:26:37 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1744899345_42fefbc8_1745222185 in 11.6207 seconds
+2025-04-21 13:26:37 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 592b72c6d4c489ce52b72686ee90733f289b66c30ec2ba32c66bd90443957330
+2025-04-21 13:26:37 [INFO] user_auth.add_document_to_user:346 - Adding document to user user_1744899345_42fefbc8
+2025-04-21 13:26:37 [DEBUG] user_auth.load_users:31 - Loaded 3 existing users from data\users.json
+2025-04-21 13:26:37 [DEBUG] user_auth.save_users:65 - Saved 3 users to data\users.json
+2025-04-21 13:26:37 [INFO] user_auth.add_document_to_user:404 - Document doc_1745222197_a12c59e0 added to user user_1744899345_42fefbc8
+2025-04-21 13:26:37 [DEBUG] app.after_request:146 - Request abfb53e5c6016228 processed in 13.3643 seconds
+2025-04-21 13:26:39 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:26:39 [DEBUG] user_auth.load_users:31 - Loaded 3 existing users from data\users.json
+2025-04-21 13:26:39 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:26:39 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:26:39 [DEBUG] user_auth.load_users:31 - Loaded 3 existing users from data\users.json
+2025-04-21 13:26:39 [DEBUG] app.after_request:146 - Request 71852fda86d25859 processed in 0.0263 seconds
+2025-04-21 13:27:25 [DEBUG] app.after_request:146 - Request 3f5df19dcc4e809c processed in 0.0018 seconds
+2025-04-21 13:27:27 [INFO] user_auth.register_user:106 - Registering new user: test_user_1745222245@example.com
+2025-04-21 13:27:27 [DEBUG] user_auth.load_users:31 - Loaded 3 existing users from data\users.json
+2025-04-21 13:27:27 [DEBUG] user_auth.save_users:65 - Saved 4 users to data\users.json
+2025-04-21 13:27:27 [INFO] user_auth.register_user:152 - User user_1745222247_defb43e6 registered successfully
+2025-04-21 13:27:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:27:27 [DEBUG] app.after_request:146 - Request e3deb8bc3711de68 processed in 0.2550 seconds
+2025-04-21 13:27:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:27:29 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:27:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:27:29 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:27:30 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document.jpg in 0.9173 seconds
+2025-04-21 13:27:30 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 13:27:30 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:27:30 [INFO] document_processor.process_document:109 - Successfully extracted PII data from passport
+2025-04-21 13:27:30 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:27:31 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.6347 seconds
+2025-04-21 13:27:31 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1744899345_42fefbc8_1745222251
+2025-04-21 13:27:31 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:27:32 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 43
+2025-04-21 13:27:32 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1744899345_42fefbc8_1745222251
+2025-04-21 13:27:32 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:27:32 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:27:32 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 3dd8f04d4f8179dd6b9b59350e69f0ccf2d55d2ec73de6973a64a03917c5ec5e
+2025-04-21 13:27:32 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 3dd8f04d4f8179dd6b9b59350e69f0ccf2d55d2ec73de6973a64a03917c5ec5e
+2025-04-21 13:27:35 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 3dd8f04d4f8179dd6b9b59350e69f0ccf2d55d2ec73de6973a64a03917c5ec5e
+2025-04-21 13:27:35 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 3dd8f04d4f8179dd6b9b59350e69f0ccf2d55d2ec73de6973a64a03917c5ec5e
+2025-04-21 13:27:35 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1744899345_42fefbc8_1745222251 in 4.3174 seconds
+2025-04-21 13:27:35 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 3dd8f04d4f8179dd6b9b59350e69f0ccf2d55d2ec73de6973a64a03917c5ec5e
+2025-04-21 13:27:35 [INFO] user_auth.add_document_to_user:346 - Adding document to user user_1744899345_42fefbc8
+2025-04-21 13:27:35 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:27:35 [DEBUG] user_auth.save_users:65 - Saved 4 users to data\users.json
+2025-04-21 13:27:35 [INFO] user_auth.add_document_to_user:404 - Document doc_1745222255_e1eef8b3 added to user user_1744899345_42fefbc8
+2025-04-21 13:27:35 [DEBUG] app.after_request:146 - Request d76d89a905d732c3 processed in 6.2629 seconds
+2025-04-21 13:27:37 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:27:37 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:27:37 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:27:37 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:27:37 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:27:37 [DEBUG] app.after_request:146 - Request 5c3f4ca3eaf6d78f processed in 0.0208 seconds
+2025-04-21 13:27:57 [DEBUG] app.after_request:146 - Request 46daf97bbdf536ee processed in 0.0039 seconds
+2025-04-21 13:27:57 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:27:57 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:27:57 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:27:57 [DEBUG] app.after_request:146 - Request 8054dbd035f83af6 processed in 0.0018 seconds
+2025-04-21 13:28:21 [DEBUG] app.after_request:146 - Request f1f7aa28415bd00e processed in 0.0002 seconds
+2025-04-21 13:28:21 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:28:21 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:21 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:28:21 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:28:22 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document.jpg in 1.1485 seconds
+2025-04-21 13:28:22 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 13:28:24 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:28:24 [INFO] document_processor.process_document:109 - Successfully extracted PII data from passport
+2025-04-21 13:28:24 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:28:24 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.6151 seconds
+2025-04-21 13:28:24 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1744899345_42fefbc8_1745222304
+2025-04-21 13:28:24 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:28:25 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 44
+2025-04-21 13:28:25 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1744899345_42fefbc8_1745222304
+2025-04-21 13:28:25 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:28:25 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:28:25 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 92a74c2a69d83dd0b8159fda7ef08a6fc01f79bcc6cabce34fb3991db51d3875
+2025-04-21 13:28:25 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 92a74c2a69d83dd0b8159fda7ef08a6fc01f79bcc6cabce34fb3991db51d3875
+2025-04-21 13:28:36 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 92a74c2a69d83dd0b8159fda7ef08a6fc01f79bcc6cabce34fb3991db51d3875
+2025-04-21 13:28:36 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 92a74c2a69d83dd0b8159fda7ef08a6fc01f79bcc6cabce34fb3991db51d3875
+2025-04-21 13:28:36 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1744899345_42fefbc8_1745222304 in 11.3710 seconds
+2025-04-21 13:28:36 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 92a74c2a69d83dd0b8159fda7ef08a6fc01f79bcc6cabce34fb3991db51d3875
+2025-04-21 13:28:36 [INFO] user_auth.add_document_to_user:346 - Adding document to user user_1744899345_42fefbc8
+2025-04-21 13:28:36 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:36 [DEBUG] user_auth.save_users:65 - Saved 4 users to data\users.json
+2025-04-21 13:28:36 [INFO] user_auth.add_document_to_user:404 - Document doc_1745222316_08ece259 added to user user_1744899345_42fefbc8
+2025-04-21 13:28:36 [DEBUG] app.after_request:146 - Request 7ce98b2956b1c2eb processed in 14.9838 seconds
+2025-04-21 13:28:36 [DEBUG] app.after_request:146 - Request fcc68cb83a93a555 processed in 0.0002 seconds
+2025-04-21 13:28:36 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:28:36 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:28:36 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:36 [DEBUG] app.after_request:146 - Request 2073a263f1be4a21 processed in 0.0226 seconds
+2025-04-21 13:28:39 [DEBUG] app.after_request:146 - Request 56a7c0380b6032fc processed in 0.0002 seconds
+2025-04-21 13:28:39 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:28:39 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:28:39 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:39 [DEBUG] app.after_request:146 - Request 411477579777003c processed in 0.0016 seconds
+2025-04-21 13:28:41 [DEBUG] app.after_request:146 - Request edb4c3e17fbf567e processed in 0.0001 seconds
+2025-04-21 13:28:41 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:28:41 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:28:41 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:41 [DEBUG] app.after_request:146 - Request 54ab91054c4a1959 processed in 0.0025 seconds
+2025-04-21 13:28:42 [DEBUG] app.after_request:146 - Request 2d8a768626a4f965 processed in 0.0001 seconds
+2025-04-21 13:28:42 [DEBUG] app.after_request:146 - Request aeed248897703e38 processed in 0.0003 seconds
+2025-04-21 13:28:42 [DEBUG] app.after_request:146 - Request e6ed9bcccf92b5bb processed in 0.0036 seconds
+2025-04-21 13:28:42 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:28:42 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:42 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:28:42 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:28:42 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:28:42 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:42 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:42 [DEBUG] app.after_request:146 - Request bccf6a881b27e0e7 processed in 0.0131 seconds
+2025-04-21 13:28:42 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:42 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:28:42 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:28:42 [INFO] user_auth.get_user_tokens:318 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:28:42 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:28:42 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:42 [DEBUG] app.after_request:146 - Request d17cdb8231f5a559 processed in 0.0065 seconds
+2025-04-21 13:28:42 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:28:42 [DEBUG] app.after_request:146 - Request e137641c594b1540 processed in 0.0061 seconds
+2025-04-21 13:29:15 [DEBUG] app.after_request:146 - Request f45ed0842738a339 processed in 0.0005 seconds
+2025-04-21 13:29:15 [DEBUG] app.after_request:146 - Request ea1451cf043f88bf processed in 0.0001 seconds
+2025-04-21 13:29:15 [DEBUG] app.after_request:146 - Request 39d9bbc3ce0bbd4a processed in 0.0001 seconds
+2025-04-21 13:29:15 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:29:15 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:29:15 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:29:15 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:29:15 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:29:15 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:29:15 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:29:15 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:29:15 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:29:15 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:29:15 [INFO] user_auth.get_user_tokens:318 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:29:15 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:29:15 [DEBUG] app.after_request:146 - Request 7b06b43d237a8f90 processed in 0.0127 seconds
+2025-04-21 13:29:15 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:29:15 [DEBUG] app.after_request:146 - Request ae70f0681431729a processed in 0.0061 seconds
+2025-04-21 13:29:15 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:29:15 [DEBUG] app.after_request:146 - Request 22d16ae382299f55 processed in 0.0113 seconds
+2025-04-21 13:30:47 [DEBUG] app.after_request:146 - Request ad30019794f63f05 processed in 0.0015 seconds
+2025-04-21 13:30:47 [INFO] user_auth.login_user:169 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-21 13:30:47 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:47 [INFO] user_auth.login_user:210 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-21 13:30:47 [DEBUG] app.after_request:146 - Request b3e84af190e88df7 processed in 0.0796 seconds
+2025-04-21 13:30:47 [DEBUG] app.after_request:146 - Request d974fd4985d21a83 processed in 0.0002 seconds
+2025-04-21 13:30:47 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-21 13:30:47 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899550_a537e4f4
+2025-04-21 13:30:47 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:47 [DEBUG] app.after_request:146 - Request 1b13fe88752f535c processed in 0.0032 seconds
+2025-04-21 13:30:50 [DEBUG] app.after_request:146 - Request f7bd0f2b0f8a25a2 processed in 0.0002 seconds
+2025-04-21 13:30:50 [DEBUG] app.after_request:146 - Request 0aa3517ecbd88083 processed in 0.0003 seconds
+2025-04-21 13:30:50 [DEBUG] app.after_request:146 - Request 009e69458045da85 processed in 0.0001 seconds
+2025-04-21 13:30:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:30:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:30:50 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:50 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:30:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:30:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:30:50 [INFO] user_auth.get_user_tokens:318 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:30:50 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:50 [DEBUG] app.after_request:146 - Request b280742092b34558 processed in 0.0707 seconds
+2025-04-21 13:30:50 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:50 [DEBUG] app.after_request:146 - Request 4d159e77327db8dc processed in 0.0761 seconds
+2025-04-21 13:30:50 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:30:50 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:30:50 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:30:50 [DEBUG] app.after_request:146 - Request 82846eefd9639b79 processed in 0.1129 seconds
+2025-04-21 13:30:59 [DEBUG] app.after_request:146 - Request 1a257a6e3c191734 processed in 0.0002 seconds
+2025-04-21 13:30:59 [DEBUG] app.after_request:146 - Request 62aa38dc119070e0 processed in 0.0001 seconds
+2025-04-21 13:30:59 [DEBUG] app.after_request:146 - Request 5fed043a92f33412 processed in 0.0001 seconds
+2025-04-21 13:31:18 [DEBUG] app.after_request:146 - Request 98bd77a27c153bed processed in 0.0008 seconds
+2025-04-21 13:31:18 [DEBUG] app.after_request:146 - Request e0a0df5044a7018e processed in 0.0001 seconds
+2025-04-21 13:31:18 [DEBUG] app.after_request:146 - Request 9533d220fe6f2919 processed in 0.0001 seconds
+2025-04-21 13:31:18 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:31:18 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:31:18 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:31:18 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:18 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:31:18 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:18 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:18 [INFO] user_auth.get_user_tokens:318 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:31:18 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:31:18 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:31:18 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:31:18 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:18 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:18 [DEBUG] app.after_request:146 - Request cafe0033b50ccb13 processed in 0.0095 seconds
+2025-04-21 13:31:18 [DEBUG] app.after_request:146 - Request cd9a7b3f695cfbdb processed in 0.0125 seconds
+2025-04-21 13:31:18 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:18 [DEBUG] app.after_request:146 - Request 6ecbd7a4f0973dfc processed in 0.0067 seconds
+2025-04-21 13:31:27 [DEBUG] app.after_request:146 - Request 2f63fbf5f2e5f38c processed in 0.0001 seconds
+2025-04-21 13:31:27 [DEBUG] app.after_request:146 - Request 03165a8c8ae91709 processed in 0.0001 seconds
+2025-04-21 13:31:27 [DEBUG] app.after_request:146 - Request 691cf24f54d371bf processed in 0.0001 seconds
+2025-04-21 13:31:27 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:31:27 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:31:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:27 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:31:27 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:31:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:27 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:31:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:27 [DEBUG] app.after_request:146 - Request 990a68f551914c52 processed in 0.0106 seconds
+2025-04-21 13:31:27 [INFO] user_auth.get_user_tokens:318 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:31:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:27 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:31:27 [INFO] user_auth.get_user_documents:420 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:31:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:27 [DEBUG] app.after_request:146 - Request 6de9ef9286965dd4 processed in 0.0075 seconds
+2025-04-21 13:31:27 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:31:27 [DEBUG] app.after_request:146 - Request f5f221c4a08e368b processed in 0.0076 seconds
+2025-04-21 13:39:36 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1577 seconds
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:39:37 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:39:38 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.6160 seconds
+2025-04-21 13:39:38 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:39:38 [INFO] app.<module>:1379 - Starting PII Authenticator backend server
+2025-04-21 13:41:08 [DEBUG] app.after_request:146 - Request c4bbab212129cf18 processed in 0.0064 seconds
+2025-04-21 13:41:11 [INFO] user_auth.register_user:106 - Registering new user: test_user_1745223069@example.com
+2025-04-21 13:41:11 [DEBUG] user_auth.load_users:31 - Loaded 4 existing users from data\users.json
+2025-04-21 13:41:11 [DEBUG] user_auth.save_users:65 - Saved 5 users to data\users.json
+2025-04-21 13:41:11 [INFO] user_auth.register_user:152 - User user_1745223071_80f8fef0 registered successfully
+2025-04-21 13:41:11 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:41:11 [DEBUG] app.after_request:146 - Request 779cc948b9d33137 processed in 0.1246 seconds
+2025-04-21 13:41:13 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:41:13 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:41:13 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:41:13 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:41:15 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document.jpg in 2.0522 seconds
+2025-04-21 13:41:16 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 13:41:17 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:41:17 [INFO] document_processor.process_document:109 - Successfully extracted PII data from passport
+2025-04-21 13:41:17 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:41:18 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.6090 seconds
+2025-04-21 13:41:18 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1744899345_42fefbc8_1745223078
+2025-04-21 13:41:18 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:41:19 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 47
+2025-04-21 13:41:19 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1744899345_42fefbc8_1745223078
+2025-04-21 13:41:19 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:41:19 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:41:19 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 47fcdf6376106f55d0c93854cec7ccd30036598602d0a17f83df603cf3f9bcca
+2025-04-21 13:41:19 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 47fcdf6376106f55d0c93854cec7ccd30036598602d0a17f83df603cf3f9bcca
+2025-04-21 13:41:23 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 47fcdf6376106f55d0c93854cec7ccd30036598602d0a17f83df603cf3f9bcca
+2025-04-21 13:41:23 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 47fcdf6376106f55d0c93854cec7ccd30036598602d0a17f83df603cf3f9bcca
+2025-04-21 13:41:23 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1744899345_42fefbc8_1745223078 in 5.5132 seconds
+2025-04-21 13:41:23 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 47fcdf6376106f55d0c93854cec7ccd30036598602d0a17f83df603cf3f9bcca
+2025-04-21 13:41:23 [INFO] user_auth.add_document_to_user:372 - Adding document to user user_1744899345_42fefbc8
+2025-04-21 13:41:23 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:41:23 [DEBUG] user_auth.save_users:65 - Saved 5 users to data\users.json
+2025-04-21 13:41:23 [INFO] user_auth.add_document_to_user:430 - Document doc_1745223083_bb873478 added to user user_1744899345_42fefbc8
+2025-04-21 13:41:23 [DEBUG] app.after_request:146 - Request cfdab8fdbbec2daa processed in 10.4588 seconds
+2025-04-21 13:41:25 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:41:25 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:41:25 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:41:25 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:41:25 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:41:25 [DEBUG] app.after_request:146 - Request 03b8b82404034d9a processed in 0.0184 seconds
+2025-04-21 13:43:32 [DEBUG] app.after_request:146 - Request ef3534c12e702dfb processed in 0.0177 seconds
+2025-04-21 13:43:32 [DEBUG] app.after_request:146 - Request 9caa952c1359ab1e processed in 0.0247 seconds
+2025-04-21 13:43:32 [DEBUG] app.after_request:146 - Request 64f81c145dcc533a processed in 0.0005 seconds
+2025-04-21 13:43:32 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:43:32 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:43:32 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:43:32 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:43:32 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:43:32 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:43:32 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:43:32 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:43:32 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:43:32 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:43:32 [DEBUG] app.after_request:146 - Request f3708839116d8faf processed in 0.0196 seconds
+2025-04-21 13:43:32 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:43:32 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:43:32 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:43:32 [DEBUG] app.after_request:146 - Request 4bd833eb92279006 processed in 0.0144 seconds
+2025-04-21 13:43:32 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:43:32 [DEBUG] app.after_request:146 - Request 63a6c272a16f090f processed in 0.0131 seconds
+2025-04-21 13:49:21 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.8723 seconds
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:49:22 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:49:23 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.7791 seconds
+2025-04-21 13:49:23 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:49:23 [INFO] app.<module>:1379 - Starting PII Authenticator backend server
+2025-04-21 13:49:24 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.5361 seconds
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-21 13:49:25 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.1327 seconds
+2025-04-21 13:49:25 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-21 13:49:25 [INFO] app.<module>:1379 - Starting PII Authenticator backend server
+2025-04-21 13:52:49 [DEBUG] app.after_request:146 - Request a4017b90026edc79 processed in 0.0048 seconds
+2025-04-21 13:52:51 [INFO] user_auth.register_user:106 - Registering new user: test_user_1745223769@example.com
+2025-04-21 13:52:51 [DEBUG] user_auth.load_users:31 - Loaded 5 existing users from data\users.json
+2025-04-21 13:52:51 [DEBUG] user_auth.save_users:65 - Saved 6 users to data\users.json
+2025-04-21 13:52:51 [INFO] user_auth.register_user:152 - User user_1745223771_9f8e5f28 registered successfully
+2025-04-21 13:52:51 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:52:51 [DEBUG] app.after_request:146 - Request bdc54c2957b96755 processed in 0.1643 seconds
+2025-04-21 13:52:54 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:52:54 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:52:54 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:52:54 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document.jpg to storage...
+2025-04-21 13:53:04 [WARNING] w3_utils.upload_to_filebase:217 - WARNING: Filebase upload timed out after 10 seconds
+2025-04-21 13:53:04 [INFO] w3_utils.upload_to_filebase:220 - WARNING: Returning URL without confirmed upload: https://s3.filebase.com/pii-authenticator-test/test_document.jpg
+2025-04-21 13:53:17 [INFO] document_processor.process_document:53 - Processing document of type: passport
+2025-04-21 13:53:18 [DEBUG] document_processor.process_document:89 - Extracted text: PASSPORT
+
+Name: John Doe
+Passport No: AB1234567
+Date of Birth: 01/01/1990
+Nationality: United States...
+2025-04-21 13:53:18 [INFO] document_processor.process_document:109 - Successfully extracted PII data from passport
+2025-04-21 13:53:18 [INFO] w3_utils.upload_to_filebase:175 - Uploading file test_document_extracted.txt to storage...
+2025-04-21 13:53:19 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/test_document_extracted.txt in 0.5797 seconds
+2025-04-21 13:53:19 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: doc_user_1744899345_42fefbc8_1745223799
+2025-04-21 13:53:19 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-21 13:53:20 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 48
+2025-04-21 13:53:20 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: doc_user_1744899345_42fefbc8_1745223799
+2025-04-21 13:53:20 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-21 13:53:20 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-21 13:53:20 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: f54deb016037fcb488526432e87e156b9807118b00d665eb561603c79e3f7768
+2025-04-21 13:53:20 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: f54deb016037fcb488526432e87e156b9807118b00d665eb561603c79e3f7768
+2025-04-21 13:53:23 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: f54deb016037fcb488526432e87e156b9807118b00d665eb561603c79e3f7768
+2025-04-21 13:53:23 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: f54deb016037fcb488526432e87e156b9807118b00d665eb561603c79e3f7768
+2025-04-21 13:53:23 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: doc_user_1744899345_42fefbc8_1745223799 in 4.3422 seconds
+2025-04-21 13:53:23 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: f54deb016037fcb488526432e87e156b9807118b00d665eb561603c79e3f7768
+2025-04-21 13:53:23 [INFO] user_auth.add_document_to_user:372 - Adding document to user user_1744899345_42fefbc8
+2025-04-21 13:53:23 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:53:23 [DEBUG] user_auth.save_users:65 - Saved 6 users to data\users.json
+2025-04-21 13:53:23 [INFO] user_auth.add_document_to_user:430 - Document doc_1745223803_e96b463e added to user user_1744899345_42fefbc8
+2025-04-21 13:53:23 [DEBUG] app.after_request:146 - Request 8854af82f75cdc65 processed in 29.7717 seconds
+2025-04-21 13:53:25 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:53:25 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:53:25 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:53:25 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:53:25 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:53:25 [DEBUG] app.after_request:146 - Request 0654f6d517b51f9a processed in 0.0216 seconds
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request 52e35559328f49df processed in 0.0035 seconds
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request 5bdc42e5111092ca processed in 0.0001 seconds
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request 5bd4d2b8c01a9f44 processed in 0.0001 seconds
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request 588f24748b8f13ef processed in 0.0052 seconds
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:01 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request eaba40e71c63d8ea processed in 0.0101 seconds
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request b11d70a835a248ea processed in 0.0056 seconds
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request 9d20221386fb27b6 processed in 0.0001 seconds
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:01 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:54:01 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:01 [DEBUG] app.after_request:146 - Request f3ae68c4b3683657 processed in 0.0033 seconds
+2025-04-21 13:54:39 [ERROR] app.handle_exception:153 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-21 13:54:39 [ERROR] app.handle_exception:154 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-04-21 13:54:39 [DEBUG] app.after_request:146 - Request 8147156c0519de31 processed in 0.1279 seconds
+2025-04-21 13:54:43 [ERROR] app.handle_exception:153 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-21 13:54:43 [ERROR] app.handle_exception:154 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-04-21 13:54:43 [DEBUG] app.after_request:146 - Request 6d7fc29d0aa316e9 processed in 0.0018 seconds
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request 11254db017b09d09 processed in 0.0001 seconds
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request c677a96cdd366cb1 processed in 0.0001 seconds
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request 10f01794139d54b8 processed in 0.0001 seconds
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899345_42fefbc8
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request 3e70575f51c555eb processed in 0.0109 seconds
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request 94653f0635e35d42 processed in 0.0095 seconds
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request f071003c87fecfa8 processed in 0.0086 seconds
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request bc04b3acb47464f5 processed in 0.0001 seconds
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-21 13:54:46 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-21 13:54:46 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-21 13:54:46 [DEBUG] app.after_request:146 - Request 610e3a28598be407 processed in 0.0037 seconds
+2025-04-22 09:54:33 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 2.6812 seconds
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 09:54:36 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 09:54:38 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 1.8690 seconds
+2025-04-22 09:54:41 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 09:54:41 [INFO] app.<module>:1379 - Starting PII Authenticator backend server
+2025-04-22 09:54:48 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 2.6394 seconds
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 09:54:51 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 09:54:52 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 1.1105 seconds
+2025-04-22 09:54:53 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 09:54:53 [INFO] app.<module>:1379 - Starting PII Authenticator backend server
+2025-04-22 09:54:53 [DEBUG] app.after_request:146 - Request 1b86a24312767167 processed in 0.0008 seconds
+2025-04-22 09:54:53 [INFO] user_auth.login_user:169 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-22 09:54:53 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:53 [INFO] user_auth.login_user:210 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-22 09:54:53 [DEBUG] app.after_request:146 - Request ae8d389719eb19ec processed in 0.2011 seconds
+2025-04-22 09:54:54 [DEBUG] app.after_request:146 - Request 5101e56cce14f8d6 processed in 0.0003 seconds
+2025-04-22 09:54:54 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-22 09:54:54 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899550_a537e4f4
+2025-04-22 09:54:54 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:54 [DEBUG] app.after_request:146 - Request 790a26be50ffcb8d processed in 0.0071 seconds
+2025-04-22 09:54:57 [DEBUG] app.after_request:146 - Request 8d7d37730d08291a processed in 0.0003 seconds
+2025-04-22 09:54:57 [DEBUG] app.after_request:146 - Request 2388fd3f682f9a8a processed in 0.0077 seconds
+2025-04-22 09:54:57 [DEBUG] app.after_request:146 - Request 02067ba4368d98a2 processed in 0.0003 seconds
+2025-04-22 09:54:57 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 09:54:57 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:57 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 09:54:57 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 09:54:57 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:57 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:57 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 09:54:57 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 09:54:57 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:57 [DEBUG] app.after_request:146 - Request cbc7156ad1359a8c processed in 0.2014 seconds
+2025-04-22 09:54:57 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 09:54:57 [INFO] user_auth.get_user_documents:446 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 09:54:57 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:57 [DEBUG] app.after_request:146 - Request adacb41eb7b441f3 processed in 0.1865 seconds
+2025-04-22 09:54:57 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 09:54:57 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:57 [DEBUG] app.after_request:146 - Request f76292e73e40c50a processed in 0.2231 seconds
+2025-04-22 09:54:58 [DEBUG] app.after_request:146 - Request 7c7617b772f9ff18 processed in 0.0003 seconds
+2025-04-22 09:54:58 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 09:54:58 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:58 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 09:54:58 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 09:54:58 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 09:54:58 [DEBUG] app.after_request:146 - Request 544dfd778a0b4955 processed in 0.0227 seconds
+2025-04-22 09:55:32 [ERROR] app.handle_exception:153 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-22 09:55:32 [ERROR] app.handle_exception:154 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-04-22 09:55:33 [DEBUG] app.after_request:146 - Request 245ec6b2c3f4c010 processed in 0.4615 seconds
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.7262 seconds
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:38:20 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 10:38:21 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.2741 seconds
+2025-04-22 10:38:21 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 10:38:21 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 10:38:22 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 10:38:22 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.5229 seconds
+2025-04-22 10:38:22 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 10:38:22 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 10:38:22 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 10:38:22 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:38:23 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:38:23 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 10:38:23 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.1798 seconds
+2025-04-22 10:38:23 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 10:38:23 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 10:43:54 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.7138 seconds
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 10:43:56 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.2938 seconds
+2025-04-22 10:43:57 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 10:43:57 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 10:43:58 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.5780 seconds
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 10:43:59 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.1612 seconds
+2025-04-22 10:43:59 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 10:43:59 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:01:21 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.7610 seconds
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:01:22 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.3368 seconds
+2025-04-22 11:01:22 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:01:22 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:01:23 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.5123 seconds
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:01:24 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.1123 seconds
+2025-04-22 11:01:24 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:01:24 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:22:34 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:22:35 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.6572 seconds
+2025-04-22 11:22:35 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:22:35 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:22:35 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:22:35 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:22:36 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:22:36 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:22:37 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.9452 seconds
+2025-04-22 11:22:37 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:22:37 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:22:41 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1861 seconds
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:22:42 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.3856 seconds
+2025-04-22 11:22:43 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:22:43 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:22:43 [DEBUG] app.after_request:146 - Request cecbaf57a07a6d37 processed in 0.0003 seconds
+2025-04-22 11:22:43 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-22 11:22:43 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899550_a537e4f4
+2025-04-22 11:22:43 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:43 [DEBUG] app.after_request:146 - Request 915f5acd43440320 processed in 0.0032 seconds
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request 52e43a18f107aa92 processed in 0.0003 seconds
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request 7eac7ca180b4df21 processed in 0.0002 seconds
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request 84fa1cc00f30e19e processed in 0.0002 seconds
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:22:50 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 11:22:50 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request 2de63a6a6f69a7d0 processed in 0.0701 seconds
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request d7cd9fc28ecca2d2 processed in 0.0703 seconds
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request 89cadbf96fcbc418 processed in 0.0687 seconds
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request ff7aa0e2424e60ff processed in 0.0002 seconds
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:22:50 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 11:22:50 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:22:50 [DEBUG] app.after_request:146 - Request 0af205afe89ff47f processed in 0.0051 seconds
+2025-04-22 11:23:15 [DEBUG] app.after_request:146 - Request 129e928d8b4358e7 processed in 0.0002 seconds
+2025-04-22 11:23:15 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:15 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:15 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:15 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:15 [INFO] token_auth.get_or_generate_token:103 - Checking/generating token for user key: user_1744899345_42fefbc8
+2025-04-22 11:23:15 [DEBUG] token_auth.generate_unique_token:24 - Generated token: K8U2EH36EP
+2025-04-22 11:23:15 [DEBUG] token_auth.get_or_generate_token:181 - Generated new token for user key user_1744899345_42fefbc8: K8U2EH36EP (after 1 attempts)
+2025-04-22 11:23:15 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: K8U2EH36EP
+2025-04-22 11:23:15 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-22 11:23:17 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 49
+2025-04-22 11:23:17 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: K8U2EH36EP
+2025-04-22 11:23:17 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-22 11:23:17 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-22 11:23:17 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 11:23:17 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 11:23:22 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 11:23:22 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 11:23:22 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: K8U2EH36EP in 7.1620 seconds
+2025-04-22 11:23:22 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 11:23:22 [DEBUG] token_auth.get_or_generate_token:199 - Transaction hash for token K8U2EH36EP: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 11:23:22 [DEBUG] token_auth.save_token_to_file:314 - Saving token data: {'token': 'K8U2EH36EP', 'file_url': 'https://s3.filebase.com/pii-authenticator-test/K8U2EH36EP.json', 'txn_hash': '18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54', 'jwt': '7b22616c67223a20224853323536222c2022747970223a20224a5754227d.7b22737562223a2022757365725f313734343839393334355f3432666566626338222c2022696174223a20313734353330313230327d.0a357e267c2d93a4e27779ea7690750ab483814dccbe7bbba43e05bd622a0a28', 'timestamp': 1745301202.8164918}
+2025-04-22 11:23:22 [INFO] token_auth.save_token_to_file:320 - Token data saved to tokens.json for user key: user_1744899345_42fefbc8
+2025-04-22 11:23:22 [INFO] w3_utils.upload_to_filebase:175 - Uploading file K8U2EH36EP.txt to storage...
+2025-04-22 11:23:24 [INFO] w3_utils.upload_to_filebase:214 - SUCCESS: Uploaded to Filebase: https://s3.filebase.com/pii-authenticator-test/K8U2EH36EP.txt in 1.8035 seconds
+2025-04-22 11:23:24 [INFO] token_auth.get_or_generate_token:217 - Encrypted data uploaded to Filebase for token K8U2EH36EP
+2025-04-22 11:23:24 [DEBUG] token_auth.get_or_generate_token:222 - Token generation completed in 9.0139 seconds
+2025-04-22 11:23:26 [INFO] user_auth.add_token_to_user:372 - Adding token to user user_1744899345_42fefbc8
+2025-04-22 11:23:26 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:26 [DEBUG] user_auth.save_users:65 - Saved 6 users to data\users.json
+2025-04-22 11:23:26 [INFO] user_auth.add_token_to_user:394 - Token added to user user_1744899345_42fefbc8
+2025-04-22 11:23:26 [DEBUG] app.after_request:146 - Request 68efd556fb90e0d7 processed in 10.6460 seconds
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request d40fe88ee906d35d processed in 0.0005 seconds
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 47d9a7a10c9524eb processed in 0.0002 seconds
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 8d6add71f230d78c processed in 0.0002 seconds
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:29 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 11:23:29 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 35e24fbd34ade728 processed in 0.0664 seconds
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 9691d3c619bba589 processed in 0.0665 seconds
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 7d0a1a12fd46cf9f processed in 0.0625 seconds
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 53e92b16886f859c processed in 0.0003 seconds
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:29 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 11:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:29 [DEBUG] app.after_request:146 - Request 38727763aaa27bd2 processed in 0.0050 seconds
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request 2f48989a937ecaa7 processed in 0.0001 seconds
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request d7839046c3a5025c processed in 0.0001 seconds
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request ae64121e4c3e5adc processed in 0.0002 seconds
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request c2e09b3f36d42262 processed in 0.0147 seconds
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:31 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 11:23:31 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request 89d6a31aa7819ea3 processed in 0.0091 seconds
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request 62f89fa488966a49 processed in 0.0224 seconds
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request ea92215665da9850 processed in 0.0005 seconds
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 11:23:31 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 11:23:31 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 11:23:31 [DEBUG] app.after_request:146 - Request 65b16be14f60fc18 processed in 0.0085 seconds
+2025-04-22 11:25:52 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.7772 seconds
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:25:53 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.3355 seconds
+2025-04-22 11:25:54 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:25:54 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:25:55 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.7023 seconds
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:25:56 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.2285 seconds
+2025-04-22 11:25:56 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:25:57 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:31:19 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1937 seconds
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:31:21 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:31:22 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 1.6168 seconds
+2025-04-22 11:31:23 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:31:23 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 11:31:26 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1655 seconds
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 11:31:27 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.2047 seconds
+2025-04-22 11:31:28 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 11:31:28 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 12:21:47 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 0.9815 seconds
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:21:48 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 12:21:49 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.6377 seconds
+2025-04-22 12:21:50 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 12:21:50 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 12:21:54 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 12:21:55 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.4430 seconds
+2025-04-22 12:21:55 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 12:21:55 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 12:21:55 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 12:21:55 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:21:56 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:21:56 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 12:21:56 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.1856 seconds
+2025-04-22 12:21:56 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 12:21:56 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 12:23:24 [DEBUG] app.after_request:146 - Request cdbda9c3f0b8b25d processed in 0.0002 seconds
+2025-04-22 12:23:24 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-22 12:23:24 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899550_a537e4f4
+2025-04-22 12:23:24 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:24 [DEBUG] app.after_request:146 - Request 999c43b084a91015 processed in 0.0112 seconds
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request 2f4011dbd5c7254c processed in 0.0003 seconds
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request b8c51bddc1c18678 processed in 0.0001 seconds
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request 5317110384aa5290 processed in 0.0002 seconds
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request 636916c84e9cc43a processed in 0.0391 seconds
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request ccc420dd7b8d3d1d processed in 0.0377 seconds
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request 6f6afe091d39c012 processed in 0.0388 seconds
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request a31e4e09d8bfccff processed in 0.0001 seconds
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:23:29 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:23:29 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:23:29 [DEBUG] app.after_request:146 - Request cbf283fc0fa84c3f processed in 0.0022 seconds
+2025-04-22 12:24:15 [DEBUG] app.after_request:146 - Request 43a956847ec9b51c processed in 0.0001 seconds
+2025-04-22 12:24:15 [DEBUG] app.after_request:146 - Request 42fb090c8b53031d processed in 0.0001 seconds
+2025-04-22 12:24:15 [DEBUG] app.after_request:146 - Request f7f33beef71ae63e processed in 0.0001 seconds
+2025-04-22 12:24:15 [DEBUG] app.after_request:146 - Request 014124e57dc5330d processed in 0.0001 seconds
+2025-04-22 12:24:15 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:24:15 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:24:15 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:24:15 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:24:15 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:24:15 [DEBUG] app.after_request:146 - Request e1d411e01a15bb99 processed in 0.0037 seconds
+2025-04-22 12:24:32 [DEBUG] app.after_request:146 - Request ae3bd2d8952128af processed in 0.0001 seconds
+2025-04-22 12:24:32 [INFO] company_auth.login_company:129 - Login attempt for company: 22btcs126@gcu.edu.in
+2025-04-22 12:24:32 [INFO] company_auth.login_company:175 - Company 22btcs126@gcu.edu.in logged in successfully
+2025-04-22 12:24:32 [DEBUG] app.after_request:146 - Request 94b0e5ebdbe18b63 processed in 0.0684 seconds
+2025-04-22 12:24:33 [DEBUG] app.after_request:146 - Request 54a0875d303b4d00 processed in 0.0001 seconds
+2025-04-22 12:24:33 [DEBUG] app.after_request:146 - Request aa166fc99aacf419 processed in 0.0001 seconds
+2025-04-22 12:24:33 [INFO] company_auth.get_validation_stats:381 - Getting validation stats for company company_1234
+2025-04-22 12:24:33 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-22 12:24:33 [INFO] company_auth.get_company_validations:327 - Getting validations for company company_1234
+2025-04-22 12:24:33 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-22 12:24:33 [DEBUG] app.after_request:146 - Request 77874da7d639d7ef processed in 0.0043 seconds
+2025-04-22 12:24:33 [WARNING] company_auth.get_company_validations:343 - Company with ID company_1234 not found
+2025-04-22 12:24:33 [DEBUG] app.after_request:146 - Request ce06a25d459ed721 processed in 0.0047 seconds
+2025-04-22 12:24:38 [DEBUG] app.after_request:146 - Request c3abff020b2b6511 processed in 0.0001 seconds
+2025-04-22 12:24:38 [INFO] token_auth.verify_token:366 - Verifying token: K8U2EH36EP
+2025-04-22 12:24:38 [DEBUG] token_auth.log_verification_attempt:506 - Verification attempt logged for token: K8U2EH36EP
+2025-04-22 12:24:38 [DEBUG] token_auth.verify_token:380 - Token exists in database: True
+2025-04-22 12:24:38 [DEBUG] w3_utils.get_token_transaction_details:587 - Attempting to get transaction details for hash: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 12:24:39 [DEBUG] w3_utils.get_token_transaction_details:613 - Calling web3.eth.get_transaction...
+2025-04-22 12:24:39 [DEBUG] w3_utils.get_token_transaction_details:634 - Getting transaction receipt...
+2025-04-22 12:24:39 [DEBUG] w3_utils.get_token_transaction_details:637 - Getting block details for block number: 8170489
+2025-04-22 12:24:39 [DEBUG] w3_utils.get_token_transaction_details:640 - Successfully retrieved all transaction details
+2025-04-22 12:24:39 [DEBUG] token_auth.verify_token:384 - Blockchain details for token K8U2EH36EP: {'tx_hash': '18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54', 'block_number': 8170489, 'timestamp': 1745301204, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-22 12:24:39 [INFO] w3_utils.verify_token_on_blockchain:693 - Verifying token on blockchain: K8U2EH36EP
+2025-04-22 12:24:39 [INFO] w3_utils.verify_token_on_blockchain:713 - Verifying token K8U2EH36EP directly on the blockchain
+2025-04-22 12:24:39 [INFO] w3_utils.call_contract_with_timeout:722 - Calling verifyToken function on smart contract for token: K8U2EH36EP
+2025-04-22 12:24:41 [INFO] w3_utils.verify_token_on_blockchain:768 - Token K8U2EH36EP is valid
+2025-04-22 12:24:41 [DEBUG] token_auth.verify_token:467 - Token verification completed in 2.6836 seconds
+2025-04-22 12:24:41 [INFO] token_auth.verify_token:470 - Token K8U2EH36EP is valid
+2025-04-22 12:24:41 [DEBUG] w3_utils.get_token_transaction_details:587 - Attempting to get transaction details for hash: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 12:24:41 [DEBUG] w3_utils.get_token_transaction_details:613 - Calling web3.eth.get_transaction...
+2025-04-22 12:24:41 [DEBUG] w3_utils.get_token_transaction_details:634 - Getting transaction receipt...
+2025-04-22 12:24:41 [DEBUG] w3_utils.get_token_transaction_details:637 - Getting block details for block number: 8170489
+2025-04-22 12:24:41 [DEBUG] w3_utils.get_token_transaction_details:640 - Successfully retrieved all transaction details
+2025-04-22 12:24:41 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: validation_company_1234_K8U2EH36EP_1745304881
+2025-04-22 12:24:41 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-22 12:24:42 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 50
+2025-04-22 12:24:42 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: validation_company_1234_K8U2EH36EP_1745304881
+2025-04-22 12:24:42 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-22 12:24:42 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-22 12:24:42 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 2741dc60fdcd352923510c17856ae06dc852ef02c3c61cebb2bf0c8a427c097a
+2025-04-22 12:24:42 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 2741dc60fdcd352923510c17856ae06dc852ef02c3c61cebb2bf0c8a427c097a
+2025-04-22 12:24:47 [INFO] w3_utils.store_token_on_blockchain:365 - Receipt received: 2741dc60fdcd352923510c17856ae06dc852ef02c3c61cebb2bf0c8a427c097a
+2025-04-22 12:24:47 [INFO] w3_utils.store_token_on_blockchain:369 - Transaction successful: 2741dc60fdcd352923510c17856ae06dc852ef02c3c61cebb2bf0c8a427c097a
+2025-04-22 12:24:47 [INFO] w3_utils.store_token_on_blockchain:372 - SUCCESS: Token stored on-chain: validation_company_1234_K8U2EH36EP_1745304881 in 5.1314 seconds
+2025-04-22 12:24:47 [INFO] w3_utils.store_token_on_blockchain:373 - Transaction hash: 2741dc60fdcd352923510c17856ae06dc852ef02c3c61cebb2bf0c8a427c097a
+2025-04-22 12:24:47 [INFO] company_auth.add_validation:229 - Adding validation for company company_1234
+2025-04-22 12:24:47 [INFO] company_auth.add_validation:262 - Validation val_1745304887_414bfd32 added successfully
+2025-04-22 12:24:47 [WARNING] company_auth.add_validation_to_company:297 - Company with ID company_1234 not found
+2025-04-22 12:24:47 [DEBUG] app.after_request:146 - Request 6448e1e861f7bb4a processed in 8.5154 seconds
+2025-04-22 12:24:54 [DEBUG] app.after_request:146 - Request 79c6bfa5ed98bb76 processed in 0.0002 seconds
+2025-04-22 12:24:54 [INFO] token_auth.verify_token:366 - Verifying token: K8U2EH36EP
+2025-04-22 12:24:54 [DEBUG] token_auth.log_verification_attempt:506 - Verification attempt logged for token: K8U2EH36EP
+2025-04-22 12:24:54 [DEBUG] token_auth.verify_token:380 - Token exists in database: True
+2025-04-22 12:24:54 [DEBUG] w3_utils.get_token_transaction_details:587 - Attempting to get transaction details for hash: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 12:24:54 [DEBUG] w3_utils.get_token_transaction_details:613 - Calling web3.eth.get_transaction...
+2025-04-22 12:24:54 [DEBUG] w3_utils.get_token_transaction_details:634 - Getting transaction receipt...
+2025-04-22 12:24:55 [DEBUG] w3_utils.get_token_transaction_details:637 - Getting block details for block number: 8170489
+2025-04-22 12:24:55 [DEBUG] w3_utils.get_token_transaction_details:640 - Successfully retrieved all transaction details
+2025-04-22 12:24:55 [DEBUG] token_auth.verify_token:384 - Blockchain details for token K8U2EH36EP: {'tx_hash': '18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54', 'block_number': 8170489, 'timestamp': 1745301204, 'from': '0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7', 'to': '0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90', 'status': 'success', 'network': 'Sepolia Testnet'}
+2025-04-22 12:24:55 [INFO] w3_utils.verify_token_on_blockchain:693 - Verifying token on blockchain: K8U2EH36EP
+2025-04-22 12:24:55 [INFO] w3_utils.verify_token_on_blockchain:713 - Verifying token K8U2EH36EP directly on the blockchain
+2025-04-22 12:24:55 [INFO] w3_utils.call_contract_with_timeout:722 - Calling verifyToken function on smart contract for token: K8U2EH36EP
+2025-04-22 12:24:56 [INFO] w3_utils.verify_token_on_blockchain:768 - Token K8U2EH36EP is valid
+2025-04-22 12:24:56 [DEBUG] token_auth.verify_token:467 - Token verification completed in 2.0473 seconds
+2025-04-22 12:24:56 [INFO] token_auth.verify_token:470 - Token K8U2EH36EP is valid
+2025-04-22 12:24:56 [DEBUG] w3_utils.get_token_transaction_details:587 - Attempting to get transaction details for hash: 18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54
+2025-04-22 12:24:56 [DEBUG] w3_utils.get_token_transaction_details:613 - Calling web3.eth.get_transaction...
+2025-04-22 12:24:56 [DEBUG] w3_utils.get_token_transaction_details:634 - Getting transaction receipt...
+2025-04-22 12:24:56 [DEBUG] w3_utils.get_token_transaction_details:637 - Getting block details for block number: 8170489
+2025-04-22 12:24:56 [DEBUG] w3_utils.get_token_transaction_details:640 - Successfully retrieved all transaction details
+2025-04-22 12:24:56 [INFO] w3_utils.store_token_on_blockchain:321 - Storing token on blockchain: validation_company_1744899768_2c3b924e_K8U2EH36EP_1745304896
+2025-04-22 12:24:56 [INFO] w3_utils.store_token_on_blockchain:325 - Using real blockchain for token storage
+2025-04-22 12:24:57 [DEBUG] w3_utils.store_token_on_blockchain:340 - Current nonce for account 0xf9F804c189aF673469BF9118dD5eBa3e1CFE51a7: 51
+2025-04-22 12:24:57 [DEBUG] w3_utils.store_token_on_blockchain:343 - Building transaction for token: validation_company_1744899768_2c3b924e_K8U2EH36EP_1745304896
+2025-04-22 12:24:57 [DEBUG] w3_utils.store_token_on_blockchain:352 - Signing transaction...
+2025-04-22 12:24:57 [DEBUG] w3_utils.store_token_on_blockchain:355 - Sending transaction to network...
+2025-04-22 12:24:57 [INFO] w3_utils.store_token_on_blockchain:359 - Transaction sent: 8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2
+2025-04-22 12:24:57 [DEBUG] w3_utils.store_token_on_blockchain:363 - Waiting for transaction receipt with timeout: 8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2
+2025-04-22 12:25:12 [WARNING] w3_utils.store_token_on_blockchain:380 - Timeout waiting for receipt, but transaction was sent: 8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2
+2025-04-22 12:25:12 [WARNING] w3_utils.store_token_on_blockchain:381 - Error: Transaction HexBytes('0x8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2') is not in the chain after 15 seconds
+2025-04-22 12:25:12 [INFO] w3_utils.store_token_on_blockchain:387 - Transaction hash: 8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2
+2025-04-22 12:25:12 [INFO] company_auth.add_validation:229 - Adding validation for company company_1744899768_2c3b924e
+2025-04-22 12:25:12 [INFO] company_auth.add_validation:262 - Validation val_1745304912_e6ae2772 added successfully
+2025-04-22 12:25:12 [INFO] company_auth.add_validation_to_company:310 - Validation val_1745304912_e6ae2772 added to company company_1744899768_2c3b924e
+2025-04-22 12:25:12 [DEBUG] app.after_request:146 - Request 54ebcf34760f21b6 processed in 18.5283 seconds
+2025-04-22 12:41:23 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.1799 seconds
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:41:24 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 12:41:25 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.8388 seconds
+2025-04-22 12:41:26 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 12:41:26 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 12:41:27 [INFO] w3_utils.<module>:32 - Connecting to Ethereum network via Alchemy...
+2025-04-22 12:41:28 [INFO] w3_utils.<module>:49 - SUCCESS: Connected to Ethereum network in 1.0479 seconds
+2025-04-22 12:41:28 [INFO] w3_utils.<module>:63 - Loading contract ABI...
+2025-04-22 12:41:28 [INFO] w3_utils.<module>:68 - SUCCESS: Contract ABI loaded successfully
+2025-04-22 12:41:28 [INFO] w3_utils.<module>:95 - Initializing contract...
+2025-04-22 12:41:28 [INFO] w3_utils.<module>:104 - SUCCESS: Contract initialized at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:41:29 [INFO] w3_utils.<module>:114 - SUCCESS: Contract code verified at address 0xD23Dcb6F54352b8F801aE60d33Ff3f214a652d90
+2025-04-22 12:41:29 [INFO] w3_utils.<module>:144 - Initializing Filebase S3 client...
+2025-04-22 12:41:29 [INFO] w3_utils.<module>:156 - SUCCESS: Filebase S3 client initialized in 0.1731 seconds
+2025-04-22 12:41:29 [INFO] app.<module>:30 - Generated new encryption key
+2025-04-22 12:41:29 [INFO] app.<module>:1465 - Starting PII Authenticator backend server
+2025-04-22 12:41:34 [DEBUG] app.after_request:146 - Request 35ae8181d5ce77cd processed in 0.0001 seconds
+2025-04-22 12:41:34 [INFO] user_auth.login_user:169 - Login attempt for user: prajwalkr3105@gmail.com
+2025-04-22 12:41:34 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:34 [INFO] user_auth.login_user:210 - User prajwalkr3105@gmail.com logged in successfully
+2025-04-22 12:41:34 [DEBUG] app.after_request:146 - Request 368df5c21b8846e9 processed in 0.1192 seconds
+2025-04-22 12:41:34 [DEBUG] app.after_request:146 - Request dc03b9e8196969a0 processed in 0.0001 seconds
+2025-04-22 12:41:34 [INFO] app.extract_user_id_from_token:70 - Extracted user_id from token: user_1744899550_a537e4f4
+2025-04-22 12:41:34 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899550_a537e4f4
+2025-04-22 12:41:34 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:34 [DEBUG] app.after_request:146 - Request 650a2fb9299ebe12 processed in 0.0011 seconds
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request 78ee29dc51d4ee17 processed in 0.0002 seconds
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request 7a161bea2d8b1d04 processed in 0.0001 seconds
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request 3a4921ae370f8ca6 processed in 0.0002 seconds
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request d979caf9c26168cc processed in 0.0308 seconds
+2025-04-22 12:41:39 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request 5fe423c9e49de952 processed in 0.0297 seconds
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request ead61fc412948b46 processed in 0.0298 seconds
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request 4430475048e0a67d processed in 0.0002 seconds
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:41:39 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:41:39 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:41:39 [DEBUG] app.after_request:146 - Request 7a8a7d6364c1555d processed in 0.0015 seconds
+2025-04-22 12:43:00 [DEBUG] app.after_request:146 - Request 5d156835a4a6e546 processed in 0.0001 seconds
+2025-04-22 12:43:00 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:43:00 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:00 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:43:00 [DEBUG] app.after_request:146 - Request 0c514f9e31f99c49 processed in 0.0022 seconds
+2025-04-22 12:43:03 [DEBUG] app.after_request:146 - Request b6fc17a4dbe25d3b processed in 0.0001 seconds
+2025-04-22 12:43:03 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:43:03 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:03 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:43:03 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:03 [DEBUG] app.after_request:146 - Request a48c335e1a92bca1 processed in 0.0023 seconds
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request b83962c94f6c2eda processed in 0.0001 seconds
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request df3eea59b4b02fd1 processed in 0.0001 seconds
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request 055d13289b39916f processed in 0.0001 seconds
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request dae9e365181406f8 processed in 0.0085 seconds
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:43:05 [INFO] user_auth.get_user_documents:485 - Getting documents for user user_1744899345_42fefbc8
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request a6ad1e54615aeb99 processed in 0.0049 seconds
+2025-04-22 12:43:05 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request d874b0d60675ee0e processed in 0.0103 seconds
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request 98ae24100d75a1c5 processed in 0.0001 seconds
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:94 - Could not extract user_id from JWT: Not enough segments
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [WARNING] app.extract_user_id_from_token:102 - Using first user in database as fallback: user_1744899345_42fefbc8
+2025-04-22 12:43:05 [INFO] user_auth.get_user_tokens:344 - Getting tokens for user user_1744899345_42fefbc8
+2025-04-22 12:43:05 [DEBUG] user_auth.load_users:31 - Loaded 6 existing users from data\users.json
+2025-04-22 12:43:05 [DEBUG] app.after_request:146 - Request 30eb3880fc89b54c processed in 0.0021 seconds

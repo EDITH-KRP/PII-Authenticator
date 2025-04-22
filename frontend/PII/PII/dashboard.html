@@ -15,7 +15,6 @@
       <div class="logo">🔐 PII Authentication</div>
       <div class="nav-links">
         <a href="dashboard.html" class="active">Dashboard</a>
-        <a href="generate.html">Generate Token</a>
         <a href="profile.html">Profile</a>
         <a href="#" id="logoutBtn">Logout</a>
       </div>
@@ -26,51 +25,42 @@
   <section class="dashboard-container">
     <div class="dashboard-header">
       <h1>Welcome, <span id="userName">User</span></h1>
-      <p>Manage your secure identity tokens and documents</p>
+      <p>Manage your secure identity documents</p>
     </div>
     
     <div class="dashboard-stats">
-      <div class="stat-card">
-        <h3>Active Tokens</h3>
-        <p id="tokenCount">0</p>
-      </div>
       <div class="stat-card">
         <h3>Documents</h3>
         <p id="documentCount">0</p>
       </div>
       <div class="stat-card">
-        <h3>Token Status</h3>
-        <p id="tokenStatus">Active</p>
+        <h3>Last Login</h3>
+        <p id="lastLogin">Today</p>
+      </div>
+      <div class="stat-card">
+        <h3>Account Status</h3>
+        <p id="accountStatus">Active</p>
       </div>
     </div>
     
     <div class="dashboard-main">
-      <div class="token-section">
-        <div class="section-header">
-          <h2>Your Identity Tokens</h2>
-          <a href="generate.html" class="btn primary">Generate New Token</a>
-        </div>
-        
-        <div id="tokenList" class="token-list">
-          <!-- Token cards will be dynamically inserted here -->
-          <div class="empty-state" id="emptyTokenState">
-            <p>You don't have any tokens yet. Generate your first token to secure your identity.</p>
-            <a href="generate.html" class="btn primary">Generate Token</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="document-section">
+      <div class="document-section" style="grid-column: 1 / -1;">
         <div class="section-header">
           <h2>Your Documents</h2>
-          <button id="uploadDocBtn" class="btn secondary">Upload Document</button>
+          <div class="button-group">
+            <button id="scanDocBtn" class="btn primary">Scan ID Document</button>
+            <button id="uploadDocBtn" class="btn secondary">Upload Document</button>
+          </div>
         </div>
         
         <div id="documentList" class="document-list">
           <!-- Document cards will be dynamically inserted here -->
           <div class="empty-state" id="emptyDocState">
             <p>You haven't uploaded any documents yet.</p>
-            <button id="uploadDocBtnEmpty" class="btn secondary">Upload Document</button>
+            <div class="button-group">
+              <button id="scanDocBtn" class="btn primary">Scan ID Document</button>
+              <button id="uploadDocBtn" class="btn secondary">Upload Document</button>
+            </div>
           </div>
         </div>
       </div>
@@ -102,9 +92,98 @@
           <div class="form-group">
             <label for="docFile">Upload File</label>
             <input type="file" id="docFile" name="docFile" required>
+            <p class="form-hint">Supported formats: PDF, JPG, PNG (max 10MB)</p>
           </div>
           
-          <button type="submit" class="btn primary full-width">Upload Document</button>
+          <button type="submit" class="btn primary full-width upload-btn">Upload Document</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Document Scanning Modal -->
+    <div id="scanModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Scan ID Document</h2>
+        <p class="modal-description">Upload an image of your ID document to automatically extract and verify your information.</p>
+        
+        <form id="scanDocumentForm">
+          <div class="form-group">
+            <label for="docTypeSelect">Document Type</label>
+            <select id="docTypeSelect" name="docTypeSelect" required>
+              <option value="">Select document type</option>
+              <option value="passport">Passport</option>
+              <option value="driver_license">Driver's License</option>
+              <option value="national_id">National ID</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="docFileInput">Upload Document Image</label>
+            <input type="file" id="docFileInput" name="docFileInput" accept="image/*" required>
+            <p class="form-hint">For best results, ensure the document is well-lit and all text is clearly visible. Supported formats: JPG, PNG.</p>
+          </div>
+          
+          <div id="previewContainer" class="preview-container" style="display: none;">
+            <h3>Document Preview</h3>
+            <img id="previewImage" src="#" alt="Document Preview">
+          </div>
+          
+          <div id="scanningSpinner" class="scanning-container" style="display: none;">
+            <div class="spinner"></div>
+            <p id="scanningText" class="scanning-text">Scanning document and extracting information...</p>
+            <div class="scanning-steps">
+              <div class="scanning-step active">
+                <div class="step-number">1</div>
+                <div class="step-text">Document Analysis</div>
+              </div>
+              <div class="scanning-step">
+                <div class="step-number">2</div>
+                <div class="step-text">PII Extraction</div>
+              </div>
+              <div class="scanning-step">
+                <div class="step-number">3</div>
+                <div class="step-text">Blockchain Verification</div>
+              </div>
+            </div>
+          </div>
+          
+          <div id="extractedDataContainer" class="extracted-data-container" style="display: none;">
+            <h3>Extracted Information</h3>
+            <div class="extracted-data-grid">
+              <ul id="extractedDataList" class="extracted-data-list">
+                <!-- Extracted data will be inserted here -->
+              </ul>
+            </div>
+          </div>
+          
+          <div id="tokenResultContainer" class="token-result-container" style="display: none;">
+            <h3>Verification Complete</h3>
+            <div class="token-result">
+              <div class="token-field">
+                <strong>Status:</strong> 
+                <div class="token-value-container">
+                  <span id="verificationStatus">Verified</span>
+                  <span class="verification-badge">✓</span>
+                </div>
+              </div>
+              <div class="token-field">
+                <strong>Document ID:</strong> 
+                <div class="token-value-container">
+                  <span id="documentId"></span>
+                </div>
+              </div>
+              <div class="token-field">
+                <strong>Blockchain TX:</strong> 
+                <div class="token-value-container">
+                  <a id="txHash" href="#" target="_blank" class="blockchain-link"></a>
+                </div>
+              </div>
+            </div>
+            <p class="success-message">Your document has been successfully verified!</p>
+          </div>
+          
+          <button type="submit" id="scanSubmitBtn" class="btn primary full-width scan-btn">Verify Document</button>
         </form>
       </div>
     </div>
@@ -123,6 +202,8 @@
   
   <!-- JavaScript -->
   <script src="./scripts/logger.js"></script>
+  <script src="./scripts/document_scanner.js"></script>
+
   <script src="./scripts/dashboard.js"></script>
 </body>
 </html>

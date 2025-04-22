@@ -83,9 +83,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     tokenCountElement.textContent = data.tokens.length;
                 }
                 
+                // Update primary token display in the stats section
+                const primaryTokenElement = document.getElementById('primaryToken');
+                const copyPrimaryTokenBtn = document.getElementById('copyPrimaryToken');
+                
+                if (primaryTokenElement && data.tokens.length > 0) {
+                    // Get the first (primary) token
+                    const primaryToken = data.tokens[0].token;
+                    primaryTokenElement.textContent = primaryToken;
+                    
+                    // Add copy functionality to the primary token button
+                    if (copyPrimaryTokenBtn) {
+                        copyPrimaryTokenBtn.addEventListener('click', () => {
+                            navigator.clipboard.writeText(primaryToken)
+                                .then(() => {
+                                    copyPrimaryTokenBtn.textContent = 'Copied!';
+                                    setTimeout(() => {
+                                        copyPrimaryTokenBtn.textContent = 'Copy';
+                                    }, 2000);
+                                })
+                                .catch(err => {
+                                    Logger.error(`Copy failed: ${err}`);
+                                    alert('Failed to copy token. Please try again.');
+                                });
+                        });
+                    }
+                } else if (primaryTokenElement) {
+                    primaryTokenElement.textContent = 'No token generated';
+                }
+                
                 // Display tokens
                 const tokenListElement = document.getElementById('tokenList');
                 const emptyTokenState = document.getElementById('emptyTokenState');
+                
+                // Hide or show Generate Token options based on whether user has tokens
+                updateGenerateTokenVisibility(data.tokens.length > 0);
                 
                 if (tokenListElement) {
                     if (data.tokens.length > 0) {
@@ -280,12 +312,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // Update token status
-    const updateTokenStatus = () => {
+    // Update token status and profile token display
+    const updateTokenStatus = (tokens) => {
         const tokenStatusElement = document.getElementById('tokenStatus');
+        const profileTokenElement = document.getElementById('profileToken');
+        const copyProfileTokenBtn = document.getElementById('copyProfileToken');
+        
+        // Update the visibility of Generate Token links
+        updateGenerateTokenVisibility(tokens && tokens.length > 0);
+        
         if (tokenStatusElement) {
             // In a real app, this would be based on actual token status
-            tokenStatusElement.textContent = 'Active';
+            tokenStatusElement.textContent = tokens && tokens.length > 0 ? 'Active' : 'None';
+        }
+        
+        // Update the token in the profile section
+        if (profileTokenElement && tokens && tokens.length > 0) {
+            const primaryToken = tokens[0].token;
+            profileTokenElement.textContent = primaryToken;
+            
+            // Add copy functionality
+            if (copyProfileTokenBtn) {
+                copyProfileTokenBtn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(primaryToken)
+                        .then(() => {
+                            copyProfileTokenBtn.textContent = 'Copied!';
+                            setTimeout(() => {
+                                copyProfileTokenBtn.textContent = 'Copy';
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            Logger.error(`Copy failed: ${err}`);
+                            alert('Failed to copy token. Please try again.');
+                        });
+                });
+            }
+        } else if (profileTokenElement) {
+            profileTokenElement.textContent = 'No token generated';
+            if (copyProfileTokenBtn) {
+                copyProfileTokenBtn.style.display = 'none';
+            }
         }
     };
     
@@ -544,11 +610,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // Function to hide or show Generate Token options
+    const updateGenerateTokenVisibility = (hasTokens) => {
+        // Get all Generate Token links
+        const generateTokenLinks = document.querySelectorAll('a[href="generate.html"]');
+        
+        // Hide or show based on whether user has tokens
+        generateTokenLinks.forEach(link => {
+            if (hasTokens) {
+                // If it's in the navigation, hide it
+                if (link.parentElement && link.parentElement.classList.contains('nav-links')) {
+                    link.style.display = 'none';
+                } else {
+                    // If it's a button in the token section, hide it
+                    link.style.display = 'none';
+                }
+            } else {
+                // Show all generate token links if user has no tokens
+                link.style.display = '';
+            }
+        });
+    };
+    
     // Load user data
     loadUserProfile();
-    loadUserTokens();
+    loadUserTokens().then(() => {
+        // Get tokens for status update
+        fetch(`${API_URL}/user/tokens`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userData.token}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.tokens) {
+                updateTokenStatus(data.tokens);
+            }
+        })
+        .catch(error => {
+            Logger.error(`Error getting tokens for status update: ${error.message}`);
+        });
+    });
     loadUserDocuments();
-    updateTokenStatus();
     
     // Logout handler
     const logoutBtn = document.getElementById('logoutBtn');

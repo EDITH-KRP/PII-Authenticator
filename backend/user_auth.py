@@ -9,8 +9,64 @@ from logger import get_logger
 # Get logger
 logger = get_logger()
 
-# Path to users.json file
-USERS_FILE = "users.json"
+# Path to data directory and users.json file
+DATA_DIR = "data"
+USERS_FILE = os.path.join(DATA_DIR, "users.json")
+
+# Ensure data directory exists
+os.makedirs(DATA_DIR, exist_ok=True)
+
+def load_users():
+    """
+    Load users from the users.json file.
+    
+    Returns:
+        dict: Dictionary of users, or empty dict if file doesn't exist or is invalid
+    """
+    users = {}
+    if os.path.exists(USERS_FILE):
+        try:
+            with open(USERS_FILE, "r") as f:
+                users = json.load(f)
+            logger.debug(f"Loaded {len(users)} existing users from {USERS_FILE}")
+        except json.JSONDecodeError as e:
+            logger.error(f"Error parsing users file: {e}")
+            # Create a backup of the corrupted file
+            backup_file = f"{USERS_FILE}.bak.{int(time.time())}"
+            try:
+                import shutil
+                shutil.copy2(USERS_FILE, backup_file)
+                logger.info(f"Created backup of corrupted users file: {backup_file}")
+            except Exception as backup_err:
+                logger.error(f"Failed to create backup of corrupted users file: {backup_err}")
+        except Exception as e:
+            logger.error(f"Error loading users file: {e}")
+    else:
+        logger.info(f"Users file not found at {USERS_FILE}. Will create new users database when needed.")
+    
+    return users
+
+def save_users(users):
+    """
+    Save users to the users.json file.
+    
+    Args:
+        users (dict): Dictionary of users to save
+        
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    try:
+        # Ensure data directory exists
+        os.makedirs(os.path.dirname(USERS_FILE), exist_ok=True)
+        
+        with open(USERS_FILE, "w") as f:
+            json.dump(users, f, indent=2)
+        logger.debug(f"Saved {len(users)} users to {USERS_FILE}")
+        return True
+    except Exception as e:
+        logger.error(f"Error saving users to {USERS_FILE}: {e}")
+        return False
 
 def hash_password(password, salt=None):
     """
@@ -61,13 +117,7 @@ def register_user(user_data):
         return False, None, "Missing required fields (name, email, password)"
     
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
+    users = load_users()
     
     # Check if email already exists
     for user_id, user in users.items():
@@ -98,13 +148,11 @@ def register_user(user_data):
     # Save user
     users[user_id] = user
     
-    try:
-        with open(USERS_FILE, "w") as f:
-            json.dump(users, f, indent=2)
+    if save_users(users):
         logger.info(f"User {user_id} registered successfully")
         return True, user_id, "User registered successfully"
-    except Exception as e:
-        logger.error(f"Error saving user: {e}")
+    else:
+        logger.error(f"Error saving user {user_id}")
         return False, None, "Error saving user"
 
 def login_user(email, password):
@@ -123,14 +171,10 @@ def login_user(email, password):
     email = email.strip().lower()
     
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
-            return False, None, "Error loading users"
+    users = load_users()
+    if not users:
+        logger.warning("No users found in database")
+        return False, None, "Invalid email or password"
     
     # Find user by email
     user_id = None
@@ -177,14 +221,10 @@ def get_user_by_id(user_id):
         dict: User data or None if not found
     """
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
-            return None
+    users = load_users()
+    if not users:
+        logger.warning("No users found in database")
+        return None
     
     # Find user by ID
     user = users.get(user_id)
@@ -207,64 +247,88 @@ def get_user_by_id(user_id):
     
     return user_data
 
-def add_token_to_user(user_id, token, tx_hash):
+def add_token_to_user(user_id, token_data, tx_hash=None):
     """
     Add a token to a user.
     
     Args:
         user_id (str): User ID
-        token (str): Token value
-        tx_hash (str): Transaction hash
+        token_data (dict or str): Token data or token string
+        tx_hash (str, optional): Transaction hash if token_data is a string
         
     Returns:
         bool: True if successful, False otherwise
     """
+    # Handle both string and dict inputs for token_data
+    if isinstance(token_data, str):
+        token = token_data
+        token_obj = {
+            "token": token,
+            "tx_hash": tx_hash,
+            "created_at": time.time(),
+            "active": True
+        }
+    else:
+        token = token_data.get("token")
+        token_obj = {
+            "token": token,
+            "tx_hash": token_data.get("tx_hash", tx_hash),
+            "created_at": time.time(),
+            "active": True
+        }
+        
+        # Add additional fields if they exist
+        if "file_url" in token_data:
+            token_obj["file_url"] = token_data["file_url"]
+            
     logger.info(f"Adding token {token} to user {user_id}")
     
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
-            return False
+    users = load_users()
+    if not users:
+        logger.warning("No users found in database, creating new users database")
+        users = {}
     
     # Find user by ID
     user = users.get(user_id)
     
+    # If user doesn't exist, create a new one
     if not user:
-        logger.warning(f"User with ID {user_id} not found")
-        return False
-    
-    # Add token to user
-    token_data = {
-        "token": token,
-        "tx_hash": tx_hash,
-        "created_at": time.time(),
-        "active": True
-    }
+        logger.warning(f"User with ID {user_id} not found, creating a new user")
+        user = {
+            "id": user_id,
+            "name": "Anonymous User",
+            "email": f"anonymous_{user_id}@example.com",
+            "created_at": time.time(),
+            "tokens": [],
+            "documents": []
+        }
+        users[user_id] = user
     
     if "tokens" not in user:
         user["tokens"] = []
     
-    # Check if token already exists
-    for existing_token in user["tokens"]:
+    # Check if this user already has a token
+    if user["tokens"]:
+        # If the user already has a token, check if it's the same one
+        existing_token = user["tokens"][0]
         if existing_token.get("token") == token:
             logger.info(f"Token {token} already exists for user {user_id}")
             return True
-    
-    user["tokens"].append(token_data)
+        else:
+            # If it's a different token, replace it to ensure one token per user
+            logger.info(f"Replacing existing token {existing_token.get('token')} with {token} for user {user_id}")
+            user["tokens"] = [token_obj]
+    else:
+        # If the user doesn't have a token yet, add this one
+        user["tokens"].append(token_obj)
     
     # Save users
-    try:
-        with open(USERS_FILE, "w") as f:
-            json.dump(users, f, indent=2)
+    if save_users(users):
         logger.info(f"Token {token} added to user {user_id}")
         return True
-    except Exception as e:
-        logger.error(f"Error saving user: {e}")
+    else:
+        logger.error(f"Error saving token for user {user_id}")
         return False
 
 def get_user_tokens(user_id):
@@ -280,14 +344,10 @@ def get_user_tokens(user_id):
     logger.info(f"Getting tokens for user {user_id}")
     
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
-            return []
+    users = load_users()
+    if not users:
+        logger.warning("No users found in database")
+        return []
     
     # Find user by ID
     user = users.get(user_id)
@@ -297,6 +357,45 @@ def get_user_tokens(user_id):
         return []
     
     return user.get("tokens", [])
+
+def add_token_to_user(user_id, token_data):
+    """
+    Add a token to a user's profile.
+    
+    Args:
+        user_id (str): User ID
+        token_data (dict): Token data
+        
+    Returns:
+        bool: True if successful, False otherwise
+    """
+    logger.info(f"Adding token to user {user_id}")
+    
+    # Load existing users
+    users = load_users()
+    if not users:
+        logger.error("No users found in database")
+        return False
+    
+    # Find user by ID
+    if user_id not in users:
+        logger.error(f"User {user_id} not found")
+        return False
+    
+    # Initialize tokens list if it doesn't exist
+    if "tokens" not in users[user_id]:
+        users[user_id]["tokens"] = []
+    
+    # Add token to user's tokens
+    users[user_id]["tokens"].append(token_data)
+    
+    # Save users
+    if save_users(users):
+        logger.info(f"Token added to user {user_id}")
+        return True
+    else:
+        logger.error(f"Error adding token to user {user_id}")
+        return False
 
 def add_document_to_user(user_id, document_data):
     """
@@ -312,21 +411,26 @@ def add_document_to_user(user_id, document_data):
     logger.info(f"Adding document to user {user_id}")
     
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
-            return False, None
+    users = load_users()
+    if not users:
+        logger.warning("No users found in database, creating new users database")
+        users = {}
     
     # Find user by ID
     user = users.get(user_id)
     
+    # If user doesn't exist, create a new one
     if not user:
-        logger.warning(f"User with ID {user_id} not found")
-        return False, None
+        logger.warning(f"User with ID {user_id} not found, creating a new user")
+        user = {
+            "id": user_id,
+            "name": "Anonymous User",
+            "email": f"anonymous_{user_id}@example.com",
+            "created_at": time.time(),
+            "tokens": [],
+            "documents": []
+        }
+        users[user_id] = user
     
     # Generate document ID
     document_id = f"doc_{int(time.time())}_{secrets.token_hex(4)}"
@@ -334,26 +438,38 @@ def add_document_to_user(user_id, document_data):
     # Add document to user
     document = {
         "id": document_id,
-        "title": document_data.get("title"),
-        "type": document_data.get("type"),
-        "file_url": document_data.get("file_url"),
-        "tx_hash": document_data.get("tx_hash"),
+        "title": document_data.get("title", "Untitled Document"),
+        "type": document_data.get("type", "unknown"),
+        "file_url": document_data.get("file_url", ""),
+        "tx_hash": document_data.get("tx_hash", ""),
         "uploaded_at": time.time()
     }
     
+    # Add additional fields if they exist
+    if "text_file_url" in document_data:
+        document["text_file_url"] = document_data["text_file_url"]
+    
+    if "extracted_data" in document_data:
+        document["extracted_data"] = document_data["extracted_data"]
+    
+    if "token" in document_data:
+        document["token"] = document_data["token"]
+    
+    if "document_token" in document_data:
+        document["document_token"] = document_data["document_token"]
+    
+    # Ensure documents array exists
     if "documents" not in user:
         user["documents"] = []
     
     user["documents"].append(document)
     
     # Save users
-    try:
-        with open(USERS_FILE, "w") as f:
-            json.dump(users, f, indent=2)
+    if save_users(users):
         logger.info(f"Document {document_id} added to user {user_id}")
         return True, document_id
-    except Exception as e:
-        logger.error(f"Error saving user: {e}")
+    else:
+        logger.error(f"Error saving document for user {user_id}")
         return False, None
 
 def get_user_documents(user_id):
@@ -369,20 +485,29 @@ def get_user_documents(user_id):
     logger.info(f"Getting documents for user {user_id}")
     
     # Load existing users
-    users = {}
-    if os.path.exists(USERS_FILE):
-        try:
-            with open(USERS_FILE, "r") as f:
-                users = json.load(f)
-        except Exception as e:
-            logger.error(f"Error loading users file: {e}")
-            return []
+    users = load_users()
+    if not users:
+        logger.warning("No users found in database")
+        return []
     
     # Find user by ID
     user = users.get(user_id)
     
     if not user:
         logger.warning(f"User with ID {user_id} not found")
+        
+        # Check if there are any users in the database
+        if users:
+            # Try to find documents for any user as a fallback
+            all_documents = []
+            for uid, user_data in users.items():
+                if "documents" in user_data:
+                    all_documents.extend(user_data["documents"])
+            
+            if all_documents:
+                logger.info(f"Returning {len(all_documents)} documents from all users as fallback")
+                return all_documents
+        
         return []
     
     return user.get("documents", [])

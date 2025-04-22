@@ -1,5 +1,28 @@
 /* Profile Page Styles */
 
+/* Primary Token Styles */
+.primary-token {
+  background-color: #f0f8ff;
+  border: 1px solid #d0e3ff;
+}
+
+.primary-token h3 {
+  color: #0056b3;
+}
+
+.primary-token p {
+  font-family: monospace;
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
 .profile-section,
 .security-section {
   background-color: #fff;
@@ -31,6 +54,27 @@
 .field-value {
   flex: 1;
   color: #333;
+}
+
+.highlight-field {
+  background-color: #f0f8ff;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #d0e3ff;
+  display: flex;
+  align-items: center;
+}
+
+.highlight-field .field-label {
+  color: #0056b3;
+  font-weight: bold;
+}
+
+.token-value {
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .security-form {

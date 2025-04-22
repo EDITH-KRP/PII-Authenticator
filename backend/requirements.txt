@@ -3,3 +3,8 @@ cryptography
 python-dotenv
 PyJWT
 web3
+pytesseract
+opencv-python
+pillow
+numpy
+flask-cors

@@ -27,14 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadUserDocuments = async () => {
         return new Promise(async (resolve, reject) => {
             try {
-                // Create a modified token that includes the user ID
-                const modifiedToken = `${userData.id}:${userData.token}`;
-                
                 const response = await fetch(`${API_URL}/user/documents`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${modifiedToken}`
+                        'Authorization': `Bearer ${userData.token}`
                     }
                 });
                 
@@ -314,9 +311,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     Logger.error(`Copy failed: ${err}`);
                     alert('Failed to copy token. Please try again.');
                 });
-                // Create a modified token that includes the user ID
-                const modifiedToken = `${userData.id}:${userData.token}`;
-                
         }
     });
     

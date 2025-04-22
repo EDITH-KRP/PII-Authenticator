@@ -40,19 +40,19 @@ try:
     web3 = Web3(HTTPProvider(sepolia_rpc_url))
     
     if not web3.is_connected() and not BLOCKCHAIN_DEV_MODE:
-        logger.warning("⚠️ Could not connect to Sepolia via Alchemy")
-        logger.warning("⚠️ Running in development mode with simulated blockchain")
+        logger.warning("WARNING: Could not connect to Sepolia via Alchemy")
+        logger.warning("WARNING: Running in development mode with simulated blockchain")
         BLOCKCHAIN_DEV_MODE = True
     else:
         if not BLOCKCHAIN_DEV_MODE:
             elapsed_time = time.time() - start_time
-            logger.info(f"✅ Connected to Ethereum network in {elapsed_time:.4f} seconds")
+            logger.info(f"SUCCESS: Connected to Ethereum network in {elapsed_time:.4f} seconds")
         else:
             logger.info("Running in development mode with simulated blockchain (forced by environment variable)")
 except Exception as e:
     if not BLOCKCHAIN_DEV_MODE:
-        logger.warning(f"⚠️ Failed to initialize Web3: {e}")
-        logger.warning("⚠️ Running in development mode with simulated blockchain")
+        logger.warning(f"WARNING: Failed to initialize Web3: {e}")
+        logger.warning("WARNING: Running in development mode with simulated blockchain")
         logger.debug(traceback.format_exc())
         BLOCKCHAIN_DEV_MODE = True
     web3 = Web3()  # Fallback to local provider
@@ -65,10 +65,10 @@ try:
     with open(abi_path, "r") as f:
         contract_json = json.load(f)
         contract_abi = contract_json["abi"]
-    logger.info("✅ Contract ABI loaded successfully")
+    logger.info("SUCCESS: Contract ABI loaded successfully")
 except Exception as e:
-    logger.warning(f"⚠️ Failed to load contract ABI: {e}")
-    logger.warning("⚠️ Using a dummy ABI for development")
+    logger.warning(f"WARNING: Failed to load contract ABI: {e}")
+    logger.warning("WARNING: Using a dummy ABI for development")
     logger.debug(traceback.format_exc())
     
     # Dummy ABI for development
@@ -101,21 +101,21 @@ try:
     
     contract = web3.eth.contract(address=checksum_address, abi=contract_abi)
     account = web3.eth.account.from_key(PRIVATE_KEY)
-    logger.info(f"✅ Contract initialized at address {checksum_address}")
+    logger.info(f"SUCCESS: Contract initialized at address {checksum_address}")
     
     # Verify contract exists on the blockchain
     if not BLOCKCHAIN_DEV_MODE:
         try:
             code = web3.eth.get_code(checksum_address)
             if code == b'' or code == '0x':
-                logger.warning(f"⚠️ No contract code found at address {checksum_address}")
-                logger.warning("⚠️ This may be an invalid contract address")
+                logger.warning(f"WARNING: No contract code found at address {checksum_address}")
+                logger.warning("WARNING: This may be an invalid contract address")
             else:
-                logger.info(f"✅ Contract code verified at address {checksum_address}")
+                logger.info(f"SUCCESS: Contract code verified at address {checksum_address}")
         except Exception as e:
-            logger.warning(f"⚠️ Could not verify contract code: {e}")
+            logger.warning(f"WARNING: Could not verify contract code: {e}")
 except Exception as e:
-    logger.warning(f"⚠️ Failed to initialize contract: {e}")
+    logger.warning(f"WARNING: Failed to initialize contract: {e}")
     logger.debug(traceback.format_exc())
     contract = None
     account = None
@@ -153,10 +153,10 @@ try:
     
     DEVELOPMENT_MODE = False
     elapsed_time = time.time() - start_time
-    logger.info(f"✅ Filebase S3 client initialized in {elapsed_time:.4f} seconds")
+    logger.info(f"SUCCESS: Filebase S3 client initialized in {elapsed_time:.4f} seconds")
 except Exception as e:
-    logger.warning(f"⚠️ Failed to initialize S3 client: {e}")
-    logger.warning("⚠️ Running in development mode with simulated storage")
+    logger.warning(f"WARNING: Failed to initialize S3 client: {e}")
+    logger.warning("WARNING: Running in development mode with simulated storage")
     logger.debug(traceback.format_exc())
     s3 = None
     DEVELOPMENT_MODE = True
@@ -178,16 +178,16 @@ def upload_to_filebase(file_name, file_data):
     if DEVELOPMENT_MODE:
         # Simulate upload in development mode
         file_url = f"{ENDPOINT_URL}/{BUCKET_NAME}/{file_name}"
-        logger.info(f"⚠️ [DEV MODE] Simulated upload to Filebase: {file_url}")
+        logger.info(f"[DEV MODE] Simulated upload to Filebase: {file_url}")
         
         # Save locally for development testing
         try:
             os.makedirs("storage", exist_ok=True)
             with open(f"storage/{file_name}", "wb") as f:
                 f.write(file_data)
-            logger.info(f"✅ [DEV MODE] Saved file locally: storage/{file_name}")
+            logger.info(f"SUCCESS: [DEV MODE] Saved file locally: storage/{file_name}")
         except Exception as e:
-            logger.error(f"❌ [DEV MODE] Failed to save file locally: {e}")
+            logger.error(f"ERROR: [DEV MODE] Failed to save file locally: {e}")
             logger.debug(traceback.format_exc())
         
         elapsed_time = time.time() - start_time
@@ -211,16 +211,16 @@ def upload_to_filebase(file_name, file_data):
                 if result:
                     file_url = f"{ENDPOINT_URL}/{BUCKET_NAME}/{file_name}"
                     elapsed_time = time.time() - start_time
-                    logger.info(f"✅ Uploaded to Filebase: {file_url} in {elapsed_time:.4f} seconds")
+                    logger.info(f"SUCCESS: Uploaded to Filebase: {file_url} in {elapsed_time:.4f} seconds")
                     return file_url
             except TimeoutError:
-                logger.warning(f"⚠️ Filebase upload timed out after 10 seconds")
+                logger.warning(f"WARNING: Filebase upload timed out after 10 seconds")
                 # Return a simulated URL for now
                 file_url = f"{ENDPOINT_URL}/{BUCKET_NAME}/{file_name}"
-                logger.info(f"⚠️ Returning URL without confirmed upload: {file_url}")
+                logger.info(f"WARNING: Returning URL without confirmed upload: {file_url}")
                 return file_url
     except Exception as e:
-        logger.error(f"❌ Filebase upload failed: {e}")
+        logger.error(f"ERROR: Filebase upload failed: {e}")
         logger.debug(traceback.format_exc())
         return None
 
@@ -240,7 +240,7 @@ def check_file_exists_in_filebase(file_name):
         # Check local storage in development mode
         local_path = f"storage/{file_name}"
         exists = os.path.exists(local_path)
-        logger.info(f"⚠️ [DEV MODE] File {file_name} {'exists' if exists else 'does not exist'} in local storage")
+        logger.info(f"[DEV MODE] File {file_name} {'exists' if exists else 'does not exist'} in local storage")
         return exists
     
     try:
@@ -255,13 +255,13 @@ def check_file_exists_in_filebase(file_name):
         exists = 'Contents' in response and len(response['Contents']) > 0
         
         if exists:
-            logger.info(f"✅ File {file_name} exists in Filebase")
+            logger.info(f"SUCCESS: File {file_name} exists in Filebase")
         else:
-            logger.info(f"❌ File {file_name} does not exist in Filebase")
+            logger.info(f"INFO: File {file_name} does not exist in Filebase")
             
         return exists
     except Exception as e:
-        logger.error(f"❌ Failed to check if file exists in Filebase: {e}")
+        logger.error(f"ERROR: Failed to check if file exists in Filebase: {e}")
         logger.debug(traceback.format_exc())
         return False
 
@@ -285,10 +285,10 @@ def retrieve_from_filebase(file_name):
                 data = f.read()
             
             elapsed_time = time.time() - start_time
-            logger.info(f"✅ [DEV MODE] Retrieved file locally: storage/{file_name} in {elapsed_time:.4f} seconds")
+            logger.info(f"SUCCESS: [DEV MODE] Retrieved file locally: storage/{file_name} in {elapsed_time:.4f} seconds")
             return data
         except Exception as e:
-            logger.error(f"❌ [DEV MODE] Failed to retrieve file locally: {e}")
+            logger.error(f"ERROR: [DEV MODE] Failed to retrieve file locally: {e}")
             logger.debug(traceback.format_exc())
             return None
     
@@ -298,10 +298,10 @@ def retrieve_from_filebase(file_name):
         data = response["Body"].read()
         
         elapsed_time = time.time() - start_time
-        logger.info(f"✅ Retrieved file from Filebase: {file_name} in {elapsed_time:.4f} seconds")
+        logger.info(f"SUCCESS: Retrieved file from Filebase: {file_name} in {elapsed_time:.4f} seconds")
         return data
     except Exception as e:
-        logger.error(f"❌ Filebase retrieval failed: {e}")
+        logger.error(f"ERROR: Filebase retrieval failed: {e}")
         logger.debug(traceback.format_exc())
         return None
 
@@ -327,12 +327,12 @@ def store_token_on_blockchain(user_token):
     try:
         # Check if web3 is connected
         if not web3.is_connected():
-            logger.error("❌ Web3 is not connected to the blockchain")
+            logger.error("ERROR: Web3 is not connected to the blockchain")
             return None
             
         # Check if contract and account are initialized
         if not contract or not account:
-            logger.error("❌ Contract or account not initialized")
+            logger.error("ERROR: Contract or account not initialized")
             return None
         
         # Get the latest nonce to avoid nonce errors
@@ -369,7 +369,7 @@ def store_token_on_blockchain(user_token):
                 logger.info(f"Transaction successful: {receipt.transactionHash.hex()}")
                 
                 elapsed_time = time.time() - start_time
-                logger.info(f"✅ Token stored on-chain: {user_token} in {elapsed_time:.4f} seconds")
+                logger.info(f"SUCCESS: Token stored on-chain: {user_token} in {elapsed_time:.4f} seconds")
                 logger.info(f"Transaction hash: {receipt.transactionHash.hex()}")
                 
                 return receipt.transactionHash.hex()
