@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Logging in...';
                 
-                // API URL
+                // API URL - Use absolute URL
                 const API_URL = 'http://127.0.0.1:5000';
                 
                 // Make API call to login
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Creating Account...';
                 
-                // API URL
+                // API URL - Use absolute URL
                 const API_URL = 'http://127.0.0.1:5000';
                 
                 // Make API call to register

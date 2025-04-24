@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backend Server Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .success {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+    button {
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Backend Server Test</h1>
+  <p>This page tests the connection to the backend server.</p>
+  
+  <button id="testBtn">Test Connection</button>
+  
+  <div id="result" class="result" style="display: none;"></div>
+  
+  <script>
+    document.getElementById('testBtn').addEventListener('click', async () => {
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = 'Testing connection to backend server...';
+      
+      try {
+        const response = await fetch('http://127.0.0.1:5000/health');
+        
+        if (response.ok) {
+          const data = await response.json();
+          resultDiv.innerHTML = `
+            <p class="success">✅ Connection successful!</p>
+            <p>Server status: ${data.status}</p>
+            <p>Timestamp: ${new Date(data.timestamp * 1000).toLocaleString()}</p>
+          `;
+          resultDiv.className = 'result success';
+        } else {
+          resultDiv.innerHTML = `
+            <p class="error">❌ Connection failed!</p>
+            <p>Status: ${response.status} ${response.statusText}</p>
+          `;
+          resultDiv.className = 'result error';
+        }
+      } catch (error) {
+        resultDiv.innerHTML = `
+          <p class="error">❌ Connection failed!</p>
+          <p>Error: ${error.message}</p>
+          <p>This could be due to:</p>
+          <ul>
+            <li>The backend server is not running</li>
+            <li>CORS is not enabled on the backend</li>
+            <li>Network connectivity issues</li>
+          </ul>
+        `;
+        resultDiv.className = 'result error';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View your secure document.">
+  <title>Document Viewer - PII Authentication</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
+  <style>
+    .document-viewer-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .document-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .document-title {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    
+    .document-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .document-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .info-label {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+    }
+    
+    .info-value {
+      font-size: 1rem;
+      color: #333;
+      font-weight: 600;
+    }
+    
+    .document-content {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      border-radius: 4px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .document-image {
+      max-width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      border: 1px solid #ddd;
+    }
+    
+    .document-placeholder {
+      text-align: center;
+      color: #666;
+    }
+    
+    .document-placeholder .icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #ccc;
+    }
+    
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+    
+    .spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top: 4px solid #3498db;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .blockchain-info {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: #f0f9ff;
+      border-radius: 4px;
+      border-left: 4px solid #3498db;
+    }
+    
+    .blockchain-info h3 {
+      margin-top: 0;
+      color: #2980b9;
+    }
+    
+    .blockchain-link {
+      color: #3498db;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    
+    .blockchain-link:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      .document-info {
+        grid-template-columns: 1fr;
+      }
+      
+      .document-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .document-actions {
+        width: 100%;
+      }
+      
+      .document-actions .btn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">🔐 PII Authentication</div>
+      <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Document Viewer Section -->
+  <section class="document-viewer-container">
+    <div id="loadingState" class="loading">
+      <div class="spinner"></div>
+      <p>Loading document...</p>
+    </div>
+    
+    <div id="errorState" class="error-message" style="display: none;">
+      <h3>Error Loading Document</h3>
+      <p id="errorMessage">Unable to load the document. Please try again later.</p>
+      <button class="btn secondary" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+    </div>
+    
+    <div id="documentViewer" style="display: none;">
+      <div class="document-header">
+        <h1 class="document-title" id="documentTitle">Document Title</h1>
+        <div class="document-actions">
+          <button class="btn secondary" onclick="window.location.href='dashboard.html'">Back to Dashboard</button>
+          <button class="btn primary" id="downloadBtn">Download</button>
+        </div>
+      </div>
+      
+      <div class="document-info">
+        <div class="info-item">
+          <span class="info-label">Document Type</span>
+          <span class="info-value" id="documentType">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Uploaded</span>
+          <span class="info-value" id="uploadDate">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Document ID</span>
+          <span class="info-value" id="documentId">-</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">File Size</span>
+          <span class="info-value" id="fileSize">-</span>
+        </div>
+      </div>
+      
+      <div class="document-content" id="documentContent">
+        <div class="document-placeholder" id="documentPlaceholder">
+          <div class="icon">📄</div>
+          <p>Preview not available</p>
+          <p>Click the Download button to view this document</p>
+        </div>
+        <img id="documentImage" class="document-image" style="display: none;" alt="Document Preview">
+        <iframe id="documentFrame" style="width: 100%; height: 600px; border: none; display: none;" title="Document Viewer"></iframe>
+      </div>
+      
+      <div class="blockchain-info" id="blockchainInfo">
+        <h3>Blockchain Verification</h3>
+        <p>This document has been securely stored with blockchain verification.</p>
+        <p>Transaction Hash: <a href="#" id="txHashLink" class="blockchain-link" target="_blank">-</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="#"><img src="assets/icons/image f.png" alt="Facebook"></a>
+      <a href="#"><img src="assets/icons/image t.png" alt="Twitter"></a>
+      <a href="#"><img src="assets/icons/image l.png" alt="LinkedIn"></a>
+      <a href="#"><img src="assets/icons/image i.png" alt="Instagram"></a>
+    </div>
+    <p>&copy; 2025 PII Authentication on Blockchain Networks. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript -->
+  <script src="./scripts/logger.js"></script>
+  <script src="./scripts/document-viewer.js"></script>
+</body>
+</html>

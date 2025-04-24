@@ -155,6 +155,83 @@ def register_user(user_data):
         logger.error(f"Error saving user {user_id}")
         return False, None, "Error saving user"
 
+def generate_login_nonce(user_id):
+    """
+    Generate a unique nonce for login challenge.
+    
+    Args:
+        user_id (str): User ID
+        
+    Returns:
+        str: Nonce value
+        int: Expiration timestamp
+    """
+    import secrets
+    import time
+    
+    # Generate a random nonce
+    nonce = secrets.token_hex(16)
+    
+    # Set expiration time (5 minutes from now)
+    expiration = int(time.time()) + 300
+    
+    # Load existing users
+    users = load_users()
+    if not users or user_id not in users:
+        return None, None
+    
+    # Store nonce in user data
+    if "login_nonces" not in users[user_id]:
+        users[user_id]["login_nonces"] = {}
+    
+    users[user_id]["login_nonces"][nonce] = expiration
+    
+    # Clean up expired nonces
+    current_time = int(time.time())
+    expired_nonces = [n for n, exp in users[user_id]["login_nonces"].items() if exp < current_time]
+    for expired in expired_nonces:
+        del users[user_id]["login_nonces"][expired]
+    
+    # Save updated user data
+    save_users(users)
+    
+    logger.info(f"Generated login nonce for user {user_id}: {nonce}")
+    return nonce, expiration
+
+def verify_login_nonce(user_id, nonce):
+    """
+    Verify a login nonce.
+    
+    Args:
+        user_id (str): User ID
+        nonce (str): Nonce to verify
+        
+    Returns:
+        bool: True if nonce is valid, False otherwise
+    """
+    import time
+    
+    # Load existing users
+    users = load_users()
+    if not users or user_id not in users:
+        return False
+    
+    # Check if user has nonces
+    if "login_nonces" not in users[user_id]:
+        return False
+    
+    # Check if nonce exists and is not expired
+    current_time = int(time.time())
+    if nonce in users[user_id]["login_nonces"]:
+        expiration = users[user_id]["login_nonces"][nonce]
+        if current_time <= expiration:
+            # Remove the nonce after use (one-time use)
+            del users[user_id]["login_nonces"][nonce]
+            save_users(users)
+            return True
+    
+    return False
+
 def login_user(email, password):
     """
     Login a user.
@@ -197,6 +274,26 @@ def login_user(email, password):
         logger.warning(f"Invalid password for user {email}")
         return False, None, "Invalid email or password"
     
+    # Generate a login nonce for additional security
+    nonce, expiration = generate_login_nonce(user_id)
+    
+    # Record login attempt
+    current_time = int(time.time())
+    if "login_history" not in user:
+        user["login_history"] = []
+    
+    # Add login record
+    login_record = {
+        "timestamp": current_time,
+        "ip_address": request.remote_addr if 'request' in globals() else "unknown",
+        "user_agent": request.headers.get("User-Agent", "unknown") if 'request' in globals() else "unknown",
+        "success": True
+    }
+    
+    user["login_history"] = [login_record] + user["login_history"][:9]  # Keep last 10 logins
+    users[user_id] = user
+    save_users(users)
+    
     # Create user data to return (exclude sensitive information)
     user_data = {
         "user_id": user_id,
@@ -204,7 +301,10 @@ def login_user(email, password):
         "email": user.get("email"),
         "phone": user.get("phone"),
         "dob": user.get("dob"),
-        "created_at": user.get("created_at")
+        "created_at": user.get("created_at"),
+        "login_nonce": nonce,
+        "nonce_expiration": expiration,
+        "last_login": user.get("login_history", [{}])[0].get("timestamp") if user.get("login_history") else None
     }
     
     logger.info(f"User {email} logged in successfully")
@@ -495,19 +595,31 @@ def get_user_documents(user_id):
     
     if not user:
         logger.warning(f"User with ID {user_id} not found")
-        
-        # Check if there are any users in the database
-        if users:
-            # Try to find documents for any user as a fallback
-            all_documents = []
-            for uid, user_data in users.items():
-                if "documents" in user_data:
-                    all_documents.extend(user_data["documents"])
-            
-            if all_documents:
-                logger.info(f"Returning {len(all_documents)} documents from all users as fallback")
-                return all_documents
-        
-        return []
+        return []  # Return empty list if user not found
     
+    # Return only this specific user's documents
     return user.get("documents", [])
+
+def get_document_by_id(user_id, document_id):
+    """
+    Get a specific document by ID for a user.
+    
+    Args:
+        user_id (str): User ID
+        document_id (str): Document ID
+        
+    Returns:
+        dict: Document object if found, None otherwise
+    """
+    logger.info(f"Getting document {document_id} for user {user_id}")
+    
+    # Get all documents for the user
+    documents = get_user_documents(user_id)
+    
+    # Find the document with the matching ID
+    for document in documents:
+        if document.get("id") == document_id:
+            return document
+    
+    logger.warning(f"Document {document_id} not found for user {user_id}")
+    return None

@@ -20,21 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
         userNameElement.textContent = userData.name;
     }
     
-    // API URL
+    // API URL - Use absolute URL
     const API_URL = 'http://127.0.0.1:5000';
     
     // Load user documents
     const loadUserDocuments = async () => {
         return new Promise(async (resolve, reject) => {
             try {
-                // Create a modified token that includes the user ID
-                const modifiedToken = `${userData.id}:${userData.token}`;
-                
+                // Use the JWT token directly without modification
                 const response = await fetch(`${API_URL}/user/documents`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${modifiedToken}`
+                        'Authorization': `Bearer ${userData.token}`
                     }
                 });
                 
@@ -84,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             document.querySelectorAll('.btn-view-doc').forEach(button => {
                                 button.addEventListener('click', () => {
                                     const docId = button.getAttribute('data-doc-id');
-                                    // Open document viewer
-                                    window.open(`document-viewer.html?id=${docId}`, '_blank');
+                                    // Open document viewer in the same window
+                                    window.location.href = `document-viewer.html?id=${docId}`;
                                 });
                             });
                             
@@ -136,7 +134,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 Logger.error(`Error loading documents: ${error.message}`);
-                alert(`Error loading documents: ${error.message}`);
+                
+                // Provide more detailed error message
+                let errorMessage = error.message;
+                if (error.message === 'Failed to fetch') {
+                    errorMessage = 'Failed to connect to the server. Please make sure the backend server is running.';
+                }
+                
+                alert(`Error loading documents: ${errorMessage}`);
+                
+                // Log additional debug information
+                console.error('Error details:', error);
+                console.log('Current user token:', userData.token);
+                
                 resolve(0);
             }
         });
@@ -330,29 +340,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Initialize document scanner
-    console.log('Checking for document scanner function');
-    if (typeof initDocumentScanner === 'function') {
-        console.log('Document scanner function found, initializing...');
-        initDocumentScanner();
-    } else {
-        console.error('Document scanner module not loaded');
-    }
+    // Document scanner functionality removed
     
-    // Add direct event listeners for scan button as a fallback
-    const scanDocBtn = document.getElementById('scanDocBtn');
-    const scanModal = document.getElementById('scanModal');
-    
-    if (scanDocBtn && scanModal) {
-        console.log('Adding direct click listener to scan button');
-        scanDocBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log('Scan button clicked');
-            scanModal.style.display = 'block';
-        });
+    // Check if server is running before loading documents
+    async function checkServerStatus() {
+        try {
+            const response = await fetch(`${API_URL}/health`, { method: 'GET' });
+            if (response.ok) {
+                Logger.info('Backend server is running');
+                // Server is running, load documents
+                loadUserDocuments();
+                updateAccountStatus();
+            } else {
+                Logger.error('Backend server returned an error');
+                alert('Error connecting to the server. Please make sure the backend server is running.');
+            }
+        } catch (error) {
+            Logger.error(`Server check failed: ${error.message}`);
+            alert('Cannot connect to the backend server. Please make sure the server is running.');
+        }
     }
     
     // Initialize
-    loadUserDocuments();
-    updateAccountStatus();
+    checkServerStatus();
 });

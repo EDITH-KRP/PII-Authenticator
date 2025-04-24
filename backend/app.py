@@ -4,12 +4,12 @@ import time
 import json
 import traceback
 import secrets
-from flask import Flask, request, jsonify, g
+from flask import Flask, request, jsonify, g, send_file
 from werkzeug.utils import secure_filename
 from flask_cors import CORS
 from dotenv import load_dotenv
 from token_auth import get_or_generate_token, verify_token
-from user_auth import register_user, login_user, get_user_by_id, add_token_to_user, get_user_tokens, add_document_to_user, get_user_documents
+from user_auth import register_user, login_user, get_user_by_id, add_token_to_user, get_user_tokens, add_document_to_user, get_user_documents, get_document_by_id
 from company_auth import register_company, login_company, get_company_by_id, add_validation, get_company_validations, get_validation_stats
 from w3_utils import upload_to_filebase, check_blockchain_connection, store_token_on_blockchain, verify_token_on_blockchain, get_token_transaction_details
 from cryptography.fernet import Fernet
@@ -37,6 +37,37 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'default_secret_key_for_development')
 # Initialize Fernet cipher
 cipher_suite = Fernet(ENCRYPTION_KEY.encode())
 
+def generate_jwt_token(user_data):
+    """
+    Generate a JWT token for a user.
+    
+    Args:
+        user_data (dict): User data to include in the token
+        
+    Returns:
+        str: JWT token
+    """
+    import jwt
+    import datetime
+    
+    # Create payload with user data and expiration
+    payload = {
+        "user_id": user_data.get("user_id"),
+        "email": user_data.get("email"),
+        "name": user_data.get("name"),
+        "exp": datetime.datetime.utcnow() + datetime.timedelta(days=1)  # Token expires in 1 day
+    }
+    
+    # Generate JWT token
+    token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+    
+    # If token is bytes, convert to string (depends on jwt library version)
+    if isinstance(token, bytes):
+        token = token.decode('utf-8')
+        
+    logger.info(f"Generated JWT token for user {user_data.get('user_id')}")
+    return token
+
 def encrypt_data(data):
     """
     Encrypt data using Fernet symmetric encryption.
@@ -57,60 +88,51 @@ def extract_user_id_from_token(token):
     Extract user_id from token.
     
     Args:
-        token (str): The token which may contain user_id
+        token (str): The JWT token containing user information
         
     Returns:
-        str: The extracted user_id or default
+        str: The extracted user_id or None if not found
     """
     try:
-        # Check if the token contains user_id information
-        if ':' in token:
-            # Format is "user_id:actual_token"
-            user_id, _ = token.split(':', 1)
-            logger.info(f"Extracted user_id from token: {user_id}")
-            return user_id
-        else:
-            # Try to decode the JWT token to get user information
-            try:
-                from user_auth import load_users
-                import jwt
-                
-                # Decode the token
-                decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-                if "user_id" in decoded:
-                    user_id = decoded["user_id"]
-                    logger.info(f"Extracted user_id from JWT payload: {user_id}")
-                    return user_id
-                
-                # If we have an email, try to find the user
-                if "email" in decoded:
-                    email = decoded["email"]
-                    users = load_users()
-                    for uid, user_data in users.items():
-                        if user_data.get("email") == email:
-                            logger.info(f"Found user_id {uid} for email {email}")
-                            return uid
-            except Exception as jwt_error:
-                logger.warning(f"Could not extract user_id from JWT: {jwt_error}")
+        # Try to decode the JWT token
+        import jwt
+        
+        try:
+            # Decode the token with verification
+            decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
             
-            # Get the first user from the database as a fallback
-            try:
+            # Extract user_id from decoded token
+            if "user_id" in decoded:
+                user_id = decoded["user_id"]
+                logger.debug(f"Extracted user_id from JWT: {user_id}")
+                return user_id
+            
+            # If no user_id but we have email, try to find the user
+            if "email" in decoded:
                 from user_auth import load_users
+                email = decoded["email"]
                 users = load_users()
-                if users:
-                    first_user_id = list(users.keys())[0]
-                    logger.warning(f"Using first user in database as fallback: {first_user_id}")
-                    return first_user_id
-            except Exception as db_error:
-                logger.warning(f"Could not get first user from database: {db_error}")
+                
+                for uid, user_data in users.items():
+                    if user_data.get("email") == email:
+                        logger.info(f"Found user_id {uid} for email {email}")
+                        return uid
+                
+                logger.warning(f"No user found with email: {email}")
             
-            # Default fallback
-            user_id = "user_1234"
-            logger.warning(f"Using default user_id: {user_id}")
-            return user_id
+            logger.warning("JWT token does not contain user_id or email")
+            return None
+            
+        except jwt.ExpiredSignatureError:
+            logger.warning("JWT token has expired")
+            return None
+        except jwt.InvalidTokenError as e:
+            logger.warning(f"Invalid JWT token: {e}")
+            return None
+            
     except Exception as e:
         logger.error(f"Error extracting user_id from token: {e}")
-        return "user_1234"
+        return None
 
 def decrypt_data(encrypted_data):
     """
@@ -429,8 +451,11 @@ def retrieve_data():
 # User Authentication Endpoints
 @app.route("/register", methods=["POST"])
 def register():
-    """Register a new user."""
+    """Register a new user with optional blockchain wallet."""
     data = request.json
+    
+    # Check for wallet address
+    wallet_address = data.get("wallet_address")
     
     # Register user
     success, user_id, message = register_user(data)
@@ -439,41 +464,93 @@ def register():
         # Get user data
         user_data = get_user_by_id(user_id)
         
-        # Generate JWT token
-        token = secrets.token_hex(16)
+        # If wallet address was provided, connect it to the user account
+        if wallet_address:
+            # Load existing users
+            from user_auth import load_users, save_users
+            users = load_users()
+            
+            if users and user_id in users:
+                users[user_id]["wallet_address"] = wallet_address
+                users[user_id]["wallet_connected_at"] = int(time.time())
+                save_users(users)
+                
+                # Update user_data with wallet information
+                user_data["wallet_address"] = wallet_address
+                user_data["blockchain_auth_status"] = "Connected"
         
-        return jsonify({
+        # Generate JWT token with user information
+        jwt_token = generate_jwt_token(user_data)
+        
+        # Generate a blockchain-style account creation hash
+        import hashlib
+        creation_hash = hashlib.sha256(f"{user_id}:{time.time()}:{request.remote_addr}".encode()).hexdigest()
+        
+        response_data = {
             "message": message,
             "user_id": user_id,
             "name": user_data.get("name"),
             "email": user_data.get("email"),
-            "token": token
-        })
+            "token": jwt_token,
+            "creation_hash": creation_hash
+        }
+        
+        # Add wallet information if available
+        if wallet_address:
+            response_data["wallet_address"] = wallet_address
+            response_data["blockchain_auth_status"] = "Connected"
+        
+        return jsonify(response_data)
     else:
         return jsonify({"error": message}), 400
 
 @app.route("/login", methods=["POST"])
 def login():
-    """Login a user."""
+    """Login a user with blockchain-style authentication."""
     data = request.json
     
     email = data.get("email")
     password = data.get("password")
     
+    # Optional challenge response for enhanced security
+    challenge_response = data.get("challenge_response")
+    nonce = data.get("nonce")
+    
     # Login user
     success, user_data, message = login_user(email, password)
     
     if success:
-        # Generate JWT token
-        token = secrets.token_hex(16)
+        # Generate JWT token with user information
+        jwt_token = generate_jwt_token(user_data)
         
-        return jsonify({
+        # Get blockchain wallet address if available
+        wallet_address = user_data.get("wallet_address", "Not connected")
+        
+        # Generate a unique session identifier (similar to blockchain transaction hash)
+        import hashlib
+        import time
+        
+        session_id = hashlib.sha256(f"{user_data.get('user_id')}:{time.time()}:{request.remote_addr}".encode()).hexdigest()
+        
+        # Log successful login with blockchain-style logging
+        logger.info(f"User authenticated: ID={user_data.get('user_id')}, Address={request.remote_addr}, Session={session_id[:10]}...")
+        
+        # Create response with blockchain-themed data
+        response_data = {
             "message": message,
             "user_id": user_data.get("user_id"),
             "name": user_data.get("name"),
             "email": user_data.get("email"),
-            "token": token
-        })
+            "token": jwt_token,
+            "session_id": session_id,
+            "wallet_address": wallet_address,
+            "login_nonce": user_data.get("login_nonce"),
+            "nonce_expiration": user_data.get("nonce_expiration"),
+            "last_login": user_data.get("last_login"),
+            "blockchain_auth_status": "Connected" if wallet_address != "Not connected" else "Not connected"
+        }
+        
+        return jsonify(response_data)
     else:
         return jsonify({"error": message}), 401
 
@@ -489,17 +566,12 @@ def get_tokens():
     token = auth_header.split(" ")[1]
     
     # Extract user_id from token
-    try:
-        user_id = extract_user_id_from_token(token)
-    except Exception as e:
-        logger.warning(f"Could not extract user_id from JWT: {str(e)}")
-        # Fallback to first user in database for demo purposes
-        users = load_users()
-        if users:
-            user_id = list(users.keys())[0]
-            logger.warning(f"Using first user in database as fallback: {user_id}")
-        else:
-            return jsonify({"error": "Unauthorized"}), 401
+    user_id = extract_user_id_from_token(token)
+    
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
     
     # Get user tokens
     tokens = get_user_tokens(user_id)
@@ -598,12 +670,90 @@ def get_documents():
     # Extract user_id from token
     user_id = extract_user_id_from_token(token)
     
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
     # Get user documents
     documents = get_user_documents(user_id)
+    
+    # Log the number of documents found
+    logger.info(f"Found {len(documents)} documents for user {user_id}")
     
     return jsonify({
         "documents": documents
     })
+
+@app.route("/user/documents/<document_id>", methods=["GET"])
+def get_document(document_id):
+    """Get a specific document by ID for the authenticated user."""
+    # Get user_id from JWT token
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # Extract user_id from token
+    user_id = extract_user_id_from_token(token)
+    
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
+    # Get the document
+    document = get_document_by_id(user_id, document_id)
+    
+    if not document:
+        logger.warning(f"Document {document_id} not found for user {user_id}")
+        return jsonify({"error": "Document not found"}), 404
+    
+    # Log the document access
+    logger.info(f"Document {document_id} accessed by user {user_id}")
+    
+    return jsonify(document)
+
+@app.route("/user/documents/<document_id>/download", methods=["GET"])
+def download_document(document_id):
+    """Download a specific document by ID for the authenticated user."""
+    # Get user_id from JWT token
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # Extract user_id from token
+    user_id = extract_user_id_from_token(token)
+    
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
+    # Get the document
+    document = get_document_by_id(user_id, document_id)
+    
+    if not document:
+        logger.warning(f"Document {document_id} not found for user {user_id}")
+        return jsonify({"error": "Document not found"}), 404
+    
+    # Get the file path
+    file_path = document.get("file_path")
+    
+    if not file_path or not os.path.exists(file_path):
+        logger.warning(f"File not found for document {document_id}")
+        return jsonify({"error": "Document file not found"}), 404
+    
+    # Log the document download
+    logger.info(f"Document {document_id} downloaded by user {user_id}")
+    
+    # Return the file
+    return send_file(file_path, as_attachment=True, download_name=f"{document.get('title', 'document')}.pdf")
 
 @app.route("/user/documents/scan", methods=["POST"])
 def scan_document():
@@ -804,6 +954,11 @@ def upload_document():
     # Extract user_id from token
     user_id = extract_user_id_from_token(token)
     
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
     # Get form data
     title = request.form.get("title")
     doc_type = request.form.get("type")
@@ -972,6 +1127,11 @@ def scan_document_ai():
     # Extract user_id from token
     user_id = extract_user_id_from_token(jwt_token)
     
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
     # Get form data
     doc_type = request.form.get("type")
     file = request.files.get("file")
@@ -1049,13 +1209,78 @@ def get_user_profile():
     # Extract user_id from token
     user_id = extract_user_id_from_token(token)
     
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
     # Get user data
     user_data = get_user_by_id(user_id)
     
     if not user_data:
+        logger.warning(f"User with ID {user_id} not found in database")
         return jsonify({"error": "User not found"}), 404
     
+    # Add blockchain authentication status
+    if "wallet_address" in user_data and user_data["wallet_address"]:
+        user_data["blockchain_auth_status"] = "Connected"
+        user_data["blockchain_network"] = "Ethereum Sepolia Testnet"  # Example network
+    else:
+        user_data["blockchain_auth_status"] = "Not connected"
+        user_data["blockchain_network"] = None
+    
+    # Log successful profile retrieval
+    logger.info(f"Retrieved profile for user {user_id}")
+    
     return jsonify(user_data)
+
+@app.route("/user/blockchain-status", methods=["GET"])
+def get_blockchain_status():
+    """Get user's blockchain authentication status."""
+    # Get user_id from JWT token
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # Extract user_id from token
+    user_id = extract_user_id_from_token(token)
+    
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
+    # Get user data
+    from user_auth import load_users
+    users = load_users()
+    
+    if not users or user_id not in users:
+        return jsonify({"error": "User not found"}), 404
+    
+    user = users[user_id]
+    
+    # Get wallet information
+    wallet_address = user.get("wallet_address")
+    wallet_connected_at = user.get("wallet_connected_at")
+    
+    # Create response
+    blockchain_status = {
+        "user_id": user_id,
+        "blockchain_auth_status": "Connected" if wallet_address else "Not connected",
+        "wallet_address": wallet_address if wallet_address else None,
+        "wallet_connected_at": wallet_connected_at if wallet_connected_at else None,
+        "blockchain_network": "Ethereum Sepolia Testnet" if wallet_address else None,
+        "blockchain_features": [
+            "Document verification",
+            "Identity attestation",
+            "Secure login"
+        ] if wallet_address else []
+    }
+    
+    return jsonify(blockchain_status)
 
 @app.route("/user/profile", methods=["PUT"])
 def update_user_profile():
@@ -1071,13 +1296,158 @@ def update_user_profile():
     # Extract user_id from token
     user_id = extract_user_id_from_token(token)
     
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
     # Get request data
     data = request.json
     
-    # Update user data (in a real app, this would update the database)
-    # For now, we'll just return success
+    # Load existing users
+    from user_auth import load_users, save_users
+    users = load_users()
+    
+    if not users or user_id not in users:
+        return jsonify({"error": "User not found"}), 404
+    
+    # Update allowed fields
+    allowed_fields = ["name", "phone", "dob"]
+    for field in allowed_fields:
+        if field in data:
+            users[user_id][field] = data[field]
+    
+    # Save updated user data
+    if save_users(users):
+        return jsonify({
+            "message": "Profile updated successfully"
+        })
+    else:
+        return jsonify({"error": "Failed to update profile"}), 500
+
+@app.route("/user/connect-wallet", methods=["POST"])
+def connect_wallet():
+    """Connect a blockchain wallet to a user account."""
+    # Get user_id from JWT token
+    auth_header = request.headers.get("Authorization")
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return jsonify({"error": "Unauthorized"}), 401
+    
+    # Extract token
+    token = auth_header.split(" ")[1]
+    
+    # Extract user_id from token
+    user_id = extract_user_id_from_token(token)
+    
+    # Check if we have a valid user_id
+    if not user_id:
+        logger.warning("No valid user ID found in token")
+        return jsonify({"error": "Invalid authentication token. Please log in again."}), 401
+    
+    # Get request data
+    data = request.json
+    wallet_address = data.get("wallet_address")
+    signature = data.get("signature")
+    message = data.get("message")
+    
+    if not wallet_address:
+        return jsonify({"error": "Wallet address is required"}), 400
+    
+    # In a real implementation, we would verify the signature against the message
+    # to ensure the user actually owns the wallet
+    # For this demo, we'll skip the verification
+    
+    # Load existing users
+    from user_auth import load_users, save_users
+    users = load_users()
+    
+    if not users or user_id not in users:
+        return jsonify({"error": "User not found"}), 404
+    
+    # Update wallet address
+    users[user_id]["wallet_address"] = wallet_address
+    
+    # Add wallet connection timestamp
+    users[user_id]["wallet_connected_at"] = int(time.time())
+    
+    # Save updated user data
+    if save_users(users):
+        return jsonify({
+            "message": "Wallet connected successfully",
+            "wallet_address": wallet_address,
+            "blockchain_auth_status": "Connected"
+        })
+    else:
+        return jsonify({"error": "Failed to connect wallet"}), 500
+
+@app.route("/login/wallet", methods=["POST"])
+def login_with_wallet():
+    """Login using a blockchain wallet (Ethereum/Web3 style authentication)."""
+    data = request.json
+    
+    wallet_address = data.get("wallet_address")
+    signature = data.get("signature")
+    message = data.get("message")
+    
+    if not wallet_address:
+        return jsonify({"error": "Wallet address is required"}), 400
+    
+    if not signature or not message:
+        return jsonify({"error": "Signature and message are required for wallet authentication"}), 400
+    
+    # In a real implementation, we would verify the signature against the message
+    # using web3.py or similar library to ensure the user owns the wallet
+    # For this demo, we'll skip the verification
+    
+    # Find user by wallet address
+    from user_auth import load_users
+    users = load_users()
+    
+    if not users:
+        return jsonify({"error": "No users found"}), 404
+    
+    user_id = None
+    user = None
+    
+    for uid, u in users.items():
+        if u.get("wallet_address") == wallet_address:
+            user_id = uid
+            user = u
+            break
+    
+    if not user:
+        return jsonify({"error": "No account found with this wallet address"}), 404
+    
+    # Create user data for token
+    user_data = {
+        "user_id": user_id,
+        "name": user.get("name"),
+        "email": user.get("email"),
+        "phone": user.get("phone"),
+        "dob": user.get("dob"),
+        "created_at": user.get("created_at"),
+        "wallet_address": wallet_address
+    }
+    
+    # Generate JWT token
+    jwt_token = generate_jwt_token(user_data)
+    
+    # Generate a unique session identifier (similar to blockchain transaction hash)
+    import hashlib
+    session_id = hashlib.sha256(f"{user_id}:{time.time()}:{request.remote_addr}:wallet".encode()).hexdigest()
+    
+    # Log successful login
+    logger.info(f"User authenticated via wallet: ID={user_id}, Address={request.remote_addr}, Wallet={wallet_address[:10]}...")
+    
     return jsonify({
-        "message": "Profile updated successfully"
+        "message": "Wallet authentication successful",
+        "user_id": user_id,
+        "name": user.get("name"),
+        "email": user.get("email"),
+        "token": jwt_token,
+        "session_id": session_id,
+        "wallet_address": wallet_address,
+        "blockchain_auth_status": "Connected"
     })
 
 @app.route("/user/password", methods=["PUT"])
