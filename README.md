@@ -2,7 +2,7 @@
 
 This project provides a secure way to authenticate personal identification information (PII) using blockchain technology. The system allows users to generate secure tokens for their PII data, which can then be validated by companies through blockchain verification.
 
-![Blockchain ID Authentication](https://via.placeholder.com/800x400?text=Blockchain+ID+Authentication)
+
 
 ## How It Works
 
