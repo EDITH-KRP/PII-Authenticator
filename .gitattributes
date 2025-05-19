@@ -1,2 +1,11 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Explicitly mark .env files as binary to avoid line ending conversion issues
+# This helps prevent accidental commits of .env files
+*.env binary
+*.env.* binary
+
+# Exclude .env files from git diff output for security
+*.env diff=.gitignore
+*.env.* diff=.gitignore

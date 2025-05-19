@@ -98,3 +98,184 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
     raise NotFound() from None
 werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 
+2025-04-23 21:11:47 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 10:23:53 [ERROR] document_processor.process_document:73 - Failed to read image at C:\Users\prajw\AppData\Local\Temp\tmpl0f035h2\document.jpg
+2025-04-24 10:29:53 [ERROR] document_processor.process_document:73 - Failed to read image at C:\Users\prajw\AppData\Local\Temp\tmpznxw7d51\document.jpg
+2025-04-24 10:30:12 [ERROR] document_processor.process_document:73 - Failed to read image at C:\Users\prajw\AppData\Local\Temp\tmpr6xh7vr4\document.jpg
+2025-04-24 10:30:14 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 10:30:17 [ERROR] document_processor.process_document:73 - Failed to read image at C:\Users\prajw\AppData\Local\Temp\tmp55ypcv6p\document.jpg
+2025-04-24 10:30:19 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 10:30:21 [ERROR] document_processor.process_document:73 - Failed to read image at C:\Users\prajw\AppData\Local\Temp\tmp3datqtls\document.jpg
+2025-04-24 10:30:23 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 21:50:23 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 21:51:10 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 21:51:10 [ERROR] token_auth.get_or_generate_token:187 - Failed to store token on blockchain, retrying...
+2025-04-24 21:51:11 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 21:51:11 [ERROR] token_auth.get_or_generate_token:192 - Second attempt to store token on blockchain failed
+2025-04-24 21:53:42 [ERROR] w3_utils.regenerate_blockchain_record:491 - Failed to regenerate blockchain record: {'code': -32603, 'message': 'replacement transaction underpriced'}
+2025-04-24 21:53:42 [ERROR] token_auth.verify_token:433 - Failed to regenerate blockchain record for token 3RL7CJUYMO
+2025-04-24 21:53:43 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-24 22:00:07 [ERROR] w3_utils.store_token_on_blockchain:395 - Blockchain transaction failed and no fallback is available
+2025-04-25 23:22:36 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-25 23:22:36 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-04-25 23:27:11 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-25 23:27:11 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-04-25 23:34:30 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-04-25 23:34:30 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:34:33 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:34:33 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:34:33 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:34:33 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:37:09 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:37:09 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:37:10 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:37:10 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:51:37 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:51:37 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:54:04 [ERROR] app.register_endpoint:259 - Registration error: register_user() takes 1 positional argument but 5 were given
+2025-05-19 08:56:52 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:56:52 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 08:59:41 [ERROR] app.handle_exception:175 - Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-19 08:59:41 [ERROR] app.handle_exception:176 - Traceback (most recent call last):
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1788, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1770, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 351, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prajw\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 624, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2025-05-19 09:15:16 [ERROR] app.login_endpoint:228 - Login error: 'tuple' object has no attribute 'get'
+2025-05-19 09:39:40 [ERROR] app.register_endpoint:260 - Registration error: register_user() takes 1 positional argument but 5 were given

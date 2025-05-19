@@ -14,15 +14,31 @@ load_dotenv()
 # Get logger
 logger = get_logger()
 
-ALCHEMY_API_KEY = os.getenv('ALCHEMY_API_KEY', 'sample_key_for_development')
-PRIVATE_KEY = os.getenv('PRIVATE_KEY', '0x0000000000000000000000000000000000000000000000000000000000000000')
-CONTRACT_ADDRESS = os.getenv('CONTRACT_ADDRESS', '0x0000000000000000000000000000000000000000')
+# Check if we're in development mode
+DEV_MODE = os.getenv('BLOCKCHAIN_DEV_MODE', 'false').lower() == 'true'
 
-# In development mode, we'll allow missing environment variables
-# In production, this should raise an error
-if not ALCHEMY_API_KEY or not PRIVATE_KEY or not CONTRACT_ADDRESS:
-    logger.warning("⚠️ Missing environment variables (ALCHEMY_API_KEY, PRIVATE_KEY, CONTRACT_ADDRESS)")
-    logger.warning("⚠️ Using development placeholders - DO NOT USE IN PRODUCTION")
+# Get API keys and credentials from environment variables
+ALCHEMY_API_KEY = os.getenv('ALCHEMY_API_KEY')
+PRIVATE_KEY = os.getenv('PRIVATE_KEY')
+CONTRACT_ADDRESS = os.getenv('CONTRACT_ADDRESS')
+
+# In development mode, we'll allow missing environment variables with placeholders
+# In production, we'll use empty strings but log warnings
+if DEV_MODE:
+    # Use development placeholders
+    ALCHEMY_API_KEY = ALCHEMY_API_KEY or 'sample_key_for_development'
+    PRIVATE_KEY = PRIVATE_KEY or '0x0000000000000000000000000000000000000000000000000000000000000000'
+    CONTRACT_ADDRESS = CONTRACT_ADDRESS or '0x0000000000000000000000000000000000000000'
+    
+    if not ALCHEMY_API_KEY or not PRIVATE_KEY or not CONTRACT_ADDRESS:
+        logger.warning("⚠️ Missing environment variables (ALCHEMY_API_KEY, PRIVATE_KEY, CONTRACT_ADDRESS)")
+        logger.warning("⚠️ Using development placeholders - DO NOT USE IN PRODUCTION")
+else:
+    # In production, warn about missing variables but don't use placeholders
+    if not ALCHEMY_API_KEY or not PRIVATE_KEY or not CONTRACT_ADDRESS:
+        logger.error("❌ Missing critical environment variables in production mode")
+        logger.error("❌ Please set ALCHEMY_API_KEY, PRIVATE_KEY, and CONTRACT_ADDRESS in your .env file")
+        logger.error("❌ See .env.example for reference")
 
 # Always use real blockchain mode
 BLOCKCHAIN_DEV_MODE = False  # Force to false to always use real blockchain
@@ -129,15 +145,27 @@ if account is None:
         account = None
 
 # Filebase setup
-FILEBASE_ACCESS_KEY = os.getenv("FILEBASE_ACCESS_KEY", "sample_access_key")
-FILEBASE_SECRET_KEY = os.getenv("FILEBASE_SECRET_KEY", "sample_secret_key")
-BUCKET_NAME = os.getenv("BUCKET_NAME", "pii-authenticator-test")
+FILEBASE_ACCESS_KEY = os.getenv("FILEBASE_ACCESS_KEY")
+FILEBASE_SECRET_KEY = os.getenv("FILEBASE_SECRET_KEY")
+BUCKET_NAME = os.getenv("BUCKET_NAME")
 ENDPOINT_URL = "https://s3.filebase.com"
 
-# In development mode, we'll allow missing environment variables
-if not FILEBASE_ACCESS_KEY or not FILEBASE_SECRET_KEY or not BUCKET_NAME:
-    logger.warning("⚠️ Filebase credentials missing - using development placeholders")
-    logger.warning("⚠️ File storage operations will be simulated")
+# Handle missing Filebase credentials based on development mode
+if DEV_MODE:
+    # Use development placeholders in dev mode
+    FILEBASE_ACCESS_KEY = FILEBASE_ACCESS_KEY or "sample_access_key"
+    FILEBASE_SECRET_KEY = FILEBASE_SECRET_KEY or "sample_secret_key"
+    BUCKET_NAME = BUCKET_NAME or "pii-authenticator-test"
+    
+    if not FILEBASE_ACCESS_KEY or not FILEBASE_SECRET_KEY or not BUCKET_NAME:
+        logger.warning("⚠️ Filebase credentials missing - using development placeholders")
+        logger.warning("⚠️ File storage operations will be simulated")
+else:
+    # In production, warn about missing variables
+    if not FILEBASE_ACCESS_KEY or not FILEBASE_SECRET_KEY or not BUCKET_NAME:
+        logger.error("❌ Missing Filebase credentials in production mode")
+        logger.error("❌ Please set FILEBASE_ACCESS_KEY, FILEBASE_SECRET_KEY, and BUCKET_NAME in your .env file")
+        logger.error("❌ See .env.example for reference")
 
 # Initialize S3 client if credentials are available
 try:

@@ -119,7 +119,16 @@ cd blockchain-id-authentication
    pip install -r requirements.txt
    ```
 
-3. Create a `.env` file in the backend directory with the following variables:
+3. Create a `.env` file in the backend directory using the provided template:
+   ```bash
+   # Copy the example template
+   cp .env.example .env
+   
+   # Edit the .env file with your actual credentials
+   # IMPORTANT: Never commit your .env file to version control!
+   ```
+
+4. Update the `.env` file with your actual credentials:
    ```
    ALCHEMY_API_KEY=your_alchemy_api_key
    PRIVATE_KEY=your_ethereum_private_key
@@ -127,9 +136,17 @@ cd blockchain-id-authentication
    FILEBASE_ACCESS_KEY=your_filebase_access_key
    FILEBASE_SECRET_KEY=your_filebase_secret_key
    BUCKET_NAME=your_filebase_bucket_name
+   WEB3_STORAGE_TOKEN=your_web3_storage_token
    ENCRYPTED_AES_KEY=your_base64_encoded_aes_key
    SECRET_KEY=your_jwt_secret_key
+   BLOCKCHAIN_DEV_MODE=false
    ```
+
+   > **⚠️ SECURITY WARNING**: 
+   > - Never commit your `.env` file to version control
+   > - Keep your private keys and API credentials secure
+   > - Regularly rotate your API keys and credentials
+   > - Use different keys for development and production environments
 
 ### 3. Blockchain Setup
 
@@ -302,6 +319,25 @@ run_load_tests.bat
 - **Environment Variables**: All sensitive configuration is stored in environment variables
 - **Access Control**: JWT-based authentication ensures proper access control
 - **Audit Logging**: All system activities are logged for security auditing
+
+### Environment Variables Security
+
+To ensure your application's security:
+
+1. **Never commit `.env` files to version control**:
+   - The `.env` file is listed in `.gitignore` to prevent accidental commits
+   - Use `.env.example` as a template with placeholder values only
+   - Each developer should maintain their own local `.env` file
+
+2. **Protect your credentials**:
+   - Keep your private keys and API tokens secure
+   - Use different credentials for development and production
+   - Regularly rotate your API keys and credentials
+   - Consider using a secrets management service for production
+
+3. **Development mode**:
+   - Set `BLOCKCHAIN_DEV_MODE=true` during development to use placeholder values
+   - Always set `BLOCKCHAIN_DEV_MODE=false` in production environments
 
 ## Future Enhancements
 

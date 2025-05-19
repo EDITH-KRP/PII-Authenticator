@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 from flask_cors import CORS
 from dotenv import load_dotenv
 from token_auth import get_or_generate_token, verify_token
-from user_auth import register_user, login_user, get_user_by_id, add_token_to_user, get_user_tokens, add_document_to_user, get_user_documents, get_document_by_id
+from user_auth import register_user, login_user, get_user_by_id, add_token_to_user, get_user_tokens, add_document_to_user, get_user_documents, get_document_by_id, load_users
 from company_auth import register_company, login_company, get_company_by_id, add_validation, get_company_validations, get_validation_stats
 from w3_utils import upload_to_filebase, check_blockchain_connection, store_token_on_blockchain, verify_token_on_blockchain, get_token_transaction_details
 from cryptography.fernet import Fernet
@@ -175,6 +175,116 @@ def handle_exception(e):
     logger.error(f"Unhandled exception: {str(e)}")
     logger.error(traceback.format_exc())
     return jsonify({"error": "Internal server error"}), 500
+
+@app.route("/", methods=["GET"])
+def root():
+    """Root endpoint that returns basic API information."""
+    return jsonify({
+        "api": "PII Authentication API",
+        "version": "1.0",
+        "status": "running",
+        "endpoints": [
+            "/health",
+            "/encrypt",
+            "/validate_token",
+            "/retrieve_data"
+        ]
+    })
+
+@app.route("/health", methods=["GET"])
+def health_check():
+    """Simple health check endpoint to verify the server is running."""
+    return jsonify({
+        "status": "ok",
+        "message": "Server is running",
+        "timestamp": time.time()
+    })
+
+@app.route("/login", methods=["POST"])
+def login_endpoint():
+    """Login endpoint for users."""
+    data = request.json
+    email = data.get("email")
+    password = data.get("password")
+    
+    if not email or not password:
+        return jsonify({"error": "Email and password are required"}), 400
+    
+    try:
+        success, user_data, message = login_user(email, password)
+        if success and user_data:
+            # Generate JWT token
+            jwt_token = generate_jwt_token(user_data)
+            
+            return jsonify({
+                "user_id": user_data.get("user_id"),
+                "name": user_data.get("name"),
+                "email": user_data.get("email"),
+                "token": jwt_token,
+                "message": message
+            })
+        else:
+            return jsonify({"error": message or "Invalid email or password"}), 401
+    except Exception as e:
+        logger.error(f"Login error: {str(e)}")
+        return jsonify({"error": "An error occurred during login"}), 500
+
+@app.route("/register", methods=["POST"])
+def register_endpoint():
+    """Register endpoint for new users."""
+    data = request.json
+    name = data.get("name")
+    email = data.get("email")
+    phone = data.get("phone")
+    dob = data.get("dob")
+    password = data.get("password")
+    
+    if not name or not email or not password:
+        return jsonify({"error": "Name, email, and password are required"}), 400
+    
+    try:
+        # Create user data dictionary
+        user_data = {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "dob": dob,
+            "password": password
+        }
+        
+        # Register the user
+        success, user_id, message = register_user(user_data)
+        
+        if success and user_id:
+            # Get the user data
+            users = load_users()
+            user = users.get(user_id, {})
+            
+            # Add user_id to the user data
+            user_data = {
+                "user_id": user_id,
+                "name": user.get("name"),
+                "email": user.get("email"),
+                "phone": user.get("phone"),
+                "dob": user.get("dob"),
+                "created_at": user.get("created_at")
+            }
+            
+            # Generate JWT token
+            jwt_token = generate_jwt_token(user_data)
+            
+            return jsonify({
+                "user_id": user_id,
+                "name": user.get("name"),
+                "email": user.get("email"),
+                "token": jwt_token,
+                "message": message
+            })
+        else:
+            return jsonify({"error": message or "User registration failed"}), 400
+    except Exception as e:
+        logger.error(f"Registration error: {str(e)}")
+        return jsonify({"error": "An error occurred during registration"}), 500
 
 @app.route("/encrypt", methods=["POST"])
 def encrypt():
@@ -1702,10 +1812,7 @@ def update_company_profile():
         "message": "Company profile updated successfully"
     })
 
-# Health check endpoint
-@app.route("/health", methods=["GET"])
-def health_check():
-    return jsonify({"status": "healthy", "timestamp": time.time()})
+# Health check endpoint is already defined above
 
 # Blockchain status endpoint
 @app.route("/blockchain_status", methods=["GET"])
@@ -1831,6 +1938,11 @@ def regenerate_blockchain():
         
         return jsonify({"error": str(e)}), 500
 
+@app.route("/test", methods=["GET"])
+def test():
+    return jsonify({"status": "ok", "message": "Server is running"})
+
 if __name__ == "__main__":
     logger.info("Starting PII Authenticator backend server")
-    app.run(debug=True)
+    # Try a different configuration that might work better
+    app.run(host='localhost', port=3000, threaded=True, use_reloader=False)

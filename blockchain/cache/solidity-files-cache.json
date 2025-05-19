@@ -2,17 +2,17 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "P:\\blockchain-id-authentication\\PII-Authenticator\\blockchain\\contracts\\Token_Auth.sol": {
-      "lastModificationDate": 1742521759269,
-      "contentHash": "bd9be2fb1a92632b0390e1a50b015f50",
+      "lastModificationDate": 1745513753688,
+      "contentHash": "fb6a25401b6844c101f55673d471da26",
       "sourceName": "contracts/Token_Auth.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
-          "evmVersion": "paris",
           "optimizer": {
-            "enabled": false,
+            "enabled": true,
             "runs": 200
           },
+          "evmVersion": "paris",
           "outputSelection": {
             "*": {
               "*": [
@@ -31,7 +31,7 @@
       },
       "imports": [],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.20"
       ],
       "artifacts": [
         "TokenAuth"

@@ -115,3 +115,6 @@
 2025-04-17 20:02:50 [INFO] : ACCESS: /encrypt | User: prajwal_k_r | Token: UF6PPE8T4L | IP: 127.0.0.1 | Status: success | Details: Existing token retrieved for user
 2025-04-17 20:03:14 [INFO] : ACCESS: /encrypt | User: prajwal_k_r | Token: 6ZKM0E45XI | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/6ZKM0E45XI.json
 2025-04-17 20:03:26 [INFO] : ACCESS: /validate_token | User: N/A | Token: 6ZKM0E45XI | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-04-24 10:23:47 [INFO] : ACCESS: /encrypt | User: user_1745470407_63d0c243 | Token: 8BYJPKBV8O | IP: 127.0.0.1 | Status: success | Details: Token generated and data stored at https://s3.filebase.com/pii-authenticator-test/8BYJPKBV8O.json
+2025-04-24 10:23:51 [INFO] : ACCESS: /validate_token | User: N/A | Token: 8BYJPKBV8O | IP: 127.0.0.1 | Status: success | Details: Token validation successful
+2025-05-05 12:47:16 [INFO] : ACCESS: /validate_token | User: N/A | Token: konkav | IP: 127.0.0.1 | Status: invalid | Details: Token validation failed

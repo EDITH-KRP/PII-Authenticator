@@ -28,5 +28,135 @@
     "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
     "validation_tx_hash": "8b4d2ad1b6c3d7e67017d80614bea3ddfc88574a35824d3054b54ff63a3b17f2",
     "timestamp": 1745304912.655054
+  },
+  "val_1745422907_8c79d072": {
+    "id": "val_1745422907_8c79d072",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K8U2EH36EP",
+    "purpose": "education",
+    "is_valid": true,
+    "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
+    "validation_tx_hash": null,
+    "timestamp": 1745422907.2380157
+  },
+  "val_1745423384_0726a600": {
+    "id": "val_1745423384_0726a600",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "PHRCT1DVJ1",
+    "purpose": "identity",
+    "is_valid": false,
+    "tx_hash": null,
+    "validation_tx_hash": "e710f74ccd8bb278844e519eb14a3bc7b3ac90342a912981263eb93dec57b60c",
+    "timestamp": 1745423384.834442
+  },
+  "val_1745423420_ae13a71d": {
+    "id": "val_1745423420_ae13a71d",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K8U2EH36EP",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
+    "validation_tx_hash": "ed5882c9fe5e875e777e1a84517f866e2bc46c0de130bf31dcad20e1753adf17",
+    "timestamp": 1745423420.138661
+  },
+  "val_1745471300_b9e37271": {
+    "id": "val_1745471300_b9e37271",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "N45VI73LKE",
+    "purpose": "employment",
+    "is_valid": true,
+    "tx_hash": "2f47536004db583235f34406938a07d00989023feb0ab161ee3acdb1a70f0260",
+    "validation_tx_hash": "1670222a7a701f415694b120ce507655f835222c4b3b7063b995828200e73d90",
+    "timestamp": 1745471300.2728
+  },
+  "val_1745474504_cd457d54": {
+    "id": "val_1745474504_cd457d54",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K44CUZ75J5",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "ae51b19169d4e460aa3a0ddc4cbd6752b00f82e787c100b05e1f55ba4bebd6bf",
+    "validation_tx_hash": "e5dcf3aa49bf3e8853f41a688bdacfbba4d0a7f3f64f2b6e5a1c24da49593c80",
+    "timestamp": 1745474504.6079159
+  },
+  "val_1745511823_a60434d3": {
+    "id": "val_1745511823_a60434d3",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "3RL7CJUYMO",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "0xSIM_f8b06b1dd90302dcac1e71e630729264b19a6f39d0aaaebbea28850d29e6",
+    "validation_tx_hash": null,
+    "timestamp": 1745511823.8226864
+  },
+  "val_1745512207_f8a6e61f": {
+    "id": "val_1745512207_f8a6e61f",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "3RL7CJUYMO",
+    "purpose": "financial",
+    "is_valid": true,
+    "tx_hash": "0xSIM_f8b06b1dd90302dcac1e71e630729264b19a6f39d0aaaebbea28850d29e6",
+    "validation_tx_hash": null,
+    "timestamp": 1745512207.1136565
+  },
+  "val_1745517805_ceb5c3c2": {
+    "id": "val_1745517805_ceb5c3c2",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K8U2EH36EP",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
+    "validation_tx_hash": "972f5c96e5de83860afd82a439d30a384072310fc1b0ca03b1551531ec39afa5",
+    "timestamp": 1745517805.4492233
+  },
+  "val_1745592959_2938415d": {
+    "id": "val_1745592959_2938415d",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "NB91TR9WGN",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "475839043987ba3eaeeacf1648aeb69f77dbc8ab3e1dd2c6d33ff595535fd2a3",
+    "validation_tx_hash": "d7ee2b012220f5d295ee2764a91d50b22f5d7baf7ac99587c1d1adab1ae53d3e",
+    "timestamp": 1745592959.6316862
+  },
+  "val_1745681076_243f2fd8": {
+    "id": "val_1745681076_243f2fd8",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K8U2EH36EP",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "18e025262c993d1e1db2c2c5cc07edf8fdc6d81321670f2c0a8fe1c6569ccf54",
+    "validation_tx_hash": "7a07f2c33a6d5c901956d4fbcb8047ff55d0f55f7670e5e2db4e562212b4d083",
+    "timestamp": 1745681076.5593662
+  },
+  "val_1745742852_0ee0848a": {
+    "id": "val_1745742852_0ee0848a",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "K44CUZ75J5",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "ae51b19169d4e460aa3a0ddc4cbd6752b00f82e787c100b05e1f55ba4bebd6bf",
+    "validation_tx_hash": "c4275b51fbee7fc4a511c52ce32b06cad4a0ee8455e30a9c06c863900d1e939a",
+    "timestamp": 1745742852.3836095
+  },
+  "val_1747626706_d9461a05": {
+    "id": "val_1747626706_d9461a05",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "N45VI73LKE",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "2f47536004db583235f34406938a07d00989023feb0ab161ee3acdb1a70f0260",
+    "validation_tx_hash": "12a9d6a739a068ae258fd6e8341f93d01cb34114006470ddbb342d280bbaa83f",
+    "timestamp": 1747626706.329091
+  },
+  "val_1747628074_e0a9e7ab": {
+    "id": "val_1747628074_e0a9e7ab",
+    "company_id": "company_1744899768_2c3b924e",
+    "token": "4XRZYA96KO",
+    "purpose": "identity",
+    "is_valid": true,
+    "tx_hash": "a026276435074c51ece2c84d5eb58a97c9a87f2834f43de357e29cdb0d12f914",
+    "validation_tx_hash": "e19ce5f7d4ff6902d0c1e8a1a51d0e9953d0794ae23a5670cd24c7b24402e86e",
+    "timestamp": 1747628074.8856575
   }
 }
